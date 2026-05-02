@@ -303,3 +303,16 @@
 2026-05-03 03:48:19:4819 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
 2026-05-03 03:48:19:4819 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
 2026-05-03 03:48:35:4835 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/leaves/types - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/leaves/my-allocations?year=2026 - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/leaves/my-history - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/leaves/types - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/leaves/my-allocations?year=2026 - jwt expired[39m
+2026-05-03 04:05:02:52 [31merror[39m: [31mGET /api/v1/leaves/my-history - jwt expired[39m
+2026-05-03 04:21:37:2137 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 04:26:33:2633 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "akadir22086@gmail.com" }[39m
+2026-05-03 04:29:26:2926 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "rehan1141@gmail.com" }[39m
+2026-05-03 04:36:43:3643 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 04:36:43:3643 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m

@@ -3,6 +3,7 @@ const EmployeeProfile = require('../models/employeeProfile.model');
 const { hashPassword } = require('../utils/hash');
 const mongoose = require('mongoose');
 const { allocateLeavesForUser } = require('../utils/leaveAutoAllocator');
+const mailService = require('./mail.service');
 
 /**
  * Invite a new user
@@ -43,6 +44,9 @@ const inviteUser = async (data) => {
     } catch (err) {
       console.warn('Leave auto-allocation skipped for invited user:', err.message);
     }
+
+    // Send welcome email with temporary password (non-critical)
+    await mailService.sendWelcomeEmail(data.email, tempPassword, data.firstName);
 
     return { user: user[0], tempPassword };
   } catch (error) {
