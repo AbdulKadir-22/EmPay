@@ -6,9 +6,10 @@ const Button = ({
   variant = 'primary', 
   className = '', 
   onClick, 
+  fullWidth = false,
   ...props 
 }) => {
-  const baseStyles = "px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer";
+  const baseStyles = `px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ${fullWidth ? 'w-full' : ''}`;
   
   const variants = {
     primary: "bg-brand-purple text-white hover:bg-brand-purple/90 hover:-translate-y-1 shadow-lg shadow-brand-purple/20",

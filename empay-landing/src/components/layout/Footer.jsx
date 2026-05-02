@@ -12,10 +12,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-brand-purple rounded-xl flex items-center justify-center">
-                <Rocket className="text-white w-6 h-6" />
-              </div>
+            <a href="#" className="flex items-center gap-2 mb-6 group">
+              <img src="/Logo.png" alt="EmPay Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
               <span className="font-syne font-extrabold text-2xl tracking-tighter text-brand-text">
                 EmPay<span className="text-brand-purple">.</span>
               </span>

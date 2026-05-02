@@ -40,7 +40,7 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" className="group">
+              <Button href="#features"variant="primary" className="group">
                 Explore Features
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </Button>
