@@ -172,3 +172,16 @@
 2026-05-02 21:13:31:1331 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
 2026-05-02 21:22:00:220 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
 2026-05-02 21:22:00:220 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:19:4519 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:19:4519 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:20:4520 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:22:4522 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:23:4523 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:23:4523 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:29:4529 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:30:4530 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:31:4531 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:33:4533 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:33:4533 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:46:38:4638 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:46:38:4638 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m

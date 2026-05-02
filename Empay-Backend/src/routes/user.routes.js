@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.use(protect);
 
+router.get('/dashboard', userController.getDashboardUsers);
 router.get('/', authorize('ADMIN', 'HR', 'PAYROLL_OFFICER'), userController.getUsers);
 router.post('/invite', authorize('ADMIN', 'HR'), validate(userValidator.inviteUser), userController.inviteUser);
 router.patch('/:userId/role', authorize('ADMIN'), validate(userValidator.updateRole), userController.updateRole);

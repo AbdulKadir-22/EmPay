@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import Input from '../ui/Input';
 import FileUpload from '../ui/FileUpload';
 import Button from '../ui/Button';
@@ -19,6 +20,7 @@ const SignupForm = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,9 +66,8 @@ const SignupForm = () => {
 
       if (response.data.success) {
         setSuccess(true);
-        // In a real app, you might redirect to the app dashboard or login
         setTimeout(() => {
-          window.location.href = 'http://localhost:3000/login'; // Assuming frontend app is on 3000
+          navigate('/login');
         }, 2000);
       }
     } catch (err) {
@@ -180,6 +181,12 @@ const SignupForm = () => {
         </Button>
       </motion.div>
 
+      <p className="text-center text-sm text-brand-muted mt-4">
+        Already have an account?{' '}
+        <Link to="/login" className="text-brand-purple hover:text-brand-purple/80 font-semibold transition-colors">
+          Sign In
+        </Link>
+      </p>
     </form>
   );
 };

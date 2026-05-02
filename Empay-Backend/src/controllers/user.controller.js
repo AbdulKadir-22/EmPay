@@ -25,8 +25,16 @@ const getUsers = asyncHandler(async (req, res) => {
   );
 });
 
+const getDashboardUsers = asyncHandler(async (req, res) => {
+  const users = await userService.getAllUsers({ company: req.user.company });
+  res.status(200).json(
+    formatResponse(true, 'Dashboard users fetched successfully', { users }, null, req)
+  );
+});
+
 module.exports = {
   inviteUser,
   updateRole,
   getUsers,
+  getDashboardUsers,
 };

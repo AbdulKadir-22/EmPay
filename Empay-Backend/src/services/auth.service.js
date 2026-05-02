@@ -33,6 +33,7 @@ const register = async (userData) => {
       password: hashedPassword,
       role: userData.role || 'ADMIN',
       status: 'ACTIVE',
+      company: userData.companyName || 'Default Company',
     }], { session });
 
     await EmployeeProfile.create([{
@@ -74,7 +75,23 @@ const login = async (email, password) => {
   user.lastLogin = new Date();
   await user.save();
 
-  return { user, tokens };
+  // Fetch employee profile for enriched response
+  const profile = await EmployeeProfile.findOne({ user: user._id });
+
+  const userData = {
+    _id: user._id,
+    email: user.email,
+    role: user.role,
+    status: user.status,
+    company: user.company,
+    firstName: profile?.firstName || '',
+    lastName: profile?.lastName || '',
+    designation: profile?.designation || '',
+    department: profile?.department || '',
+    avatar: profile?.avatar || null,
+  };
+
+  return { user: userData, tokens };
 };
 
 /**

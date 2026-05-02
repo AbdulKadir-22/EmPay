@@ -2163,3 +2163,200 @@
 2026-05-02 21:22:00:220 [35mhttp[39m: [35mc2587447-9064-4234-bc65-4e34b0bc42da GET /api/v1/users 500 370 - 50.834 ms[39m
 2026-05-02 21:22:00:220 [35mhttp[39m: [35mf407d087-d0e8-4534-bbd7-547881668d8a GET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 200 189 - 101.260 ms[39m
 2026-05-02 21:23:43:2343 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 21:33:37:3337 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
+2026-05-02 21:33:37:3337 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 21:44:42:4442 [35mhttp[39m: [35m56a7b411-0dda-46f9-b56f-4ee53e8f7cea POST /api/v1/auth/login 200 1010 - 386.442 ms[39m
+2026-05-02 21:44:42:4442 [35mhttp[39m: [35m82f2ee18-8723-427e-9cf8-635b7ef00ad4 GET /api/v1/users/dashboard 404 200 - 60.268 ms[39m
+2026-05-02 21:44:42:4442 [35mhttp[39m: [35m3b18276b-5ac2-48a6-9fe4-9738647d51ec GET /api/v1/users/dashboard 404 200 - 139.509 ms[39m
+2026-05-02 21:44:45:4445 [35mhttp[39m: [35m8438d445-24c5-4b96-8633-54d4856c4e40 GET /api/v1/users/dashboard 404 200 - 12.302 ms[39m
+2026-05-02 21:44:46:4446 [35mhttp[39m: [35md5eeb640-a337-4984-a4e9-3a9544bfef1d GET /api/v1/users/dashboard 404 200 - 17.818 ms[39m
+2026-05-02 21:44:46:4446 [35mhttp[39m: [35mf7af3d9b-4de4-4525-bf89-e3ff2a00f4ec GET /api/v1/users/dashboard 404 200 - 28.341 ms[39m
+2026-05-02 21:44:46:4446 [35mhttp[39m: [35ma61727d0-6894-40a6-b198-97100f3fed58 GET /api/v1/users/dashboard 404 200 - 19.853 ms[39m
+2026-05-02 21:44:46:4446 [35mhttp[39m: [35m88c97617-12d6-4ba9-b24d-eda47c7e428a GET /api/v1/users/dashboard 404 200 - 18.140 ms[39m
+2026-05-02 21:45:07:457 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 21:45:15:4515 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-02.zzwoeue.mongodb.net[39m
+2026-05-02 21:45:15:4515 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 21:45:19:4519 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:19:4519 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:19:4519 [35mhttp[39m: [35md11100e5-9ff1-413b-a5fa-01a8114e15b1 GET /api/v1/users/dashboard 500 370 - 80.962 ms[39m
+2026-05-02 21:45:19:4519 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:19:4519 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:19:4519 [35mhttp[39m: [35mb123cc12-a9d8-412d-a895-1e5093bd65db GET /api/v1/users/dashboard 500 370 - 37.530 ms[39m
+2026-05-02 21:45:20:4520 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:20:4520 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:20:4520 [35mhttp[39m: [35m8bd8abfa-9d2a-42e3-ab32-948298244673 GET /api/v1/users/dashboard 500 370 - 31.858 ms[39m
+2026-05-02 21:45:22:4522 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:22:4522 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:22:4522 [35mhttp[39m: [35m7a62c28c-c949-40bc-ba96-e638dff7f627 GET /api/v1/users/dashboard 500 370 - 26.380 ms[39m
+2026-05-02 21:45:23:4523 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:23:4523 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:23:4523 [35mhttp[39m: [35m164a5405-4c34-44df-8d26-95f845dfe81d GET /api/v1/users/dashboard 500 370 - 47.272 ms[39m
+2026-05-02 21:45:23:4523 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:23:4523 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:23:4523 [35mhttp[39m: [35made8ef74-d910-48bc-8a99-10115a8dad2c GET /api/v1/users/dashboard 500 370 - 45.221 ms[39m
+2026-05-02 21:45:29:4529 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:29:4529 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:29:4529 [35mhttp[39m: [35m8e489467-1c96-4b87-91a1-a61b3ec03d2b GET /api/v1/users/dashboard 500 370 - 29.448 ms[39m
+2026-05-02 21:45:30:4530 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:30:4530 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:30:4530 [35mhttp[39m: [35mdd7769ac-73f9-444c-8998-1520b4b85aa8 GET /api/v1/users/dashboard 500 370 - 24.640 ms[39m
+2026-05-02 21:45:31:4531 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:31:4531 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:31:4531 [35mhttp[39m: [35m0a2ad913-6cac-435d-9717-23730aa57006 GET /api/v1/users/dashboard 500 370 - 41.548 ms[39m
+2026-05-02 21:45:33:4533 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:33:4533 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:33:4533 [35mhttp[39m: [35m16a36060-d59b-4f60-86e8-517c5abf36da GET /api/v1/users/dashboard 500 370 - 27.749 ms[39m
+2026-05-02 21:45:33:4533 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:45:33:4533 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:45:33:4533 [35mhttp[39m: [35mbf21cef2-8a81-4a3a-a643-95bff0c57bd6 GET /api/v1/users/dashboard 500 370 - 23.434 ms[39m
+2026-05-02 21:46:38:4638 [35mhttp[39m: [35ma3c3c485-0a5d-41f2-8114-f4b221ecbb54 POST /api/v1/auth/login 200 913 - 189.399 ms[39m
+2026-05-02 21:46:38:4638 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:46:38:4638 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:46:38:4638 [35mhttp[39m: [35mab9d1c39-7925-4b63-bd62-0fb3a806e099 GET /api/v1/users/dashboard 500 370 - 22.767 ms[39m
+2026-05-02 21:46:38:4638 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:46:38:4638 [37mdebug[39m: [37mMongoServerError: Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+[37m    at Connection.sendCommand (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:306:27)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async Connection.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cmap\connection.js:334:26)[39m
+[37m    at async Server.command (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\sdam\server.js:194:29)[39m
+[37m    at async tryOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:213:32)[39m
+[37m    at async executeOperation (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\operations\execute_operation.js:78:16)[39m
+[37m    at async AggregationCursor._initialize (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\aggregation_cursor.js:57:26)[39m
+[37m    at async AggregationCursor.cursorInit (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)[39m
+[37m    at async AggregationCursor.fetchBatch (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)[39m
+[37m    at async AggregationCursor.next (E:\Odoo\Repo\Empay-Backend\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17)[39m
+2026-05-02 21:46:38:4638 [35mhttp[39m: [35m6dc217ac-b305-4cf0-891c-4eebf0777c03 GET /api/v1/users/dashboard 500 370 - 27.170 ms[39m
+2026-05-02 21:46:43:4643 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 21:46:49:4649 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
+2026-05-02 21:46:49:4649 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 21:46:52:4652 [35mhttp[39m: [35m7cc2cc28-6743-4515-b156-59f36736bf57 GET /api/v1/users/dashboard 200 2638 - 47.759 ms[39m
+2026-05-02 21:46:52:4652 [35mhttp[39m: [35m4596ed17-e4c0-4183-903c-c17aeaab4a66 GET /api/v1/users/dashboard 200 2638 - 27.345 ms[39m
+2026-05-02 21:48:59:4859 [35mhttp[39m: [35m84283248-090d-43db-81e7-2fb1362fce07 GET /api/v1/users/dashboard 200 2638 - 27.354 ms[39m
+2026-05-02 21:48:59:4859 [35mhttp[39m: [35m3387e907-5345-4b3a-99d4-0708d8350ebd GET /api/v1/users/dashboard 200 2638 - 23.168 ms[39m
+2026-05-02 21:49:00:490 [35mhttp[39m: [35m72abf732-912c-4ad7-a4c3-899e35fa77a3 GET /api/v1/users/dashboard 200 2638 - 21.080 ms[39m
+2026-05-02 21:49:00:490 [35mhttp[39m: [35m7fb657ef-c820-475d-bbc8-4ffd8f59e8ca GET /api/v1/users/dashboard 200 2638 - 20.392 ms[39m
+2026-05-02 21:49:00:490 [35mhttp[39m: [35m6178a718-5120-4471-b6a8-44b0f4705810 GET /api/v1/users/dashboard 200 2638 - 30.876 ms[39m
+2026-05-02 21:49:00:490 [35mhttp[39m: [35m48ba4631-9552-4c29-bfb7-a3ce39d93df8 GET /api/v1/users/dashboard 200 2638 - 22.369 ms[39m
+2026-05-02 21:49:01:491 [35mhttp[39m: [35mea598c16-3a32-404c-afb5-1f388442cf98 GET /api/v1/users/dashboard 200 2638 - 23.551 ms[39m
+2026-05-02 21:49:01:491 [35mhttp[39m: [35m11e8284e-4181-4aee-bee7-f04d41ae4c13 GET /api/v1/users/dashboard 200 2638 - 34.017 ms[39m
+2026-05-02 21:50:19:5019 [32minfo[39m: [32mShutting down server...[39m

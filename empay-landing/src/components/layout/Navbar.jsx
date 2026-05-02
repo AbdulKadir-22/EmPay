@@ -8,7 +8,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const isSignupPage = location.pathname === '/signup';
+  const isAuthPage = ['/signup', '/login'].includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +38,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
-            {!isSignupPage && navLinks.map((link) => (
+            {!isAuthPage && navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -49,7 +49,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
               </a>
             ))}
             
-            {!isSignupPage && <div className="h-6 w-px bg-border mx-2" />}
+            {!isAuthPage && <div className="h-6 w-px bg-border mx-2" />}
             
             <button
               onClick={toggleTheme}
@@ -58,7 +58,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
-            {!isSignupPage && (
+            {!isAuthPage && (
               <Link to="/signup">
                 <Button variant="secondary" className="px-6 py-2">
                   Get Started
@@ -75,7 +75,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            {!isSignupPage && (
+            {!isAuthPage && (
               <button 
                 className="text-brand-text p-2"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

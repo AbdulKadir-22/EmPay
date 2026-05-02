@@ -95,11 +95,11 @@ const getAllUsers = async (query = {}) => {
     { $unwind: { path: '$profile', preserveNullAndEmptyArrays: true } },
     {
       $project: {
-        password: 0,
         email: 1,
         role: 1,
         status: 1,
         company: 1,
+        createdAt: 1,
         firstName: { $ifNull: ['$profile.firstName', ''] },
         lastName: { $ifNull: ['$profile.lastName', ''] },
         designation: { $ifNull: ['$profile.designation', ''] },
