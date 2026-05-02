@@ -65,6 +65,10 @@ const employeeProfileSchema = new mongoose.Schema(
       pan: String,
       aadhaar: String,
     },
+    companyName: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: true,

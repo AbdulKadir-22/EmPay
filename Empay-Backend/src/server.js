@@ -1,6 +1,6 @@
 const app = require('./app');
-const { PORT, NODE_ENV } = require('../config/env');
-const connectDB = require('../config/db');
+const { PORT, NODE_ENV } = require('./config/env');
+const connectDB = require('./config/db');
 const logger = require('./utils/logger.util');
 
 const startServer = async () => {
@@ -9,7 +9,7 @@ const startServer = async () => {
     await connectDB();
 
     const server = app.listen(PORT, () => {
-      logger.info(`🚀 Server running in ${NODE_ENV} mode on port ${PORT}`);
+      logger.info(`Server running in ${NODE_ENV} mode on port ${PORT}`);
     });
 
     // Graceful Shutdown

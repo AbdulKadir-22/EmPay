@@ -1,5 +1,5 @@
 const rateLimit = require('express-rate-limit');
-const { RATE_LIMIT_WINDOW_MS, RATE_LIMIT_MAX_REQUESTS } = require('../../config/env');
+const { RATE_LIMIT_WINDOW_MS, RATE_LIMIT_MAX_REQUESTS } = require('../config/env');
 const { formatResponse } = require('../utils/response.util');
 
 const apiRateLimiter = rateLimit({

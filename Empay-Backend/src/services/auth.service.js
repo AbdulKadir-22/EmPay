@@ -20,21 +20,30 @@ const register = async (userData) => {
 
     const hashedPassword = await hashPassword(userData.password);
 
+    // Handle full name splitting for landing page signups
+    let { firstName, lastName, name } = userData;
+    if (name && (!firstName || !lastName)) {
+      const parts = name.trim().split(/\s+/);
+      firstName = parts[0];
+      lastName = parts.slice(1).join(' ') || parts[0];
+    }
+
     const user = await User.create([{
       email: userData.email,
       password: hashedPassword,
-      role: userData.role || 'EMPLOYEE',
-      status: 'ACTIVE', // Defaulting to active for now
+      role: userData.role || 'ADMIN',
+      status: 'ACTIVE',
     }], { session });
 
     await EmployeeProfile.create([{
       user: user[0]._id,
-      employeeId: userData.employeeId,
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      department: userData.department,
-      designation: userData.designation,
-      joiningDate: userData.joiningDate,
+      employeeId: userData.employeeId || `EMP-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+      firstName: firstName || 'User',
+      lastName: lastName || 'Account',
+      department: userData.department || 'Management',
+      designation: userData.designation || 'Administrator',
+      joiningDate: userData.joiningDate || new Date(),
+      companyName: userData.companyName,
     }], { session });
 
     await session.commitTransaction();

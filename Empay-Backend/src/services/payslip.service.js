@@ -1,6 +1,6 @@
 const Payslip = require('../models/payslip.model');
 const User = require('../models/user.model');
-const resend = require('../../config/mail');
+const resend = require('../config/mail');
 const { generatePayslipPDF } = require('../utils/pdfGenerator');
 
 const getMyPayslips = async (userId) => {
