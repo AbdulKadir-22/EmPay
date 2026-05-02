@@ -15,6 +15,7 @@ import TimeOff from './pages/TimeOff';
 import Payroll from './pages/Payroll';
 import PayrunPage from './pages/PayrunPage';
 import PayslipView from './pages/PayslipView';
+import Reports from './pages/Reports';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path="/dashboard/payroll/payrun" element={<ProtectedRoute allowedRoles={['ADMIN', 'PAYROLL_OFFICER']}><PayrunPage /></ProtectedRoute>} />
           <Route path="/dashboard/payroll/payrun/:payrunId" element={<ProtectedRoute allowedRoles={['ADMIN', 'PAYROLL_OFFICER']}><PayrunPage /></ProtectedRoute>} />
           <Route path="/dashboard/payroll/payslip/:payslipId" element={<ProtectedRoute allowedRoles={['ADMIN', 'PAYROLL_OFFICER']}><PayslipView /></ProtectedRoute>} />
+          <Route path="/dashboard/reports" element={<ProtectedRoute allowedRoles={['ADMIN', 'HR', 'PAYROLL_OFFICER']}><Reports /></ProtectedRoute>} />
         </Routes>
 
         {!isDashboardRoute && <Footer />}

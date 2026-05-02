@@ -71,4 +71,9 @@ export const payslipAPI = {
   getAll: () => api.get('/payslips'),
 };
 
+export const reportAPI = {
+  getEmployees: () => api.get('/reports/employees'),
+  getSalaryStatement: (employeeId, year) => api.get('/reports/salary-statement', { params: { employeeId, year } }),
+};
+
 export default api;

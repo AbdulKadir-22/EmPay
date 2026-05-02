@@ -222,3 +222,5 @@
 2026-05-02 23:33:49:3349 [31merror[39m: [31mGET /api/v1/payroll/dashboard - Authentication token is missing[39m
 2026-05-02 23:33:53:3353 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
 2026-05-02 23:33:53:3353 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
+2026-05-02 23:49:00:490 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-02 23:49:00:490 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m

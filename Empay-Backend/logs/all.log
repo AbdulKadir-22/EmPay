@@ -3061,3 +3061,110 @@
 2026-05-02 23:34:50:3450 [35mhttp[39m: [35mcfca7e13-cd31-47d2-b646-354ce61b36d5 GET /api/v1/payroll/payruns 200 178 - 34.099 ms[39m
 2026-05-02 23:34:50:3450 [35mhttp[39m: [35m432bbcb3-9c5d-4538-a4f8-0f67ca6ef166 GET /api/v1/payroll/payruns 200 178 - 61.492 ms[39m
 2026-05-02 23:36:57:3657 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 23:39:08:398 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-02.zzwoeue.mongodb.net[39m
+2026-05-02 23:39:08:398 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 23:39:11:3911 [35mhttp[39m: [35mc4192259-aa86-485b-8cf8-ef22152e676e GET /api/v1/users/dashboard 200 2947 - 41.630 ms[39m
+2026-05-02 23:42:45:4245 [35mhttp[39m: [35m44a8a8d0-5ce0-4232-8534-bbf477721af5 GET /api/v1/payroll/dashboard 200 730 - 238.994 ms[39m
+2026-05-02 23:42:45:4245 [35mhttp[39m: [35meee8a21d-32c3-4bfc-a59c-96f17fb0555a GET /api/v1/payroll/dashboard 200 730 - 197.162 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m87e5a4c7-6e7c-460d-96ed-eb52030098e1 GET /api/v1/leaves/my-history 200 184 - 53.003 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m15a73ceb-af05-4c1c-a971-caa7936a7f3c GET /api/v1/leaves/my-allocations?year=2026 200 192 - 65.391 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m6675d446-bf95-4334-84ee-2a57976f73e3 GET /api/v1/leaves/types 200 831 - 64.086 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m24939536-5071-45e9-860e-ddf96f37dac4 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 22.590 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m05ed62e3-14ba-42e2-8ac8-f6bf4dedf180 GET /api/v1/leaves/my-history 200 184 - 40.411 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m68b2cbae-d00e-49d0-be37-6362cf96043d GET /api/v1/leaves/types 200 831 - 29.063 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35m649bf903-98a0-4b6f-b022-59d65a8b29d3 GET /api/v1/leaves/pending 200 188 - 96.044 ms[39m
+2026-05-02 23:42:46:4246 [35mhttp[39m: [35ma1e181e4-7492-4d0e-bf67-64ac4f66e2e4 GET /api/v1/leaves/pending 200 188 - 39.758 ms[39m
+2026-05-02 23:44:57:4457 [35mhttp[39m: [35ma01d0e4d-aab9-45fe-a764-3402f7d7b82a GET /api/v1/users/profile/me 200 787 - 180.271 ms[39m
+2026-05-02 23:44:57:4457 [35mhttp[39m: [35m64ffb7bf-dff3-4ffc-a4df-2082cb12dbbb GET /api/v1/users/profile/me 200 787 - 108.041 ms[39m
+2026-05-02 23:45:24:4524 [35mhttp[39m: [35m494f0f4a-54b7-41e3-8695-662d9340c6fc GET /api/v1/users/profile/me 200 787 - 143.713 ms[39m
+2026-05-02 23:45:24:4524 [35mhttp[39m: [35m0d16cafa-e011-4b16-b702-7954a32e0012 GET /api/v1/users/profile/me 200 787 - 174.227 ms[39m
+2026-05-02 23:47:33:4733 [35mhttp[39m: [35m7374f816-1b47-4ba0-9f82-8dd110f5c909 GET /api/v1/users/profile/me 200 787 - 130.086 ms[39m
+2026-05-02 23:47:33:4733 [35mhttp[39m: [35m6e9b50dc-59c1-4a36-b3cf-0c434836658f GET /api/v1/users/profile/me 200 787 - 69.567 ms[39m
+2026-05-02 23:47:41:4741 [35mhttp[39m: [35m8da0c743-fdfe-4c08-9503-8f187316048b GET /api/v1/users 200 2937 - 71.339 ms[39m
+2026-05-02 23:47:41:4741 [35mhttp[39m: [35m2d87e24b-3c54-4ebf-b09f-9bcac91ba716 GET /api/v1/users 200 2937 - 46.828 ms[39m
+2026-05-02 23:47:48:4748 [35mhttp[39m: [35mfad84b88-14bc-4e27-bc2c-b3aa585b2d59 GET /api/v1/users 200 2937 - 77.271 ms[39m
+2026-05-02 23:47:48:4748 [35mhttp[39m: [35m80643249-4888-4c94-b49c-a87c872edbfb GET /api/v1/users 200 2937 - 68.244 ms[39m
+2026-05-02 23:49:00:490 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-02 23:49:00:490 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 23:49:00:490 [35mhttp[39m: [35m8aad1136-71c0-4a6e-b0d9-c8827e629caf GET /api/v1/users 401 200 - 22.252 ms[39m
+2026-05-02 23:49:00:490 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-02 23:49:00:490 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 23:49:00:490 [35mhttp[39m: [35mb7f7ae43-eeb7-409c-8cb3-b499ba2d1807 GET /api/v1/users 401 200 - 2.393 ms[39m
+2026-05-02 23:49:00:490 [35mhttp[39m: [35mc358283d-cfd1-4f78-9340-b89de6ecd61f POST /api/v1/auth/refresh-token 200 686 - 33.906 ms[39m
+2026-05-02 23:49:00:490 [35mhttp[39m: [35m41a05f4b-eaba-441e-9713-8337977b8134 POST /api/v1/auth/refresh-token 200 686 - 30.417 ms[39m
+2026-05-02 23:49:00:490 [35mhttp[39m: [35mdac60e1e-75e2-4d2f-977f-a9921b85d628 GET /api/v1/users 200 2937 - 151.978 ms[39m
+2026-05-02 23:49:00:490 [35mhttp[39m: [35m0f2ed5a9-331b-4dfa-b8b9-c6b859ee284e GET /api/v1/users 200 2937 - 51.889 ms[39m
+2026-05-02 23:49:04:494 [35mhttp[39m: [35m964f0e3d-4994-448e-979b-edfb62dd8688 GET /api/v1/users/profile/me 200 787 - 1131.628 ms[39m
+2026-05-02 23:49:05:495 [35mhttp[39m: [35mbb4b740a-a677-4fd7-b265-91c4e6e48f30 GET /api/v1/users/profile/me 200 787 - 428.830 ms[39m
+2026-05-02 23:49:09:499 [35mhttp[39m: [35m9a78ae75-f6bf-4521-a5e6-dc392e4c6792 GET /api/v1/payroll/dashboard 200 730 - 438.561 ms[39m
+2026-05-02 23:49:09:499 [35mhttp[39m: [35m582b34e6-f221-4025-89cf-7d6ce7ee1e8f GET /api/v1/payroll/dashboard 200 730 - 437.957 ms[39m
+2026-05-02 23:49:13:4913 [35mhttp[39m: [35m64ea3930-2e0e-48ca-971e-65f76abf7fc1 GET /api/v1/payroll/dashboard 200 730 - 381.757 ms[39m
+2026-05-02 23:49:13:4913 [35mhttp[39m: [35m24583166-856c-4753-a553-32c9c68e8ccb GET /api/v1/payroll/dashboard 200 730 - 312.097 ms[39m
+2026-05-02 23:50:03:503 [35mhttp[39m: [35m6cb85c2b-b99d-4b10-941f-4474136a008d GET /api/v1/reports/employees 404 200 - 13.499 ms[39m
+2026-05-02 23:50:03:503 [35mhttp[39m: [35m7f93b1ee-ce8e-4c32-9a1a-bdfc0c666d2d GET /api/v1/reports/employees 404 200 - 31.237 ms[39m
+2026-05-02 23:50:51:5051 [35mhttp[39m: [35mca2ad3cc-2d10-4c43-9edc-27c5dc5fea67 GET /api/v1/users 200 2937 - 30.883 ms[39m
+2026-05-02 23:50:51:5051 [35mhttp[39m: [35mf26ca4b6-c1fb-427e-9abb-88ed43ee81bc GET /api/v1/users 200 2937 - 22.686 ms[39m
+2026-05-02 23:50:54:5054 [35mhttp[39m: [35ma0433677-98b2-400f-82ac-ee574310dc73 GET /api/v1/users/dashboard 200 2947 - 21.140 ms[39m
+2026-05-02 23:50:54:5054 [35mhttp[39m: [35me7217451-da22-4551-8102-645a4afbe924 GET /api/v1/users/dashboard 200 2947 - 20.014 ms[39m
+2026-05-02 23:50:55:5055 [35mhttp[39m: [35m25bebb54-3487-4983-90dc-4d2e7eb4135b GET /api/v1/attendance/today 200 188 - 26.035 ms[39m
+2026-05-02 23:50:55:5055 [35mhttp[39m: [35m4ba68ae6-ea5a-43f2-81cd-086805089508 GET /api/v1/attendance/today 200 188 - 56.414 ms[39m
+2026-05-02 23:50:55:5055 [35mhttp[39m: [35meb4b392a-9bde-437a-9df3-ea8b80e293a0 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 131.899 ms[39m
+2026-05-02 23:50:55:5055 [35mhttp[39m: [35ma23bf324-e0ef-465c-adef-2917c396b799 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 78.520 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35mf3840dd5-76f1-40bb-a693-d2a71c69c717 GET /api/v1/leaves/types 200 831 - 42.482 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35md7550a06-7312-4b4b-99d1-303d0ba14c6e GET /api/v1/leaves/my-allocations?year=2026 200 192 - 41.301 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35me035d438-42ee-4910-a5ce-66812c01244b GET /api/v1/leaves/my-history 200 184 - 43.270 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35m85e070cf-af14-489f-8b7a-8ed7e7208095 GET /api/v1/leaves/types 200 831 - 23.308 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35mb2a0fdc3-0d25-4766-8031-1789e4fa2298 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 22.865 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35ma8d98f0e-4084-4638-90e3-2745df204cd8 GET /api/v1/leaves/my-history 200 184 - 21.762 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35mb0358f27-1f65-4880-8772-1a9aa55b6017 GET /api/v1/leaves/pending 200 188 - 84.023 ms[39m
+2026-05-02 23:50:56:5056 [35mhttp[39m: [35ma90c0d9f-6682-4830-bb7c-1ad479908c00 GET /api/v1/leaves/pending 200 188 - 105.347 ms[39m
+2026-05-02 23:50:57:5057 [35mhttp[39m: [35m63d8fdeb-7f12-4155-8842-f35df1114f8b GET /api/v1/payroll/dashboard 200 730 - 189.136 ms[39m
+2026-05-02 23:50:58:5058 [35mhttp[39m: [35m9f5f7c1d-db1e-4a2b-ad79-719d9173cd8a GET /api/v1/payroll/dashboard 200 730 - 181.969 ms[39m
+2026-05-02 23:50:59:5059 [35mhttp[39m: [35m322deacf-2ef4-405c-af0b-39de94bebe4d GET /api/v1/reports/employees 404 200 - 31.180 ms[39m
+2026-05-02 23:50:59:5059 [35mhttp[39m: [35m171a166e-0dd1-446e-9dd6-1eb7948a7230 GET /api/v1/reports/employees 404 200 - 9.862 ms[39m
+2026-05-02 23:51:00:510 [35mhttp[39m: [35mec6294a3-c8b0-47f9-9267-0a7377c69a0d GET /api/v1/users 200 2937 - 25.412 ms[39m
+2026-05-02 23:51:00:510 [35mhttp[39m: [35mcd75d6ec-50f7-4d2b-9c77-2e4ca6b5b4f8 GET /api/v1/users 200 2937 - 59.023 ms[39m
+2026-05-02 23:51:07:517 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 23:51:11:5111 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-02.zzwoeue.mongodb.net[39m
+2026-05-02 23:51:11:5111 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 23:51:14:5114 [35mhttp[39m: [35mf1171739-6f0b-403b-bfee-fea4e0d9f348 GET /api/v1/payroll/dashboard 200 730 - 302.459 ms[39m
+2026-05-02 23:51:15:5115 [35mhttp[39m: [35meffd38e1-0f49-430f-8027-a275a08face4 GET /api/v1/payroll/dashboard 200 730 - 214.481 ms[39m
+2026-05-02 23:51:16:5116 [35mhttp[39m: [35m986fd466-c9b4-4a3c-9fa3-b1d9c3507728 GET /api/v1/reports/employees 200 455 - 69.849 ms[39m
+2026-05-02 23:51:16:5116 [35mhttp[39m: [35m3da087b3-cabf-4b50-a912-bca4508d5ca3 GET /api/v1/reports/employees 200 455 - 35.018 ms[39m
+2026-05-02 23:51:18:5118 [35mhttp[39m: [35m1bc97b31-7cc7-40b1-9c58-1d6fa496cfc5 GET /api/v1/reports/employees 200 455 - 101.336 ms[39m
+2026-05-02 23:51:18:5118 [35mhttp[39m: [35mbe107c37-63f0-4392-a59c-558c12f8c99d GET /api/v1/reports/employees 200 455 - 91.265 ms[39m
+2026-05-02 23:51:22:5122 [35mhttp[39m: [35m9351de1f-e4b2-494d-a6b8-cdfd5b537bb4 GET /api/v1/users/profile/me 200 787 - 87.806 ms[39m
+2026-05-02 23:51:22:5122 [35mhttp[39m: [35m77f56e5b-27b0-4bdb-9db0-75eb1d523041 GET /api/v1/users/profile/me 200 787 - 181.441 ms[39m
+2026-05-02 23:51:24:5124 [35mhttp[39m: [35m38361fd4-6d12-4e66-bc25-6a692491f975 GET /api/v1/reports/employees 200 455 - 30.449 ms[39m
+2026-05-02 23:51:24:5124 [35mhttp[39m: [35m82c8dc8b-4228-45e4-b199-225686015c80 GET /api/v1/reports/employees 200 455 - 68.725 ms[39m
+2026-05-02 23:54:27:5427 [35mhttp[39m: [35m0c99e0d9-9dfc-4666-82c1-fbb27f176e58 GET /api/v1/users/profile/me 200 787 - 43.210 ms[39m
+2026-05-02 23:54:27:5427 [35mhttp[39m: [35m90f41030-1dd5-434b-b53c-7ec22017e77b GET /api/v1/users/profile/me 200 787 - 72.814 ms[39m
+2026-05-02 23:55:16:5516 [35mhttp[39m: [35m815e5946-c0e7-4f32-a4d1-6060fd2776a2 GET /api/v1/users 200 2937 - 53.305 ms[39m
+2026-05-02 23:55:16:5516 [35mhttp[39m: [35ma901c94a-1388-4d4a-9dc6-f925b882eaf4 GET /api/v1/users 200 2937 - 27.061 ms[39m
+2026-05-02 23:55:21:5521 [35mhttp[39m: [35m8c1b7b25-5bca-48b9-83bb-35acd0bc8a19 GET /api/v1/payroll/dashboard 200 730 - 181.713 ms[39m
+2026-05-02 23:55:21:5521 [35mhttp[39m: [35m37face7f-e05b-4ed7-9864-89993be2182c GET /api/v1/payroll/dashboard 200 730 - 153.943 ms[39m
+2026-05-02 23:55:25:5525 [35mhttp[39m: [35mf44cbdd6-8a4d-45f3-8fec-555066053b7e GET /api/v1/reports/employees 200 455 - 76.241 ms[39m
+2026-05-02 23:55:25:5525 [35mhttp[39m: [35m542634cc-3717-4ac6-bd3f-929457d45757 GET /api/v1/reports/employees 200 455 - 69.826 ms[39m
+2026-05-02 23:55:50:5550 [35mhttp[39m: [35md8a3f838-461b-4caf-a67c-0f0ce57f1c0b GET /api/v1/reports/salary-statement?employeeId=69f5e884b42950ab7720874a&year=2026 200 642 - 207.424 ms[39m
+2026-05-02 23:55:59:5559 [35mhttp[39m: [35mb8e02ce9-bbae-44d9-aaaf-35e8964e1942 GET /api/v1/reports/salary-statement?employeeId=69f62d68ca22f383239c22c5&year=2026 200 625 - 195.086 ms[39m
+2026-05-03 00:00:59:059 [32minfo[39m: [32mShutting down server...[39m

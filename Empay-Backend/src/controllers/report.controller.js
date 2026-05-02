@@ -34,9 +34,31 @@ const getAttendanceSummary = asyncHandler(async (req, res) => {
   );
 });
 
+const getSalaryStatement = asyncHandler(async (req, res) => {
+  const { employeeId, year } = req.query;
+  if (!employeeId || !year) {
+    const error = new Error('employeeId and year are required');
+    error.statusCode = 400;
+    throw error;
+  }
+  const statement = await reportService.getSalaryStatement(employeeId, year, req.user.company);
+  res.status(200).json(
+    formatResponse(true, 'Salary statement fetched', { statement }, null, req)
+  );
+});
+
+const getCompanyEmployees = asyncHandler(async (req, res) => {
+  const employees = await reportService.getCompanyEmployees(req.user.company);
+  res.status(200).json(
+    formatResponse(true, 'Employees fetched', { employees }, null, req)
+  );
+});
+
 module.exports = {
   getAdminDashboard,
   getPayrollReport,
   getEmployeeDistribution,
   getAttendanceSummary,
+  getSalaryStatement,
+  getCompanyEmployees,
 };
