@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
@@ -33,10 +34,10 @@ const Footer = () => {
           <div>
             <h4 className="font-syne font-bold text-brand-text mb-6">Platform</h4>
             <ul className="flex flex-col gap-4 text-brand-muted">
-              <li><a href="#features" className="hover:text-brand-purple transition-colors">Features</a></li>
-              <li><a href="#roles" className="hover:text-brand-purple transition-colors">Roles</a></li>
-              <li><a href="#workflow" className="hover:text-brand-purple transition-colors">Workflow</a></li>
-              <li><a href="#stats" className="hover:text-brand-purple transition-colors">Stats</a></li>
+              <li><Link to="/#features" className="hover:text-brand-purple transition-colors">Features</Link></li>
+              <li><Link to="/#roles" className="hover:text-brand-purple transition-colors">Roles</Link></li>
+              <li><Link to="/developers" className="hover:text-brand-purple transition-colors font-semibold">Developers</Link></li>
+              <li><Link to="/#footer" className="hover:text-brand-purple transition-colors">About</Link></li>
             </ul>
           </div>
 

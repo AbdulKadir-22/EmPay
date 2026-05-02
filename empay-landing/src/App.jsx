@@ -18,6 +18,7 @@ import PayrunPage from './pages/PayrunPage';
 import PayslipView from './pages/PayslipView';
 import Reports from './pages/Reports';
 import SalarySetup from './pages/SalarySetup';
+import Developers from './pages/Developers';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
@@ -26,8 +27,16 @@ function App() {
   const isDashboardRoute = location.pathname.startsWith('/dashboard');
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   return (
     <ThemeProvider>
@@ -37,6 +46,7 @@ function App() {
           
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/developers" element={<Developers />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

@@ -21,10 +21,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Features', href: '#features' },
-    { name: 'Roles', href: '#roles' },
-    { name: 'Workflow', href: '#workflow' },
-    { name: 'About', href: '#footer' },
+    { name: 'Features', href: '/#features' },
+    { name: 'Roles', href: '/#roles' },
+    { name: 'Developers', href: '/developers' },
+    { name: 'About', href: '/#footer' },
   ];
 
   return (
@@ -41,14 +41,14 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
             {!isAuthPage && navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-sm font-medium text-brand-muted hover:text-brand-text transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
             
             {!isAuthPage && <div className="h-6 w-px bg-border mx-2" />}
@@ -100,14 +100,14 @@ const Navbar = () => {
           >
             <div className="bg-brand-surface border border-border rounded-2xl p-6 shadow-2xl flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="text-lg font-medium text-brand-muted hover:text-brand-text py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button variant="secondary" className="w-full">
