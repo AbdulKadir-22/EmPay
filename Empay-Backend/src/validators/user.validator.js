@@ -3,7 +3,7 @@ const { z } = require('zod');
 const inviteUser = z.object({
   body: z.object({
     email: z.string().email(),
-    role: z.enum(['ADMIN', 'HR', 'MANAGER', 'EMPLOYEE']).default('EMPLOYEE'),
+    role: z.enum(['ADMIN', 'HR', 'PAYROLL_OFFICER', 'EMPLOYEE']).default('EMPLOYEE'),
     firstName: z.string().min(2),
     lastName: z.string().min(2),
     employeeId: z.string(),
@@ -18,7 +18,7 @@ const updateRole = z.object({
     userId: z.string(),
   }),
   body: z.object({
-    role: z.enum(['ADMIN', 'HR', 'MANAGER', 'EMPLOYEE']),
+    role: z.enum(['ADMIN', 'HR', 'PAYROLL_OFFICER', 'EMPLOYEE']),
   }),
 });
 

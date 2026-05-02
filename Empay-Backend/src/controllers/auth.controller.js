@@ -36,10 +36,34 @@ const getMe = asyncHandler(async (req, res) => {
   );
 });
 
+const forgotPassword = asyncHandler(async (req, res) => {
+  await authService.forgotPassword(req.body.email);
+  res.status(200).json(
+    formatResponse(true, 'Password reset OTP sent to email', null, null, req)
+  );
+});
+
+const verifyOTP = asyncHandler(async (req, res) => {
+  await authService.verifyOTP(req.body.email, req.body.otp);
+  res.status(200).json(
+    formatResponse(true, 'OTP verified successfully', null, null, req)
+  );
+});
+
+const resetPassword = asyncHandler(async (req, res) => {
+  await authService.resetPassword(req.body.email, req.body.otp, req.body.newPassword);
+  res.status(200).json(
+    formatResponse(true, 'Password reset successfully', null, null, req)
+  );
+});
+
 module.exports = {
   register,
   login,
   refreshTokens,
   logout,
   getMe,
+  forgotPassword,
+  verifyOTP,
+  resetPassword,
 };

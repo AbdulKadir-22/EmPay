@@ -12,7 +12,7 @@ const register = z.object({
     designation: z.string().optional(),
     joiningDate: z.string().datetime().optional(),
     employeeId: z.string().optional(),
-    role: z.enum(['ADMIN', 'HR', 'MANAGER', 'EMPLOYEE']).optional(),
+    role: z.enum(['ADMIN', 'HR', 'PAYROLL_OFFICER', 'EMPLOYEE']).optional(),
   }),
 });
 

@@ -13,25 +13,33 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 
   if (!token) {
-    throw new Error('Not authorized to access this route');
+    const error = new Error('Authentication token is missing');
+    error.statusCode = 401;
+    throw error;
   }
-
+ 
   try {
     const payload = verifyAccessToken(token);
     const user = await User.findById(payload.sub);
-
+ 
     if (!user || user.tokenVersion !== payload.version) {
-      throw new Error('Not authorized to access this route');
+      const error = new Error('Invalid token or user not found');
+      error.statusCode = 401;
+      throw error;
     }
-
+ 
     if (user.status !== 'ACTIVE') {
-      throw new Error('User account is not active');
+      const error = new Error('User account is not active');
+      error.statusCode = 401;
+      throw error;
     }
-
+ 
     req.user = user;
     next();
   } catch (error) {
-    throw new Error('Not authorized to access this route');
+    if (!error.statusCode) error.statusCode = 401;
+    if (!error.message) error.message = 'Not authorized to access this route';
+    throw error;
   }
 });
 

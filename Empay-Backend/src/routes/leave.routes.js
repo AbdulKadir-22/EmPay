@@ -19,7 +19,7 @@ router.post('/types', authorize('ADMIN', 'HR'), validate(leaveValidator.createLe
 router.post('/allocate', authorize('ADMIN', 'HR'), validate(leaveValidator.allocateLeave), leaveController.allocate);
 
 // Manager/HR/Admin routes
-router.get('/pending', authorize('MANAGER', 'HR', 'ADMIN'), leaveController.getPending);
-router.patch('/:requestId/status', authorize('MANAGER', 'HR', 'ADMIN'), validate(leaveValidator.updateStatus), leaveController.updateStatus);
+router.get('/pending', authorize('PAYROLL_OFFICER', 'HR', 'ADMIN'), leaveController.getPending);
+router.patch('/:requestId/status', authorize('PAYROLL_OFFICER', 'HR', 'ADMIN'), validate(leaveValidator.updateStatus), leaveController.updateStatus);
 
 module.exports = router;

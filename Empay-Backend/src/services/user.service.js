@@ -21,6 +21,7 @@ const inviteUser = async (data) => {
       email: data.email,
       password: hashedPassword,
       role: data.role,
+      company: data.company,
       status: 'PENDING',
     }], { session });
 
@@ -64,7 +65,57 @@ const updateRole = async (userId, role) => {
 };
 
 const getAllUsers = async (query = {}) => {
-  return User.find(query).select('-password');
+  const match = {};
+  
+  if (query.company) {
+    if (query.company === 'Default Company') {
+      // If searching for default company, also include users with no company field
+      match.$or = [
+        { company: 'Default Company' },
+        { company: { $exists: false } },
+        { company: null }
+      ];
+    } else {
+      match.company = query.company;
+    }
+  }
+  
+  if (query.role) match.role = query.role;
+
+  return User.aggregate([
+    { $match: match },
+    {
+      $lookup: {
+        from: 'employeeprofiles',
+        localField: '_id',
+        foreignField: 'user',
+        as: 'profile'
+      }
+    },
+    { $unwind: { path: '$profile', preserveNullAndEmptyArrays: true } },
+    {
+      $project: {
+        password: 0,
+        email: 1,
+        role: 1,
+        status: 1,
+        company: 1,
+        firstName: { $ifNull: ['$profile.firstName', ''] },
+        lastName: { $ifNull: ['$profile.lastName', ''] },
+        designation: { $ifNull: ['$profile.designation', ''] },
+        department: { $ifNull: ['$profile.department', ''] },
+        employeeId: { $ifNull: ['$profile.employeeId', ''] },
+        avatar: { $ifNull: ['$profile.avatar', null] },
+        name: {
+          $ifNull: [
+            { $concat: [{ $ifNull: ['$profile.firstName', ''] }, ' ', { $ifNull: ['$profile.lastName', ''] }] },
+            'Unnamed User'
+          ]
+        }
+      }
+    },
+    { $sort: { createdAt: -1 } }
+  ]);
 };
 
 module.exports = {

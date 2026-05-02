@@ -12,9 +12,9 @@ router.use(protect);
 router.get('/me', employeeController.getProfile);
 router.patch('/me', validate(employeeValidator.updateProfile), employeeController.updateProfile);
 
-router.get('/team', authorize('MANAGER', 'ADMIN', 'HR'), employeeController.getMyTeam);
+router.get('/team', authorize('PAYROLL_OFFICER', 'ADMIN', 'HR'), employeeController.getMyTeam);
 
-router.get('/:userId', authorize('ADMIN', 'HR', 'MANAGER'), employeeController.getProfile);
+router.get('/:userId', authorize('ADMIN', 'HR', 'PAYROLL_OFFICER'), employeeController.getProfile);
 router.patch('/:userId', authorize('ADMIN', 'HR'), validate(employeeValidator.updateProfile), employeeController.updateProfile);
 router.delete('/:userId', authorize('ADMIN', 'HR'), employeeController.deleteEmployee);
 

@@ -102,9 +102,75 @@ const logout = async (userId) => {
   }
 };
 
+const mailService = require('./mail.service');
+
+// ... existing code ...
+
+/**
+ * Forgot Password - Send OTP
+ */
+const forgotPassword = async (email) => {
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new Error('No user found with this email');
+  }
+
+  // Generate 6-digit OTP
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  const otpHash = await hashPassword(otp);
+  
+  user.otp = {
+    hash: otpHash,
+    expiry: new Date(Date.now() + 10 * 60 * 1000), // 10 minutes
+  };
+  await user.save();
+
+  await mailService.sendResetOTP(email, otp);
+  return true;
+};
+
+/**
+ * Verify OTP
+ */
+const verifyOTP = async (email, otp) => {
+  const user = await User.findOne({ email });
+  if (!user || !user.otp || !user.otp.hash) {
+    throw new Error('Invalid request');
+  }
+
+  if (new Date() > user.otp.expiry) {
+    throw new Error('OTP has expired');
+  }
+
+  const isValid = await comparePassword(otp, user.otp.hash);
+  if (!isValid) {
+    throw new Error('Invalid OTP');
+  }
+
+  return true;
+};
+
+/**
+ * Reset Password
+ */
+const resetPassword = async (email, otp, newPassword) => {
+  await verifyOTP(email, otp);
+  
+  const user = await User.findOne({ email });
+  user.password = await hashPassword(newPassword);
+  user.otp = undefined; // Clear OTP after use
+  user.tokenVersion += 1; // Invalidate current tokens
+  await user.save();
+
+  return true;
+};
+
 module.exports = {
   register,
   login,
   refreshTokens,
   logout,
+  forgotPassword,
+  verifyOTP,
+  resetPassword,
 };

@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['ADMIN', 'HR', 'MANAGER', 'EMPLOYEE'],
+      enum: ['ADMIN', 'HR', 'PAYROLL_OFFICER', 'EMPLOYEE'],
       default: 'EMPLOYEE',
     },
     status: {
@@ -38,6 +38,12 @@ const userSchema = new mongoose.Schema(
     tokenVersion: {
       type: Number,
       default: 0,
+    },
+    company: {
+      type: String,
+      required: true,
+      index: true,
+      default: 'Default Company',
     },
   },
   {

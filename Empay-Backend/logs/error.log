@@ -6,3 +6,169 @@
 2026-05-02 16:22:30:2230 [31merror[39m: [31m MongoDB Connection Error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/[39m
 2026-05-02 16:23:06:236 [31merror[39m: [31m MongoDB Connection Error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017[39m
 2026-05-02 16:25:32:2532 [31merror[39m: [31m MongoDB Connection Error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017[39m
+2026-05-02 18:44:33:4433 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 18:45:29:4529 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 18:45:33:4533 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 18:55:14:5514 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 19:05:19:519 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 19:07:49:749 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - No user found with this email[39m
+2026-05-02 19:07:50:750 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - No user found with this email[39m
+2026-05-02 19:07:51:751 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - No user found with this email[39m
+2026-05-02 19:08:01:81 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - logger.error is not a function[39m
+2026-05-02 19:09:02:92 [31merror[39m: [31mFailed to send reset OTP email[39m
+2026-05-02 19:09:02:92 [31merror[39m: [31mMail Service Error: Failed to send email[39m
+2026-05-02 19:09:02:92 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - Failed to send email[39m
+2026-05-02 19:09:04:94 [31merror[39m: [31mFailed to send reset OTP email[39m
+2026-05-02 19:09:04:94 [31merror[39m: [31mMail Service Error: Failed to send email[39m
+2026-05-02 19:09:04:94 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - Failed to send email[39m
+2026-05-02 19:09:36:936 [31merror[39m: [31mFailed to send reset OTP email[39m
+2026-05-02 19:09:36:936 [31merror[39m: [31mMail Service Error: Failed to send email[39m
+2026-05-02 19:09:36:936 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - Failed to send email[39m
+2026-05-02 19:10:00:100 [31merror[39m: [31mFailed to send reset OTP email[39m
+2026-05-02 19:10:00:100 [31merror[39m: [31mMail Service Error: Failed to send email[39m
+2026-05-02 19:10:00:100 [31merror[39m: [31mPOST /api/v1/auth/forgot-password - Failed to send email[39m
+2026-05-02 19:10:11:1011 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 19:10:12:1012 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 19:10:29:1029 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 19:29:56:2956 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:29:56:2956 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:30:07:307 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:30:19:3019 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 19:30:19:3019 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 19:30:38:3038 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:30:38:3038 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:30:38:3038 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:30:38:3038 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:30:43:3043 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:30:43:3043 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:30:46:3046 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:30:46:3046 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:30:47:3047 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:30:47:3047 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:31:02:312 [31merror[39m: [31mPOST /api/v1/attendance/clock-in - Not authorized to access this route[39m
+2026-05-02 19:31:31:3131 [31merror[39m: [31mPOST /api/v1/attendance/clock-in - Not authorized to access this route[39m
+2026-05-02 19:31:37:3137 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:31:37:3137 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:31:39:3139 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:31:39:3139 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:33:38:3338 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:33:38:3338 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:33:38:3338 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:33:38:3338 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:36:04:364 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:36:04:364 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 19:36:04:364 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 19:36:04:364 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:29:02:292 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 20:29:02:292 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 20:29:17:2917 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:29:17:2917 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:29:17:2917 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:29:17:2917 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:29:24:2924 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:29:24:2924 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:29:38:2938 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:29:38:2938 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:31:05:315 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 20:31:05:315 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 20:31:16:3116 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:31:16:3116 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:31:16:3116 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:31:16:3116 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:31:18:3118 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:31:18:3118 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:31:18:3118 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:31:18:3118 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:31:20:3120 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 20:31:20:3120 [31merror[39m: [31mGET /api/v1/auth/me - Not authorized to access this route[39m
+2026-05-02 20:34:28:3428 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:34:28:3428 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:34:28:3428 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:34:28:3428 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:34:50:3450 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:34:50:3450 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:34:50:3450 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:34:50:3450 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:40:45:4045 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:40:45:4045 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:41:40:4140 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:44:30:4430 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:44:30:4430 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:44:30:4430 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:44:30:4430 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:44:31:4431 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:44:31:4431 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:46:02:462 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:10:5010 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:10:5010 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:50:10:5010 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:50:10:5010 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:11:5011 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:11:5011 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:34:5034 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:35:5035 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:36:5036 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:36:5036 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:36:5036 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:36:5036 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:36:5036 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:50:36:5036 [31merror[39m: [31mPOST /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:53:07:537 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:53:07:537 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:53:07:537 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Not authorized to access this route[39m
+2026-05-02 20:53:07:537 [31merror[39m: [31mGET /api/v1/users - Not authorized to access this route[39m
+2026-05-02 20:54:41:5441 [31merror[39m: [31mPOST /api/v1/users/invite - Authentication token is missing[39m
+2026-05-02 20:54:52:5452 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Authentication token is missing[39m
+2026-05-02 20:54:52:5452 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Authentication token is missing[39m
+2026-05-02 20:54:52:5452 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 20:54:52:5452 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 20:55:13:5513 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 20:55:21:5521 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Authentication token is missing[39m
+2026-05-02 20:55:21:5521 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 20:55:21:5521 [31merror[39m: [31mGET /api/v1/attendance/summary?employeeId=69f5e884b42950ab7720874a&date=2026-05-02 - Authentication token is missing[39m
+2026-05-02 20:55:21:5521 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 20:59:08:598 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 21:10:31:1031 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:31:1031 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:33:1033 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:33:1033 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:33:1033 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:33:1033 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:34:1034 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:34:1034 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:34:1034 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:34:1034 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:35:1035 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:35:1035 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:36:1036 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:36:1036 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:38:1038 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:38:1038 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:38:1038 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:39:1039 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:39:1039 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:39:1039 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:40:1040 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:40:1040 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:41:1041 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:10:41:1041 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:04:114 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:04:114 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:07:117 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:07:117 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:10:1110 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:11:1111 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:18:1118 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:11:18:1118 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:26:1326 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:26:1326 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:29:1329 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:29:1329 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:30:1330 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:30:1330 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:30:1330 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:30:1330 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:31:1331 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:13:31:1331 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:22:00:220 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 21:22:00:220 [31merror[39m: [31mGET /api/v1/users - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
