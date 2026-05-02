@@ -3,6 +3,7 @@ const Payslip = require('../models/payslip.model');
 const SalaryStructure = require('../models/salaryStructure.model');
 const Attendance = require('../models/attendance.model');
 const User = require('../models/user.model');
+const EmployeeProfile = require('../models/employeeProfile.model');
 const { calculateSalary } = require('../utils/salaryCalculator');
 const mongoose = require('mongoose');
 
@@ -10,7 +11,7 @@ const createPayrun = async (data, adminId) => {
   return Payrun.create({ ...data, processedBy: adminId });
 };
 
-const processPayroll = async (payrunId) => {
+const processPayroll = async (payrunId, company) => {
   const payrun = await Payrun.findById(payrunId);
   if (!payrun) throw new Error('Payrun not found');
   if (payrun.status !== 'DRAFT') throw new Error('Only draft payruns can be processed');
@@ -18,8 +19,8 @@ const processPayroll = async (payrunId) => {
   payrun.status = 'PROCESSING';
   await payrun.save();
 
-  // Get all active employees
-  const employees = await User.find({ status: 'ACTIVE', role: 'EMPLOYEE' });
+  // Get active employees from this company
+  const employees = await User.find({ status: 'ACTIVE', company });
   let totalAmount = 0;
   let processedCount = 0;
 
@@ -27,7 +28,6 @@ const processPayroll = async (payrunId) => {
     const structure = await SalaryStructure.findOne({ employee: emp._id });
     if (!structure) continue;
 
-    // Fetch attendance for the period to calculate LOP
     const startDate = new Date(payrun.year, payrun.month - 1, 1);
     const endDate = new Date(payrun.year, payrun.month, 0);
     const attendanceRecords = await Attendance.find({
@@ -37,7 +37,7 @@ const processPayroll = async (payrunId) => {
 
     const totalDaysInMonth = endDate.getDate();
     const presentDays = attendanceRecords.filter(a => a.status === 'PRESENT').length;
-    const lopDays = totalDaysInMonth - presentDays; // Simple logic: any day not marked present is LOP (assuming all days are work days for now)
+    const lopDays = Math.max(0, totalDaysInMonth - presentDays - 8); // subtract weekends approx
 
     const calculation = calculateSalary({
       baseSalary: structure.baseSalary,
@@ -60,7 +60,7 @@ const processPayroll = async (payrunId) => {
   return payrun;
 };
 
-const finalizePayrun = async (payrunId, adminId) => {
+const finalizePayrun = async (payrunId, adminId, company) => {
   const session = await mongoose.startSession();
   session.startTransaction();
 
@@ -69,7 +69,7 @@ const finalizePayrun = async (payrunId, adminId) => {
     if (!payrun) throw new Error('Payrun not found');
     if (payrun.status !== 'COMPLETED') throw new Error('Payrun must be in COMPLETED status to finalize');
 
-    const employees = await User.find({ status: 'ACTIVE', role: 'EMPLOYEE' }).session(session);
+    const employees = await User.find({ status: 'ACTIVE', company }).session(session);
 
     for (const emp of employees) {
       const structure = await SalaryStructure.findOne({ employee: emp._id }).session(session);
@@ -84,7 +84,7 @@ const finalizePayrun = async (payrunId, adminId) => {
 
       const totalDaysInMonth = endDate.getDate();
       const presentDays = attendanceRecords.filter(a => a.status === 'PRESENT').length;
-      const lopDays = totalDaysInMonth - presentDays;
+      const lopDays = Math.max(0, totalDaysInMonth - presentDays - 8);
 
       const calc = calculateSalary({
         baseSalary: structure.baseSalary,
@@ -95,7 +95,6 @@ const finalizePayrun = async (payrunId, adminId) => {
         taxEnabled: structure.taxEnabled,
       });
 
-      // Generate Payslip (Atomicly)
       await Payslip.create([{
         employee: emp._id,
         payrun: payrunId,
@@ -137,9 +136,82 @@ const getPayruns = async () => {
   return Payrun.find().sort({ year: -1, month: -1 });
 };
 
+const getPayrunWithSlips = async (payrunId) => {
+  const payrun = await Payrun.findById(payrunId);
+  if (!payrun) throw new Error('Payrun not found');
+
+  const payslips = await Payslip.find({ payrun: payrunId })
+    .populate('employee', 'email')
+    .lean();
+
+  // Enrich with employee names
+  const enriched = await Promise.all(payslips.map(async (slip) => {
+    const profile = await EmployeeProfile.findOne({ user: slip.employee._id })
+      .select('firstName lastName employeeId department').lean();
+    return {
+      ...slip,
+      employeeName: profile ? `${profile.firstName} ${profile.lastName}` : slip.employee.email,
+      employeeCode: profile?.employeeId || '—',
+      department: profile?.department || '—',
+    };
+  }));
+
+  return { payrun, payslips: enriched };
+};
+
+/** Dashboard stats for payroll overview */
+const getPayrollDashboard = async (company) => {
+  // Warnings
+  const allUsers = await User.find({ company, status: 'ACTIVE' });
+  const profiles = await EmployeeProfile.find({ user: { $in: allUsers.map(u => u._id) } });
+  
+  const withoutBank = profiles.filter(p => !p.bankDetails?.accountNumber).length;
+  const withoutSalary = [];
+  for (const u of allUsers) {
+    const s = await SalaryStructure.findOne({ employee: u._id });
+    if (!s) withoutSalary.push(u);
+  }
+
+  // Recent payruns
+  const recentPayruns = await Payrun.find().sort({ year: -1, month: -1 }).limit(5).lean();
+  const payrunsWithCount = await Promise.all(recentPayruns.map(async (pr) => {
+    const slipCount = await Payslip.countDocuments({ payrun: pr._id });
+    return { ...pr, payslipCount: slipCount };
+  }));
+
+  // Monthly cost data (last 6 months)
+  const now = new Date();
+  const monthlyCosts = [];
+  for (let i = 5; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    const m = d.getMonth() + 1;
+    const y = d.getFullYear();
+    const payrun = await Payrun.findOne({ month: m, year: y, status: 'FINALIZED' });
+    monthlyCosts.push({
+      month: m,
+      year: y,
+      label: d.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' }),
+      totalAmount: payrun ? parseFloat(payrun.totalAmount?.toString() || '0') : 0,
+      employees: payrun ? payrun.totalEmployees : 0,
+    });
+  }
+
+  return {
+    warnings: {
+      withoutBank,
+      withoutSalary: withoutSalary.length,
+    },
+    recentPayruns: payrunsWithCount,
+    monthlyCosts,
+    totalEmployees: allUsers.length,
+  };
+};
+
 module.exports = {
   createPayrun,
   processPayroll,
   finalizePayrun,
   getPayruns,
+  getPayrunWithSlips,
+  getPayrollDashboard,
 };

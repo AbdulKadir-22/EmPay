@@ -11,9 +11,7 @@ router.use(protect);
 router.get('/me', payslipController.getMyPayslips);
 router.get('/:id', payslipController.getPayslip);
 
-// Admin/HR routes
-router.get('/', authorize('ADMIN', 'HR'), payslipController.getAll);
-router.post('/:id/send-email', authorize('ADMIN', 'HR'), payslipController.sendEmail);
-router.post('/:id/generate-pdf', authorize('ADMIN', 'HR'), payslipController.generatePDF);
+// Admin/HR/Payroll Officer routes
+router.get('/', authorize('ADMIN', 'HR', 'PAYROLL_OFFICER'), payslipController.getAll);
 
 module.exports = router;

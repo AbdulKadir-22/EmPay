@@ -1,6 +1,5 @@
 const User = require('../models/user.model');
 const EmployeeProfile = require('../models/employeeProfile.model');
-const resend = require('../config/mail');
 const { hashPassword } = require('../utils/hash');
 const mongoose = require('mongoose');
 

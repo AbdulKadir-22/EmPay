@@ -2835,3 +2835,229 @@
 2026-05-02 23:01:15:115 [35mhttp[39m: [35m00f279cf-d7b2-48d8-8762-bbe26d21634f GET /api/v1/users/dashboard 200 2947 - 22.072 ms[39m
 2026-05-02 23:01:15:115 [35mhttp[39m: [35md8c7d5e6-6a03-41c4-b17f-785ae2ec4701 GET /api/v1/users/dashboard 200 2947 - 71.988 ms[39m
 2026-05-02 23:03:30:330 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 23:11:09:119 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-02.zzwoeue.mongodb.net[39m
+2026-05-02 23:11:09:119 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 23:15:00:150 [35mhttp[39m: [35m4ad75600-2bac-4cb3-b5eb-454c042f50ac GET /api/v1/attendance/today 200 188 - 87.286 ms[39m
+2026-05-02 23:15:00:150 [35mhttp[39m: [35m9e048d13-fcdb-47eb-90d0-3ea0d6035261 GET /api/v1/attendance/today 200 188 - 176.034 ms[39m
+2026-05-02 23:15:00:150 [35mhttp[39m: [35m18b9e658-32ae-4e24-9d12-6735fd7999b1 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 298.953 ms[39m
+2026-05-02 23:15:00:150 [35mhttp[39m: [35m0f7bcd11-96cb-4103-baa3-94174062c9cd GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 196.729 ms[39m
+2026-05-02 23:15:02:152 [35mhttp[39m: [35mf1faa35f-b4fd-497a-97ba-394b7a69a986 GET /api/v1/users/profile/me 200 787 - 76.122 ms[39m
+2026-05-02 23:15:03:153 [35mhttp[39m: [35m8bcdae4f-ef31-4649-80f8-c991d7cbbf2b GET /api/v1/users/profile/me 200 787 - 82.314 ms[39m
+2026-05-02 23:15:14:1514 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-02 23:15:14:1514 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 23:15:14:1514 [35mhttp[39m: [35mca817b77-9e8d-4cdc-980a-10b5451e945d GET /api/v1/users 401 200 - 5.645 ms[39m
+2026-05-02 23:15:14:1514 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-02 23:15:14:1514 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 23:15:14:1514 [35mhttp[39m: [35m9d241590-0a35-48ed-adb4-f45b3c0038f6 GET /api/v1/users 401 200 - 2.635 ms[39m
+2026-05-02 23:15:14:1514 [35mhttp[39m: [35md009e50a-c7e5-44be-8e91-2bd3f269523b POST /api/v1/auth/refresh-token 200 686 - 20.572 ms[39m
+2026-05-02 23:15:14:1514 [35mhttp[39m: [35m5f028b59-d522-4281-9740-a29d07919483 POST /api/v1/auth/refresh-token 200 686 - 18.868 ms[39m
+2026-05-02 23:15:14:1514 [35mhttp[39m: [35m5c5c394f-39de-4c3d-b75e-22c948b6696c GET /api/v1/users 200 2937 - 62.780 ms[39m
+2026-05-02 23:15:14:1514 [35mhttp[39m: [35m5e7efdfc-f484-4154-a087-ce236fece0aa GET /api/v1/users 200 2937 - 30.603 ms[39m
+2026-05-02 23:15:16:1516 [35mhttp[39m: [35m8ca10905-7dd5-466c-893e-95639dddd920 GET /api/v1/users 200 2937 - 34.921 ms[39m
+2026-05-02 23:15:16:1516 [35mhttp[39m: [35mbe07323f-394a-4cbf-8923-a87b186a206d GET /api/v1/users 200 2937 - 92.230 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m87f150e1-0ad8-4013-b9ef-6d4deec36cea GET /api/v1/attendance/today 200 188 - 44.575 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35md6416cb6-e78e-44b3-8e0e-38a09dfb01a0 GET /api/v1/attendance/today 200 188 - 71.196 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m048963fb-a483-40a3-8176-06cc005f1ab3 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 144.495 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35ma0f1fade-4990-4f51-8f60-54cb41279722 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 111.582 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35mc15e571a-47ac-4ee7-af3b-99b13be7948f GET /api/v1/leaves/types 200 831 - 82.359 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m861c08ab-9c82-458a-a7f0-949a58307601 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 82.243 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35mcbd567e5-6405-452d-aa1b-1673e1a106bd GET /api/v1/leaves/my-history 200 184 - 81.500 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m79fc8dac-5a2d-4ace-be2f-b15fb6f7f7f6 GET /api/v1/leaves/types 200 831 - 22.109 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35mff39f799-028c-4e6f-8e12-697a140e9338 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 21.048 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m6a9bbf68-0367-43b0-8506-4fb81adb5e4f GET /api/v1/leaves/my-history 200 184 - 20.499 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m83785f09-7fc3-46e1-8182-c9376628c620 GET /api/v1/leaves/pending 200 188 - 27.101 ms[39m
+2026-05-02 23:15:17:1517 [35mhttp[39m: [35m6bb89f02-f185-4d29-93eb-39953a32e441 GET /api/v1/leaves/pending 200 188 - 100.826 ms[39m
+2026-05-02 23:27:19:2719 [31merror[39m: [31mGET /api/v1/leaves/types - Authentication token is missing[39m
+2026-05-02 23:27:19:2719 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:27:19:2719 [35mhttp[39m: [35m66db4def-0c70-4f24-b1b3-f950b55050de GET /api/v1/leaves/types 401 250 - 25.090 ms[39m
+2026-05-02 23:27:19:2719 [31merror[39m: [31mGET /api/v1/leaves/my-allocations?year=2026 - Authentication token is missing[39m
+2026-05-02 23:27:19:2719 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:27:19:2719 [35mhttp[39m: [35mb517894d-3120-4ee9-a78b-bdf099f2faad GET /api/v1/leaves/my-allocations?year=2026 401 250 - 2.231 ms[39m
+2026-05-02 23:27:19:2719 [31merror[39m: [31mGET /api/v1/leaves/my-history - Authentication token is missing[39m
+2026-05-02 23:27:19:2719 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:27:19:2719 [35mhttp[39m: [35m97f68366-93ae-4882-a988-9743e941a53a GET /api/v1/leaves/my-history 401 250 - 2.070 ms[39m
+2026-05-02 23:27:19:2719 [31merror[39m: [31mGET /api/v1/leaves/types - Authentication token is missing[39m
+2026-05-02 23:27:19:2719 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:27:19:2719 [35mhttp[39m: [35me3dc45c0-2efb-4160-b0de-47390b1eb413 GET /api/v1/leaves/types 401 250 - 2.972 ms[39m
+2026-05-02 23:27:19:2719 [31merror[39m: [31mGET /api/v1/leaves/my-allocations?year=2026 - Authentication token is missing[39m
+2026-05-02 23:27:19:2719 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:27:19:2719 [35mhttp[39m: [35m1d5a87d6-94f7-46bb-92b0-03463c5e7251 GET /api/v1/leaves/my-allocations?year=2026 401 250 - 2.449 ms[39m
+2026-05-02 23:27:19:2719 [31merror[39m: [31mGET /api/v1/leaves/my-history - Authentication token is missing[39m
+2026-05-02 23:27:19:2719 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:27:19:2719 [35mhttp[39m: [35mb0a9a2d0-d71b-4566-a93d-e94161b627ed GET /api/v1/leaves/my-history 401 250 - 2.183 ms[39m
+2026-05-02 23:33:38:3338 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 23:33:42:3342 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
+2026-05-02 23:33:42:3342 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 23:33:49:3349 [31merror[39m: [31mGET /api/v1/payroll/dashboard - Authentication token is missing[39m
+2026-05-02 23:33:49:3349 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:33:49:3349 [35mhttp[39m: [35m60354c70-8a57-49f6-97b1-5fec932aaa82 GET /api/v1/payroll/dashboard 401 250 - 7.598 ms[39m
+2026-05-02 23:33:49:3349 [31merror[39m: [31mGET /api/v1/payroll/dashboard - Authentication token is missing[39m
+2026-05-02 23:33:49:3349 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 23:33:49:3349 [35mhttp[39m: [35m2860b530-3743-4ffd-92ae-7abef2bf2221 GET /api/v1/payroll/dashboard 401 250 - 2.611 ms[39m
+2026-05-02 23:33:53:3353 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
+2026-05-02 23:33:53:3353 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 23:33:53:3353 [35mhttp[39m: [35mf9228b02-8988-4e3b-8011-a4609bd0203b GET /api/v1/payroll/dashboard 401 200 - 6.937 ms[39m
+2026-05-02 23:33:53:3353 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
+2026-05-02 23:33:53:3353 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 23:33:53:3353 [35mhttp[39m: [35m4a49afc0-d5b7-426b-a3aa-434d6f207ee6 GET /api/v1/payroll/dashboard 401 200 - 2.988 ms[39m
+2026-05-02 23:33:53:3353 [35mhttp[39m: [35m47877e8b-d179-4dc6-9f8b-ece99191ea04 POST /api/v1/auth/refresh-token 200 686 - 51.558 ms[39m
+2026-05-02 23:33:53:3353 [35mhttp[39m: [35m240da04f-c771-429e-a292-e355c114b6a6 POST /api/v1/auth/refresh-token 200 686 - 74.433 ms[39m
+2026-05-02 23:33:53:3353 [35mhttp[39m: [35m9f4f2bdb-189e-4348-89ef-6a7dff0eba69 GET /api/v1/payroll/dashboard 200 730 - 346.563 ms[39m
+2026-05-02 23:33:53:3353 [35mhttp[39m: [35ma5af1c73-68f8-4f0f-8316-fc254e5355f5 GET /api/v1/payroll/dashboard 200 730 - 185.420 ms[39m
+2026-05-02 23:33:56:3356 [35mhttp[39m: [35m0fa092e6-a3f8-432d-bfa2-b76885550291 GET /api/v1/users/profile/me 200 787 - 147.066 ms[39m
+2026-05-02 23:33:56:3356 [35mhttp[39m: [35m9708efe9-8662-4649-a52e-c1482558f758 GET /api/v1/users/profile/me 200 787 - 99.708 ms[39m
+2026-05-02 23:34:01:341 [35mhttp[39m: [35mebcaba99-d5f9-473c-85cc-6658da7b478a GET /api/v1/payroll/dashboard 200 730 - 211.631 ms[39m
+2026-05-02 23:34:01:341 [35mhttp[39m: [35m6b23f0b6-8972-46ac-848f-ef7e0b59169f GET /api/v1/payroll/dashboard 200 730 - 356.925 ms[39m
+2026-05-02 23:34:03:343 [35mhttp[39m: [35m6075c092-8070-42f4-8196-2c7079eead8f GET /api/v1/payroll/payruns 200 178 - 56.679 ms[39m
+2026-05-02 23:34:03:343 [35mhttp[39m: [35m3e0239cf-d041-4c05-8b7f-06540ce7615f GET /api/v1/payroll/payruns 200 178 - 19.372 ms[39m
+2026-05-02 23:34:05:345 [35mhttp[39m: [35mf31fdb49-549f-49d7-9557-f8267e82d919 GET /api/v1/payroll/dashboard 200 730 - 256.448 ms[39m
+2026-05-02 23:34:05:345 [35mhttp[39m: [35mde3fdd1b-0fd5-44c8-a329-fbf1ea501440 GET /api/v1/payroll/dashboard 200 730 - 365.074 ms[39m
+2026-05-02 23:34:14:3414 [35mhttp[39m: [35mf4f6c6ee-8e6e-42cf-adbc-88ad82a3c537 GET /api/v1/payroll/payruns 200 178 - 37.316 ms[39m
+2026-05-02 23:34:14:3414 [35mhttp[39m: [35me2ea3cd5-c853-4244-9973-b44d3476002f GET /api/v1/payroll/payruns 200 178 - 102.979 ms[39m
+2026-05-02 23:34:15:3415 [35mhttp[39m: [35maacd5efb-67d5-4ef1-8ddd-20dc97d27e76 GET /api/v1/payroll/dashboard 200 730 - 269.377 ms[39m
+2026-05-02 23:34:16:3416 [35mhttp[39m: [35m21de698c-d3f4-4b2a-8a34-60540b08bb54 GET /api/v1/payroll/dashboard 200 730 - 222.719 ms[39m
+2026-05-02 23:34:20:3420 [35mhttp[39m: [35m4fc16fcc-54e4-4811-99e3-8c7988500970 GET /api/v1/payroll/payruns 200 178 - 41.332 ms[39m
+2026-05-02 23:34:20:3420 [35mhttp[39m: [35m7187624a-c2b2-4aa2-aeec-b5463b48c72f GET /api/v1/payroll/payruns 200 178 - 20.362 ms[39m
+2026-05-02 23:34:41:3441 [35mhttp[39m: [35m81884de0-2463-4af8-973a-e58be6126c66 GET /api/v1/payroll/dashboard 200 730 - 240.268 ms[39m
+2026-05-02 23:34:41:3441 [35mhttp[39m: [35mf3a075a2-ecbf-4a5b-a457-68b0ac0e5727 GET /api/v1/payroll/dashboard 200 730 - 191.836 ms[39m
+2026-05-02 23:34:42:3442 [35mhttp[39m: [35m2103b429-25eb-49a3-92ed-d329d5eb9a51 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 43.295 ms[39m
+2026-05-02 23:34:42:3442 [35mhttp[39m: [35m93c030ed-886a-4aec-9ce8-6528a1536317 GET /api/v1/leaves/types 200 831 - 48.927 ms[39m
+2026-05-02 23:34:42:3442 [35mhttp[39m: [35md3befecc-3a13-4321-92f3-68a77ced10cd GET /api/v1/leaves/my-history 200 184 - 45.735 ms[39m
+2026-05-02 23:34:42:3442 [35mhttp[39m: [35m2114ad87-410e-4009-9a2e-466c2fb41418 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 39.536 ms[39m
+2026-05-02 23:34:42:3442 [35mhttp[39m: [35mfbab9ef7-44cf-4c86-86e0-59f062dd9ff0 GET /api/v1/leaves/my-history 200 184 - 36.623 ms[39m
+2026-05-02 23:34:42:3442 [35mhttp[39m: [35m718ef299-d518-4d91-a3f9-25392d4157b3 GET /api/v1/leaves/types 200 831 - 41.501 ms[39m
+2026-05-02 23:34:43:3443 [35mhttp[39m: [35mbfff4b5b-3ebd-460f-80f4-ad7edf424d6e GET /api/v1/leaves/pending 200 188 - 103.501 ms[39m
+2026-05-02 23:34:43:3443 [35mhttp[39m: [35mcdf6b894-31d4-4404-bee8-3839a31ca09b GET /api/v1/leaves/pending 200 188 - 28.310 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35mf2d18735-f858-43af-890c-f28f5b60748c GET /api/v1/leaves/my-history 200 184 - 62.949 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35m83472602-35b3-4eb1-8bcd-bec26f799828 GET /api/v1/leaves/types 200 831 - 70.096 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35m36b28089-789a-4029-8190-a1ced148ba4f GET /api/v1/leaves/my-allocations?year=2026 200 192 - 68.774 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35m3d3af6ba-7067-4f55-be41-ba04472c623a GET /api/v1/leaves/my-allocations?year=2026 200 192 - 51.073 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35me497005a-702c-4b37-98f3-32c37c4da8a6 GET /api/v1/leaves/types 200 831 - 54.797 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35m346dc6c4-6474-4f5e-acd4-8b41de961a62 GET /api/v1/leaves/my-history 200 184 - 59.323 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35m8f3ce340-0c16-488d-a7fc-40574e6324ed GET /api/v1/leaves/pending 200 188 - 56.278 ms[39m
+2026-05-02 23:34:45:3445 [35mhttp[39m: [35m0640cc71-f78c-4d39-a126-8ea56e9ff374 GET /api/v1/leaves/pending 200 188 - 75.536 ms[39m
+2026-05-02 23:34:48:3448 [35mhttp[39m: [35md2a5e400-ce76-46a7-b378-3012bd6ab7f7 GET /api/v1/payroll/dashboard 200 730 - 247.509 ms[39m
+2026-05-02 23:34:48:3448 [35mhttp[39m: [35m67ac1bfc-320a-4849-8b9e-330a8278afed GET /api/v1/payroll/dashboard 200 730 - 296.111 ms[39m
+2026-05-02 23:34:50:3450 [35mhttp[39m: [35mcfca7e13-cd31-47d2-b646-354ce61b36d5 GET /api/v1/payroll/payruns 200 178 - 34.099 ms[39m
+2026-05-02 23:34:50:3450 [35mhttp[39m: [35m432bbcb3-9c5d-4538-a4f8-0f67ca6ef166 GET /api/v1/payroll/payruns 200 178 - 61.492 ms[39m
+2026-05-02 23:36:57:3657 [32minfo[39m: [32mShutting down server...[39m

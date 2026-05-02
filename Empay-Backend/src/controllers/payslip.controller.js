@@ -12,27 +12,13 @@ const getMyPayslips = asyncHandler(async (req, res) => {
 const getPayslip = asyncHandler(async (req, res) => {
   const payslip = await payslipService.getPayslipById(req.params.id);
   
-  // Security check: Only owner or HR/Admin
-  if (payslip.employee._id.toString() !== req.user._id.toString() && !['ADMIN', 'HR'].includes(req.user.role)) {
+  // Security check: Only owner or HR/Admin/Payroll
+  if (payslip.employee._id.toString() !== req.user._id.toString() && !['ADMIN', 'HR', 'PAYROLL_OFFICER'].includes(req.user.role)) {
     throw new Error('Not authorized to view this payslip');
   }
 
   res.status(200).json(
     formatResponse(true, 'Payslip fetched', { payslip }, null, req)
-  );
-});
-
-const sendEmail = asyncHandler(async (req, res) => {
-  await payslipService.sendPayslipEmail(req.params.id);
-  res.status(200).json(
-    formatResponse(true, 'Payslip email sent', null, null, req)
-  );
-});
-
-const generatePDF = asyncHandler(async (req, res) => {
-  const payslip = await payslipService.generateAndUploadPDF(req.params.id);
-  res.status(200).json(
-    formatResponse(true, 'PDF generated', { payslip }, null, req)
   );
 });
 
@@ -46,7 +32,5 @@ const getAll = asyncHandler(async (req, res) => {
 module.exports = {
   getMyPayslips,
   getPayslip,
-  sendEmail,
-  generatePDF,
   getAll,
 };

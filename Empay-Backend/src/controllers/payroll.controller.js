@@ -11,14 +11,14 @@ const createPayrun = asyncHandler(async (req, res) => {
 });
 
 const processPayroll = asyncHandler(async (req, res) => {
-  const payrun = await payrunService.processPayroll(req.params.payrunId);
+  const payrun = await payrunService.processPayroll(req.params.payrunId, req.user.company);
   res.status(200).json(
     formatResponse(true, 'Payroll processing completed', { payrun }, null, req)
   );
 });
 
 const finalizePayrun = asyncHandler(async (req, res) => {
-  const payrun = await payrunService.finalizePayrun(req.params.payrunId, req.user._id);
+  const payrun = await payrunService.finalizePayrun(req.params.payrunId, req.user._id, req.user.company);
   res.status(200).json(
     formatResponse(true, 'Payrun finalized and locked', { payrun }, null, req)
   );
@@ -28,6 +28,20 @@ const getPayruns = asyncHandler(async (req, res) => {
   const payruns = await payrunService.getPayruns();
   res.status(200).json(
     formatResponse(true, 'Payruns fetched', { payruns }, null, req)
+  );
+});
+
+const getPayrunWithSlips = asyncHandler(async (req, res) => {
+  const data = await payrunService.getPayrunWithSlips(req.params.payrunId);
+  res.status(200).json(
+    formatResponse(true, 'Payrun details fetched', data, null, req)
+  );
+});
+
+const getPayrollDashboard = asyncHandler(async (req, res) => {
+  const dashboard = await payrunService.getPayrollDashboard(req.user.company);
+  res.status(200).json(
+    formatResponse(true, 'Payroll dashboard fetched', { dashboard }, null, req)
   );
 });
 
@@ -50,6 +64,8 @@ module.exports = {
   processPayroll,
   finalizePayrun,
   getPayruns,
+  getPayrunWithSlips,
+  getPayrollDashboard,
   updateSalaryStructure,
   getSalaryStructure,
 };

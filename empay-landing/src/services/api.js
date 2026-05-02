@@ -54,4 +54,21 @@ export const employeeAPI = {
   updateProfile: (userId, data) => api.patch(userId ? `/employees/${userId}` : '/employees/me', data),
 };
 
+export const payrollAPI = {
+  getDashboard: () => api.get('/payroll/dashboard'),
+  getSalaryStructure: (userId) => api.get(`/payroll/structure/${userId || ''}`),
+  updateSalaryStructure: (userId, data) => api.patch(`/payroll/structure/${userId}`, data),
+  getPayruns: () => api.get('/payroll/payruns'),
+  getPayrun: (id) => api.get(`/payroll/payruns/${id}`),
+  createPayrun: (data) => api.post('/payroll/payruns', data),
+  processPayrun: (id) => api.post(`/payroll/payruns/${id}/process`),
+  finalizePayrun: (id) => api.post(`/payroll/payruns/${id}/finalize`),
+};
+
+export const payslipAPI = {
+  getMyPayslips: () => api.get('/payslips/me'),
+  getPayslip: (id) => api.get(`/payslips/${id}`),
+  getAll: () => api.get('/payslips'),
+};
+
 export default api;
