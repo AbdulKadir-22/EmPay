@@ -2360,3 +2360,478 @@
 2026-05-02 21:49:01:491 [35mhttp[39m: [35mea598c16-3a32-404c-afb5-1f388442cf98 GET /api/v1/users/dashboard 200 2638 - 23.551 ms[39m
 2026-05-02 21:49:01:491 [35mhttp[39m: [35m11e8284e-4181-4aee-bee7-f04d41ae4c13 GET /api/v1/users/dashboard 200 2638 - 34.017 ms[39m
 2026-05-02 21:50:19:5019 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 22:04:33:433 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
+2026-05-02 22:04:33:433 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 22:05:23:523 [35mhttp[39m: [35mf7442177-d092-4822-b44f-a3bfc6a10618 POST /api/v1/auth/login 200 913 - 207.689 ms[39m
+2026-05-02 22:05:23:523 [35mhttp[39m: [35m54396382-8544-4e6f-9ac6-ee786275b76f GET /api/v1/users/dashboard 200 2638 - 33.574 ms[39m
+2026-05-02 22:05:23:523 [35mhttp[39m: [35m7e20ffac-47ec-4894-bf59-9d037836eadf GET /api/v1/users/dashboard 200 2638 - 36.562 ms[39m
+2026-05-02 22:05:32:532 [35mhttp[39m: [35m19b3cfd7-ad90-490e-9c11-65fc18c83a7a GET /api/v1/users 200 2628 - 32.523 ms[39m
+2026-05-02 22:05:33:533 [35mhttp[39m: [35m66c2a84d-447d-4d2a-8643-4182cd5ac8c1 GET /api/v1/users 200 2628 - 28.382 ms[39m
+2026-05-02 22:06:21:621 [35mhttp[39m: [35mcac703ac-59c8-4f91-9d90-32de4b363333 GET /api/v1/users/profile/me 200 787 - 50.177 ms[39m
+2026-05-02 22:06:22:622 [35mhttp[39m: [35m4063bca6-c3e8-4b93-8060-feb78cfe55c1 GET /api/v1/users/profile/me 200 787 - 39.027 ms[39m
+2026-05-02 22:06:54:654 [35mhttp[39m: [35m8b321a0c-fefa-493a-ace5-902c325dea93 GET /api/v1/users 200 2628 - 23.532 ms[39m
+2026-05-02 22:06:54:654 [35mhttp[39m: [35mc9e7bea0-0787-4053-a423-ced8331d9efc GET /api/v1/users 200 2628 - 24.550 ms[39m
+2026-05-02 22:06:55:655 [35mhttp[39m: [35m6681cc41-a8f7-43d6-aa8f-49ceebf1119a GET /api/v1/users/dashboard 200 2638 - 24.953 ms[39m
+2026-05-02 22:06:55:655 [35mhttp[39m: [35m5380b52e-a346-414e-bc9c-2a5aefc9a955 GET /api/v1/users/dashboard 200 2638 - 23.619 ms[39m
+2026-05-02 22:06:57:657 [35mhttp[39m: [35me1b9421d-807b-44f7-9c33-d16e1a63dab8 GET /api/v1/users/dashboard 200 2638 - 26.721 ms[39m
+2026-05-02 22:06:57:657 [35mhttp[39m: [35macee6bf1-b6e5-40a5-8943-c6661cf05218 GET /api/v1/users/dashboard 200 2638 - 27.437 ms[39m
+2026-05-02 22:07:00:70 [35mhttp[39m: [35mf1441699-f0b4-444d-9417-3d74f3882992 GET /api/v1/users/dashboard 200 2638 - 24.583 ms[39m
+2026-05-02 22:07:00:70 [35mhttp[39m: [35mb23259c3-5217-407f-b07b-78de99c21075 GET /api/v1/users/dashboard 200 2638 - 23.522 ms[39m
+2026-05-02 22:08:55:855 [35mhttp[39m: [35m3f17368c-c931-488b-9a99-7b062f51a9af GET /api/v1/users 200 2628 - 31.979 ms[39m
+2026-05-02 22:08:55:855 [35mhttp[39m: [35m7b3380e1-3506-48f3-9652-9d2b6b83e4a2 GET /api/v1/users 200 2628 - 29.764 ms[39m
+2026-05-02 22:08:57:857 [35mhttp[39m: [35mc76956b1-b763-4ad8-a75b-817294fddb09 GET /api/v1/users/profile/69f618b847bedf5405da4dfa 200 707 - 60.572 ms[39m
+2026-05-02 22:08:57:857 [35mhttp[39m: [35m8e7e6572-04d4-4b7e-9f1f-03d1af74fbf8 GET /api/v1/users/profile/69f618b847bedf5405da4dfa 200 707 - 111.786 ms[39m
+2026-05-02 22:09:11:911 [35mhttp[39m: [35m69e7aea7-bd9c-482f-aae9-503361681db4 GET /api/v1/users 200 2628 - 58.155 ms[39m
+2026-05-02 22:09:11:911 [35mhttp[39m: [35m16edba71-07a8-460d-909e-113db0879bd0 GET /api/v1/users 200 2628 - 66.245 ms[39m
+2026-05-02 22:09:13:913 [35mhttp[39m: [35m22d2b213-ea03-4a26-a025-319c84707196 GET /api/v1/users/profile/69f617ed47bedf5405da4dd2 200 716 - 110.300 ms[39m
+2026-05-02 22:09:13:913 [35mhttp[39m: [35m17ed4918-0334-41d0-90f8-7380927c0cc1 GET /api/v1/users/profile/69f617ed47bedf5405da4dd2 200 716 - 118.454 ms[39m
+2026-05-02 22:09:21:921 [35mhttp[39m: [35m5ba61128-3496-4796-81d7-16bcac949cca GET /api/v1/users 200 2628 - 40.325 ms[39m
+2026-05-02 22:09:21:921 [35mhttp[39m: [35m3b6e0765-10bc-47d7-8ae4-e5585b550a77 GET /api/v1/users 200 2628 - 57.702 ms[39m
+2026-05-02 22:09:58:958 [35mhttp[39m: [35m966fabed-94c8-4cbe-9a92-ad80eb497d7f POST /api/v1/users/invite 201 484 - 653.392 ms[39m
+2026-05-02 22:09:58:958 [35mhttp[39m: [35m0d6101f1-d236-48ed-9671-46dd7828ad0a GET /api/v1/users 200 2936 - 40.076 ms[39m
+2026-05-02 22:10:10:1010 [35mhttp[39m: [35m5ede4f41-078e-4185-85c6-604ba854b5f0 GET /api/v1/users/profile/69f628de05e40278356bc30c 200 709 - 57.669 ms[39m
+2026-05-02 22:10:10:1010 [35mhttp[39m: [35mff292c09-f064-4d7b-8eeb-7c16146c30c4 GET /api/v1/users/profile/69f628de05e40278356bc30c 200 709 - 50.667 ms[39m
+2026-05-02 22:10:42:1042 [35mhttp[39m: [35m68c9bab9-1453-4818-9dbe-02fb1bbb1546 GET /api/v1/users/dashboard 200 2946 - 44.575 ms[39m
+2026-05-02 22:10:42:1042 [35mhttp[39m: [35m185858da-d30d-4bcf-a8bd-2a401bf076b4 GET /api/v1/users/dashboard 200 2946 - 46.795 ms[39m
+2026-05-02 22:10:44:1044 [35mhttp[39m: [35m3e24ab44-ff3b-484c-a478-68d5db448e12 GET /api/v1/users 200 2936 - 38.461 ms[39m
+2026-05-02 22:10:44:1044 [35mhttp[39m: [35m66d98783-5667-4857-9032-ea7583e7dbb9 GET /api/v1/users 200 2936 - 68.193 ms[39m
+2026-05-02 22:10:46:1046 [35mhttp[39m: [35m0e305110-3b71-4948-8878-0e8469fcb14f GET /api/v1/users/profile/69f628de05e40278356bc30c 200 709 - 118.855 ms[39m
+2026-05-02 22:10:47:1047 [35mhttp[39m: [35m523a6c2e-3f9f-42c7-8307-397fe8a0e06a GET /api/v1/users/profile/69f628de05e40278356bc30c 200 709 - 81.666 ms[39m
+2026-05-02 22:10:53:1053 [35mhttp[39m: [35m5b4f29cc-acee-4e1c-bdaf-f80aeaeb88e0 GET /api/v1/users/dashboard 200 2946 - 29.573 ms[39m
+2026-05-02 22:10:53:1053 [35mhttp[39m: [35mdbb834a3-5d2f-48f4-8fe1-a2deba2dfd2c GET /api/v1/users/dashboard 200 2946 - 39.503 ms[39m
+2026-05-02 22:17:36:1736 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 22:17:40:1740 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
+2026-05-02 22:17:40:1740 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 22:18:23:1823 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:18:23:1823 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:18:23:1823 [35mhttp[39m: [35md6a73269-c1d6-42ef-8dbc-1d548628505c POST /api/v1/auth/login 500 238 - 154.514 ms[39m
+2026-05-02 22:18:37:1837 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:18:37:1837 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:18:37:1837 [35mhttp[39m: [35m2bbdc32e-f141-47ed-9d64-885d6bd3d87c POST /api/v1/auth/login 500 238 - 14.194 ms[39m
+2026-05-02 22:18:38:1838 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:18:38:1838 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:18:38:1838 [35mhttp[39m: [35m89703e25-1d6c-4fff-be93-2d790d717f0b POST /api/v1/auth/login 500 238 - 13.531 ms[39m
+2026-05-02 22:20:36:2036 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:20:36:2036 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:20:36:2036 [35mhttp[39m: [35m669f2d9a-604a-4b21-882f-862d01d6148e POST /api/v1/auth/login 500 238 - 15.676 ms[39m
+2026-05-02 22:20:43:2043 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:20:43:2043 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:20:43:2043 [35mhttp[39m: [35m9f49effd-286b-4255-be63-71cc5899613c POST /api/v1/auth/login 500 238 - 11.062 ms[39m
+2026-05-02 22:21:11:2111 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:21:11:2111 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:21:11:2111 [35mhttp[39m: [35mccda98ec-3a52-4512-a80f-33f1701ab585 POST /api/v1/auth/login 500 238 - 117.796 ms[39m
+2026-05-02 22:21:12:2112 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:21:12:2112 [37mdebug[39m: [37mError: Invalid email or password[39m
+[37m    at Object.login (E:\Odoo\Repo\Empay-Backend\src\services\auth.service.js:66:11)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\auth.controller.js:13:28[39m
+2026-05-02 22:21:12:2112 [35mhttp[39m: [35m5f3be1aa-10f7-497e-99fe-c129f70f1e2a POST /api/v1/auth/login 500 238 - 114.040 ms[39m
+2026-05-02 22:22:41:2241 [35mhttp[39m: [35m68c99b85-643d-4e7c-827c-d1676122e86a POST /api/v1/auth/login 200 944 - 221.033 ms[39m
+2026-05-02 22:22:41:2241 [35mhttp[39m: [35m1d0c2f8c-71a6-4f95-8ced-663a8b555bdf GET /api/v1/users/dashboard 200 2946 - 33.774 ms[39m
+2026-05-02 22:22:41:2241 [35mhttp[39m: [35ma192ab4b-55c0-4628-86da-b39116a18a89 GET /api/v1/users/dashboard 200 2946 - 22.346 ms[39m
+2026-05-02 22:22:44:2244 [35mhttp[39m: [35mfc76c058-7a7b-4ba1-94d2-265d325a3b3f GET /api/v1/users/profile/69f617ed47bedf5405da4dd2 200 716 - 98.496 ms[39m
+2026-05-02 22:22:44:2244 [35mhttp[39m: [35m707922a1-1122-41d5-9d27-8be507e8061f GET /api/v1/users/profile/69f617ed47bedf5405da4dd2 200 716 - 66.238 ms[39m
+2026-05-02 22:22:50:2250 [35mhttp[39m: [35me808a6f2-9a39-4638-bdf3-71b0512750f4 GET /api/v1/users 200 2936 - 22.703 ms[39m
+2026-05-02 22:22:50:2250 [35mhttp[39m: [35m8719a6da-0d33-444b-a664-12aae6798ae3 GET /api/v1/users 200 2936 - 31.392 ms[39m
+2026-05-02 22:23:53:2353 [35mhttp[39m: [35m83e09e5d-c99b-434d-92c8-9c7a9a2c4499 GET /api/v1/users 200 2936 - 24.309 ms[39m
+2026-05-02 22:23:53:2353 [35mhttp[39m: [35m3e5c49a5-8acb-4967-a8ff-a51b7068bf9e GET /api/v1/users 200 2936 - 24.923 ms[39m
+2026-05-02 22:23:54:2354 [35mhttp[39m: [35ma79c36d6-c3bf-4541-a7e0-7ce5d38d5020 GET /api/v1/users/dashboard 200 2946 - 28.532 ms[39m
+2026-05-02 22:23:54:2354 [35mhttp[39m: [35m7f7a5e22-3295-4379-824b-e545f87df6c7 GET /api/v1/users/dashboard 200 2946 - 31.053 ms[39m
+2026-05-02 22:23:56:2356 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:23:56:2356 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:149:13)[39m
+[37m    at Route.dispatch (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:119:3)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:284:15[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+2026-05-02 22:23:56:2356 [35mhttp[39m: [35m8ab45341-c01f-485d-9a3b-f53eb6c1d824 POST /api/v1/auth/logout 401 250 - 3.892 ms[39m
+2026-05-02 22:25:32:2532 [35mhttp[39m: [35m13aad74c-528e-4ef2-88db-b7d5a3c64e31 POST /api/v1/auth/login 200 944 - 165.032 ms[39m
+2026-05-02 22:25:32:2532 [35mhttp[39m: [35m91b40d45-730f-465d-8e42-2e66e8b0a898 GET /api/v1/users/dashboard 200 2946 - 25.030 ms[39m
+2026-05-02 22:25:32:2532 [35mhttp[39m: [35m64bf4cb4-742c-41ee-8955-b7ac4615224d GET /api/v1/users/dashboard 200 2946 - 26.563 ms[39m
+2026-05-02 22:25:33:2533 [35mhttp[39m: [35mb03dd0eb-a461-4cd1-9a53-8ab9db717c9d GET /api/v1/users 200 2936 - 22.416 ms[39m
+2026-05-02 22:25:33:2533 [35mhttp[39m: [35m0ec902a7-4f31-418a-9fba-cfa602424917 GET /api/v1/users 200 2936 - 21.857 ms[39m
+2026-05-02 22:25:38:2538 [35mhttp[39m: [35mabde38ac-fb12-409c-b320-9534ebf0475f PATCH /api/v1/users/69f628de05e40278356bc30c 200 410 - 55.762 ms[39m
+2026-05-02 22:25:38:2538 [35mhttp[39m: [35m572227bd-7fbc-44aa-8810-37c5ad10e363 GET /api/v1/users 200 2936 - 24.600 ms[39m
+2026-05-02 22:28:37:2837 [35mhttp[39m: [35m3dd87dc1-6cb7-4d9c-b048-9909cedd9616 GET /api/v1/users 200 2628 - 97.019 ms[39m
+2026-05-02 22:28:37:2837 [35mhttp[39m: [35m18c1e98f-460a-42c3-b5c6-432327feb91d GET /api/v1/users 200 2628 - 72.734 ms[39m
+2026-05-02 22:28:40:2840 [35mhttp[39m: [35m4a0c39db-04ab-4cfa-9ccb-3b4e8be79114 GET /api/v1/users/profile/me 200 787 - 314.800 ms[39m
+2026-05-02 22:28:40:2840 [35mhttp[39m: [35mf10b69fd-a2bc-4669-82c3-aeba560e2766 GET /api/v1/users/profile/me 200 787 - 132.509 ms[39m
+2026-05-02 22:28:42:2842 [35mhttp[39m: [35m9d2ccf66-d4f9-4b0b-871d-c6818c8e5efc GET /api/v1/users 200 2628 - 90.056 ms[39m
+2026-05-02 22:28:43:2843 [35mhttp[39m: [35me698605d-d8e5-42c9-9ece-a7cf27164d49 GET /api/v1/users 200 2628 - 71.997 ms[39m
+2026-05-02 22:29:21:2921 [35mhttp[39m: [35m46580b56-8d0d-4d4e-a353-18ab97449980 POST /api/v1/users/invite 201 498 - 435.656 ms[39m
+2026-05-02 22:29:21:2921 [35mhttp[39m: [35m7185e500-06d5-4018-8f4e-30b668211f2c GET /api/v1/users 200 2938 - 182.007 ms[39m
+2026-05-02 22:30:00:300 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:30:00:300 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:149:13)[39m
+[37m    at Route.dispatch (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:119:3)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:284:15[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+2026-05-02 22:30:00:300 [35mhttp[39m: [35m4ef3f456-3df1-4be8-85f3-ec911da4e1e3 POST /api/v1/auth/logout 401 250 - 4.307 ms[39m
+2026-05-02 22:30:15:3015 [35mhttp[39m: [35m6c18f34b-c974-41a0-b2b0-d1f9bf4e7e1c POST /api/v1/auth/login 200 929 - 501.540 ms[39m
+2026-05-02 22:30:27:3027 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:27:3027 [37mdebug[39m: [37mError: User account is not active[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:32:21[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+2026-05-02 22:30:27:3027 [35mhttp[39m: [35m0e595698-ecfb-4b4e-8ad0-54d312554aa7 POST /api/v1/auth/change-password 401 240 - 28.903 ms[39m
+2026-05-02 22:30:27:3027 [35mhttp[39m: [35m8f677c76-118b-428a-9041-bb7d54c5a562 POST /api/v1/auth/refresh-token 200 678 - 388.328 ms[39m
+2026-05-02 22:30:27:3027 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:27:3027 [37mdebug[39m: [37mError: User account is not active[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:32:21[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+2026-05-02 22:30:27:3027 [35mhttp[39m: [35m1181ce4a-ad4b-49c0-be54-e3a9ebb2b212 POST /api/v1/auth/change-password 401 240 - 29.932 ms[39m
+2026-05-02 22:30:31:3031 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:31:3031 [37mdebug[39m: [37mError: User account is not active[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:32:21[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+2026-05-02 22:30:31:3031 [35mhttp[39m: [35m9ec87ecc-0e62-4c32-a1a3-8d36a325511e POST /api/v1/auth/change-password 401 240 - 16.363 ms[39m
+2026-05-02 22:30:32:3032 [35mhttp[39m: [35mb46c6813-edb6-48df-9651-8556f977e5ee POST /api/v1/auth/refresh-token 200 678 - 276.442 ms[39m
+2026-05-02 22:30:32:3032 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:32:3032 [37mdebug[39m: [37mError: User account is not active[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:32:21[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+2026-05-02 22:30:32:3032 [35mhttp[39m: [35mcb3ac1bc-4e37-4a48-9b16-3e0bb9a5eb39 POST /api/v1/auth/change-password 401 240 - 61.172 ms[39m
+2026-05-02 22:30:35:3035 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:35:3035 [37mdebug[39m: [37mError: User account is not active[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:32:21[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+2026-05-02 22:30:35:3035 [35mhttp[39m: [35m627ab665-8a46-42ed-b0ca-be348fd9c839 POST /api/v1/auth/change-password 401 240 - 40.024 ms[39m
+2026-05-02 22:30:35:3035 [35mhttp[39m: [35m0aa68e47-039b-4061-befb-6e1b309c6749 POST /api/v1/auth/refresh-token 200 678 - 89.560 ms[39m
+2026-05-02 22:30:35:3035 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:35:3035 [37mdebug[39m: [37mError: User account is not active[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:32:21[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+2026-05-02 22:30:35:3035 [35mhttp[39m: [35m04fb4791-98b5-41b8-a4be-1f407c768140 POST /api/v1/auth/change-password 401 240 - 86.385 ms[39m
+2026-05-02 22:31:28:3128 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 22:31:33:3133 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-01.zzwoeue.mongodb.net[39m
+2026-05-02 22:31:33:3133 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 22:31:34:3134 [35mhttp[39m: [35m543e9606-126b-44f1-9f51-ef100aa8aab5 POST /api/v1/auth/change-password 200 942 - 427.337 ms[39m
+2026-05-02 22:31:36:3136 [35mhttp[39m: [35m0b87592b-0153-4370-8ed1-7423e3b0ab38 GET /api/v1/users/dashboard 200 2947 - 165.461 ms[39m
+2026-05-02 22:31:36:3136 [35mhttp[39m: [35maee23822-580d-4679-98bd-813dc8354c82 GET /api/v1/users/dashboard 200 2947 - 266.668 ms[39m
+2026-05-02 22:31:38:3138 [35mhttp[39m: [35md8a23f34-9bc3-4e3a-a5f3-d6b3bc168615 GET /api/v1/users 200 2937 - 80.737 ms[39m
+2026-05-02 22:31:39:3139 [35mhttp[39m: [35m117b3279-ff6a-44b3-8d23-777455d87a01 GET /api/v1/users 200 2937 - 166.293 ms[39m
+2026-05-02 22:31:43:3143 [35mhttp[39m: [35m6799f185-6672-4ca1-881d-d3f872cb11c7 GET /api/v1/users/profile/me 200 750 - 198.043 ms[39m
+2026-05-02 22:31:43:3143 [35mhttp[39m: [35m4875cb60-da7f-4732-98f1-31abf0ddc5b0 GET /api/v1/users/profile/me 200 750 - 201.920 ms[39m
+2026-05-02 22:32:15:3215 [35mhttp[39m: [35m2dee6c0a-12c7-4924-a44d-7f4ee4af1b5c GET /api/v1/users/dashboard 200 2947 - 186.542 ms[39m
+2026-05-02 22:32:15:3215 [35mhttp[39m: [35mb8eb2534-aedb-48e3-8a8c-45b8ff67733c GET /api/v1/users/dashboard 200 2947 - 204.338 ms[39m
+2026-05-02 22:32:18:3218 [35mhttp[39m: [35m38f9324b-b0e6-40e1-b338-703c7b95994d GET /api/v1/users/profile/69f5e884b42950ab7720874a 200 787 - 168.139 ms[39m
+2026-05-02 22:32:18:3218 [35mhttp[39m: [35m6696b462-97e1-47a6-ac69-80a8d1846517 GET /api/v1/users/profile/69f5e884b42950ab7720874a 200 787 - 88.451 ms[39m
+2026-05-02 22:32:26:3226 [35mhttp[39m: [35m6611363a-ceff-4a07-b519-97f4d78236db GET /api/v1/users/dashboard 200 2947 - 68.682 ms[39m
+2026-05-02 22:32:26:3226 [35mhttp[39m: [35m7dd3165e-c1f5-4ed9-aee1-f37dcc5aac2d GET /api/v1/users/dashboard 200 2947 - 92.188 ms[39m
+2026-05-02 22:32:29:3229 [35mhttp[39m: [35m618b0f64-ea23-4762-9e29-4f357f340b00 GET /api/v1/users 200 2937 - 83.011 ms[39m
+2026-05-02 22:32:30:3230 [35mhttp[39m: [35m775c2378-227b-44bc-9c3c-8031b4a36d3d GET /api/v1/users 200 2937 - 175.030 ms[39m
+2026-05-02 22:32:35:3235 [35mhttp[39m: [35mfefa954f-9cea-4d43-bf1f-519ad372d2c2 GET /api/v1/users/profile/69f5f536b42950ab7720874f 200 796 - 141.829 ms[39m
+2026-05-02 22:32:35:3235 [35mhttp[39m: [35m9033038b-047f-4c9c-8cf7-b7681e179c36 GET /api/v1/users/profile/69f5f536b42950ab7720874f 200 796 - 186.955 ms[39m
+2026-05-02 22:32:37:3237 [35mhttp[39m: [35m3e52082a-a036-4405-bbea-237503a6e51e GET /api/v1/users/dashboard 200 2947 - 105.224 ms[39m
+2026-05-02 22:32:37:3237 [35mhttp[39m: [35m9b5d2ca4-99a9-4ba5-a9d8-7219cecb86bb GET /api/v1/users/dashboard 200 2947 - 100.053 ms[39m
+2026-05-02 22:32:39:3239 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:32:39:3239 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:149:13)[39m
+[37m    at Route.dispatch (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:119:3)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:284:15[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+2026-05-02 22:32:39:3239 [35mhttp[39m: [35ma4f7582e-bc86-4f36-90a4-495c2fe4f535 POST /api/v1/auth/logout 401 250 - 2.775 ms[39m
+2026-05-02 22:39:43:3943 [35mhttp[39m: [35mb82d1ead-1fab-43e2-b1e8-ddf289724387 POST /api/v1/auth/login 200 944 - 245.159 ms[39m
+2026-05-02 22:39:43:3943 [35mhttp[39m: [35m35c829df-a6e3-4f7a-bb0b-d0c37894e6c9 GET /api/v1/users/dashboard 200 2947 - 117.727 ms[39m
+2026-05-02 22:39:43:3943 [35mhttp[39m: [35mdb546696-0cfb-4b74-8f83-687435ef94f6 GET /api/v1/users/dashboard 200 2947 - 127.886 ms[39m
+2026-05-02 22:39:48:3948 [35mhttp[39m: [35m3696bab0-40e2-4450-b08a-46402bf33582 GET /api/v1/users/dashboard 200 2947 - 33.905 ms[39m
+2026-05-02 22:39:48:3948 [35mhttp[39m: [35m4cb69e42-a47e-4964-9366-4600e19f7ce3 GET /api/v1/users/dashboard 200 2947 - 67.819 ms[39m
+2026-05-02 22:39:49:3949 [35mhttp[39m: [35m3cc0e2b6-a4b4-4cd5-9c13-391bb1452ffd GET /api/v1/users 200 2937 - 203.910 ms[39m
+2026-05-02 22:39:50:3950 [35mhttp[39m: [35m843e40d3-5b74-46c0-858c-a465b293df4a GET /api/v1/users 200 2937 - 273.613 ms[39m
+2026-05-02 22:39:52:3952 [35mhttp[39m: [35m72851af6-100a-464c-9bb3-f15d3f434dff GET /api/v1/users/profile/69f62d68ca22f383239c22c5 200 750 - 250.642 ms[39m
+2026-05-02 22:39:52:3952 [35mhttp[39m: [35m7449a9e8-0e4b-4cf7-b02d-5bd28d9349f2 GET /api/v1/users/profile/69f62d68ca22f383239c22c5 200 750 - 201.528 ms[39m
+2026-05-02 22:39:56:3956 [35mhttp[39m: [35mc559876c-255e-4568-a1a0-cbf88930790f GET /api/v1/users 200 2937 - 62.375 ms[39m
+2026-05-02 22:39:56:3956 [35mhttp[39m: [35m30318dc0-a6b2-43fe-89c2-7c329aab34e1 GET /api/v1/users 200 2937 - 88.555 ms[39m
+2026-05-02 22:39:57:3957 [35mhttp[39m: [35m44058e6f-fd34-42fe-84bf-f96fe3650249 GET /api/v1/users/dashboard 200 2947 - 83.658 ms[39m
+2026-05-02 22:39:57:3957 [35mhttp[39m: [35m198a578a-1f28-43c1-aea2-b3762f32a8c6 GET /api/v1/users/dashboard 200 2947 - 68.189 ms[39m
+2026-05-02 22:40:10:4010 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:40:10:4010 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:149:13)[39m
+[37m    at Route.dispatch (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:119:3)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:284:15[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+2026-05-02 22:40:10:4010 [35mhttp[39m: [35m9001629b-fea0-4ffb-b0a6-2ba3147b4ced POST /api/v1/auth/logout 401 250 - 2.105 ms[39m
+2026-05-02 22:40:18:4018 [35mhttp[39m: [35m69c799cb-5501-49a3-bc6e-e676862be4cc POST /api/v1/auth/login 200 929 - 271.640 ms[39m
+2026-05-02 22:40:18:4018 [35mhttp[39m: [35m9b8255f9-a923-4ab3-af87-d87db61835c7 GET /api/v1/users/dashboard 200 2947 - 174.623 ms[39m
+2026-05-02 22:40:19:4019 [35mhttp[39m: [35m86b29c6e-15f5-4f60-b221-21f4023eb999 GET /api/v1/users/dashboard 200 2947 - 191.524 ms[39m
+2026-05-02 22:40:23:4023 [35mhttp[39m: [35mf15c0eab-8a52-42ff-b39f-54f47cb83a24 GET /api/v1/users/dashboard 200 2947 - 107.748 ms[39m
+2026-05-02 22:40:23:4023 [35mhttp[39m: [35m800e02a9-67ee-4279-98e4-c33499ac79b1 GET /api/v1/users/dashboard 200 2947 - 84.781 ms[39m
+2026-05-02 22:51:54:5154 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-02 22:51:54:5154 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 22:51:54:5154 [35mhttp[39m: [35m1d91f5fa-18fb-4a16-813c-c2be8125bb50 GET /api/v1/users/dashboard 401 250 - 4.875 ms[39m
+2026-05-02 22:51:54:5154 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-02 22:51:54:5154 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 22:51:54:5154 [35mhttp[39m: [35me2e51524-00be-4f2f-987a-88563619ef27 GET /api/v1/users/dashboard 401 250 - 1.621 ms[39m
+2026-05-02 22:52:47:5247 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 22:52:47:5247 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 22:52:47:5247 [35mhttp[39m: [35mf85d1bd1-3037-487b-83ff-60beca8590c2 GET /api/v1/users 401 250 - 2.075 ms[39m
+2026-05-02 22:52:47:5247 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 22:52:47:5247 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+[37m    at router (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:47:12)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+2026-05-02 22:52:47:5247 [35mhttp[39m: [35m967b79fe-3762-41b9-8195-8654c27aaf0c GET /api/v1/users 401 250 - 1.637 ms[39m
+2026-05-02 22:52:51:5251 [35mhttp[39m: [35mc9c58618-9db2-453c-92ab-60d86427139b GET /api/v1/users 200 2937 - 336.470 ms[39m
+2026-05-02 22:52:51:5251 [35mhttp[39m: [35m18ab45e0-7969-49da-ab67-49e7ae8cc0d6 GET /api/v1/users 200 2937 - 94.560 ms[39m
+2026-05-02 22:52:55:5255 [35mhttp[39m: [35m92ba632f-8f19-4377-aad5-8216be25b97a GET /api/v1/users/profile/me 200 750 - 225.438 ms[39m
+2026-05-02 22:52:55:5255 [35mhttp[39m: [35mdc58030c-0f9e-4b23-910f-222852fe7fc4 GET /api/v1/users/profile/me 200 750 - 200.326 ms[39m
+2026-05-02 22:52:58:5258 [35mhttp[39m: [35m0cf092a1-7b8e-4609-addd-ea07f6906e2a GET /api/v1/users 200 2937 - 109.113 ms[39m
+2026-05-02 22:52:58:5258 [35mhttp[39m: [35m0d83cf8f-cac0-4e82-acaa-a2a866369e9a GET /api/v1/users 200 2937 - 67.909 ms[39m
+2026-05-02 22:53:10:5310 [35mhttp[39m: [35mbb5c0600-6695-4ed7-b804-8245e80c8a2f GET /api/v1/users/dashboard 200 2947 - 141.695 ms[39m
+2026-05-02 22:53:10:5310 [35mhttp[39m: [35m604dcb3b-f312-40f9-a9d2-3efad7d5e15e GET /api/v1/users/dashboard 200 2947 - 112.077 ms[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/today - jwt expired[39m
+2026-05-02 22:55:52:5552 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35m9d2ec526-dac2-4a2e-8cee-82ac8605e299 GET /api/v1/attendance/today 401 200 - 23.109 ms[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z - jwt expired[39m
+2026-05-02 22:55:52:5552 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35m6a2069b1-95fb-4bfc-af1d-ad9264c59c14 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 401 200 - 3.658 ms[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/today - jwt expired[39m
+2026-05-02 22:55:52:5552 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35mfc5f8e90-e9fb-4196-932c-44045e586a05 GET /api/v1/attendance/today 401 200 - 3.653 ms[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z - jwt expired[39m
+2026-05-02 22:55:52:5552 [37mdebug[39m: [37mTokenExpiredError: jwt expired[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:190:21[39m
+[37m    at getSecret (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:97:14)[39m
+[37m    at module.exports [as verify] (E:\Odoo\Repo\Empay-Backend\node_modules\jsonwebtoken\verify.js:101:10)[39m
+[37m    at verifyAccessToken (E:\Odoo\Repo\Empay-Backend\src\utils\jwt.js:22:14)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:22:21[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at trim_prefix (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:328:13)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:286:9[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35mcfa8535e-8d29-4c8f-8c5b-b3a28979d6f7 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 401 200 - 2.518 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35m01b2aec4-e5f7-4da4-9286-737611eae00e POST /api/v1/auth/refresh-token 200 678 - 35.584 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35ma312751b-0848-4e01-bb67-c27050a65cd4 POST /api/v1/auth/refresh-token 200 678 - 25.430 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35mfaa2e522-962b-41d7-9053-e69f764bc14d POST /api/v1/auth/refresh-token 200 678 - 35.163 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35m45f45134-8a08-4531-a415-9f5ab45f1e40 POST /api/v1/auth/refresh-token 200 678 - 29.497 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35mb101aa92-a19b-4bb8-865b-59ed5e53bb8a GET /api/v1/attendance/today 404 200 - 10.815 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35md76e6c0a-22b4-4683-93d0-fdd1b4ae3f3a GET /api/v1/attendance/today 404 200 - 56.613 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35m40ed4078-d420-4a0c-8e82-d1e1dcc9f303 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 83.577 ms[39m
+2026-05-02 22:55:52:5552 [35mhttp[39m: [35mda91d9b4-353f-4345-a7b0-76477f6acae3 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 84.897 ms[39m
+2026-05-02 22:55:53:5553 [35mhttp[39m: [35m4f579a77-38a9-495c-bf9e-65aea1116e0b GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 189 - 30.635 ms[39m
+2026-05-02 22:55:55:5555 [35mhttp[39m: [35m6ea15e81-e8ec-428f-a7c1-a5abdffee764 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 19.364 ms[39m
+2026-05-02 22:56:03:563 [35mhttp[39m: [35mf9eb0d77-63e0-4c8b-bfdd-bf58619219fc GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-01T18:29:59.999Z 200 189 - 51.158 ms[39m
+2026-05-02 22:56:03:563 [35mhttp[39m: [35m78727bf9-8823-4932-be83-26fc6d4d1cf0 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 20.463 ms[39m
+2026-05-02 22:56:05:565 [35mhttp[39m: [35m922fbf57-70f7-4f32-b8d4-deb04ada8f60 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-01T18:29:59.999Z 200 189 - 56.599 ms[39m
+2026-05-02 22:56:05:565 [35mhttp[39m: [35m1b909b40-a240-44c4-803e-b0924d997b11 GET /api/v1/attendance/summary?startDate=2026-04-29T18:30:00.000Z&endDate=2026-04-30T18:29:59.999Z 200 189 - 67.021 ms[39m
+2026-05-02 22:56:05:565 [35mhttp[39m: [35mf1df805e-0ad4-4ae5-98db-9c3efc4cbf6f GET /api/v1/attendance/summary?startDate=2026-04-28T18:30:00.000Z&endDate=2026-04-29T18:29:59.999Z 200 189 - 23.894 ms[39m
+2026-05-02 22:56:05:565 [35mhttp[39m: [35m4ad8d7ed-ef92-4f6b-b904-f9f464f3301a GET /api/v1/attendance/summary?startDate=2026-04-27T18:30:00.000Z&endDate=2026-04-28T18:29:59.999Z 200 189 - 46.141 ms[39m
+2026-05-02 22:56:05:565 [35mhttp[39m: [35m1d88170f-0d63-40cf-be68-fc414d77a21e GET /api/v1/attendance/summary?startDate=2026-04-26T18:30:00.000Z&endDate=2026-04-27T18:29:59.999Z 200 189 - 21.401 ms[39m
+2026-05-02 22:56:06:566 [35mhttp[39m: [35m7c4a1095-fcba-45f7-9a9c-34c6c8653f86 GET /api/v1/attendance/summary?startDate=2026-04-25T18:30:00.000Z&endDate=2026-04-26T18:29:59.999Z 200 189 - 64.166 ms[39m
+2026-05-02 22:56:06:566 [35mhttp[39m: [35me52e1ded-ffa4-4d1f-b682-2f3ba9244b03 GET /api/v1/attendance/summary?startDate=2026-04-24T18:30:00.000Z&endDate=2026-04-25T18:29:59.999Z 200 189 - 45.157 ms[39m
+2026-05-02 22:56:07:567 [35mhttp[39m: [35m62fee94c-7ef5-4955-af17-fcd47095edcd GET /api/v1/attendance/summary?startDate=2026-04-25T18:30:00.000Z&endDate=2026-04-26T18:29:59.999Z 200 189 - 38.155 ms[39m
+2026-05-02 22:56:08:568 [35mhttp[39m: [35m7488b901-c476-4478-a11a-72fbb5bfd577 GET /api/v1/attendance/summary?startDate=2026-04-26T18:30:00.000Z&endDate=2026-04-27T18:29:59.999Z 200 189 - 20.179 ms[39m
+2026-05-02 22:56:08:568 [35mhttp[39m: [35ma65ebc2e-6ad1-4e7b-8983-a20e1eb6b2a9 GET /api/v1/attendance/summary?startDate=2026-04-27T18:30:00.000Z&endDate=2026-04-28T18:29:59.999Z 200 189 - 24.743 ms[39m
+2026-05-02 22:56:08:568 [35mhttp[39m: [35mb42ae238-4023-4952-a129-7782eb8369f9 GET /api/v1/attendance/summary?startDate=2026-04-28T18:30:00.000Z&endDate=2026-04-29T18:29:59.999Z 200 189 - 79.659 ms[39m
+2026-05-02 22:56:09:569 [35mhttp[39m: [35mf35cf6bb-9307-4aa3-8452-2c9238716dd0 GET /api/v1/attendance/summary?startDate=2026-04-29T18:30:00.000Z&endDate=2026-04-30T18:29:59.999Z 200 189 - 68.635 ms[39m
+2026-05-02 22:56:09:569 [35mhttp[39m: [35m65d67bc7-5ca3-4652-9dcb-0ac688bac074 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-01T18:29:59.999Z 200 189 - 79.559 ms[39m
+2026-05-02 22:56:10:5610 [35mhttp[39m: [35m4410f751-3a47-4a09-8a74-06e3e245d0b2 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 60.883 ms[39m
+2026-05-02 22:56:10:5610 [35mhttp[39m: [35ma337e30f-e987-4b09-b204-282dc06e10e4 GET /api/v1/attendance/summary?startDate=2026-05-02T18:30:00.000Z&endDate=2026-05-03T18:29:59.999Z 200 189 - 74.420 ms[39m
+2026-05-02 22:56:10:5610 [35mhttp[39m: [35m250b4c9d-6932-4988-b46c-b9eda87cad75 GET /api/v1/attendance/summary?startDate=2026-05-03T18:30:00.000Z&endDate=2026-05-04T18:29:59.999Z 200 189 - 29.814 ms[39m
+2026-05-02 22:56:11:5611 [35mhttp[39m: [35md0117c81-d36d-4693-9c2a-9f9669f39d2c GET /api/v1/attendance/summary?startDate=2026-05-02T18:30:00.000Z&endDate=2026-05-03T18:29:59.999Z 200 189 - 36.773 ms[39m
+2026-05-02 22:56:11:5611 [35mhttp[39m: [35mbc04e128-4b89-463d-b609-468ec4e89e3d GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 62.322 ms[39m
+2026-05-02 22:56:12:5612 [35mhttp[39m: [35me4a38177-11ff-42ac-a7bf-36fa9be2f241 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-01T18:29:59.999Z 200 189 - 447.554 ms[39m
+2026-05-02 22:56:12:5612 [35mhttp[39m: [35mb0d692ee-d790-4e4c-8398-1f8837602f14 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 189 - 66.091 ms[39m
+2026-05-02 22:56:24:5624 [35mhttp[39m: [35m557a4fcd-bfd7-4e11-92c7-d7439e4c8104 GET /api/v1/attendance/summary?startDate=2026-03-31T18:30:00.000Z&endDate=2026-04-30T18:29:59.999Z 200 189 - 37.372 ms[39m
+2026-05-02 22:56:24:5624 [35mhttp[39m: [35m25d44eac-cbc7-466c-b7d1-d73eb8d5cefb GET /api/v1/attendance/summary?startDate=2026-02-28T18:30:00.000Z&endDate=2026-03-31T18:29:59.999Z 200 189 - 54.846 ms[39m
+2026-05-02 22:56:29:5629 [35mhttp[39m: [35maed104d3-eff7-4f04-81ae-c41d29aae6a6 GET /api/v1/attendance/summary?startDate=2026-03-31T18:30:00.000Z&endDate=2026-04-30T18:29:59.999Z 200 189 - 60.561 ms[39m
+2026-05-02 22:56:29:5629 [35mhttp[39m: [35mb0770010-be3d-4f8e-9c58-6e8b5e999c1f GET /api/v1/attendance/summary?startDate=2026-03-31T18:30:00.000Z&endDate=2026-04-01T18:29:59.999Z 200 189 - 36.969 ms[39m
+2026-05-02 22:56:31:5631 [35mhttp[39m: [35m915469b7-6eb6-4f05-91bc-318034bedaf4 GET /api/v1/attendance/summary?startDate=2026-03-31T18:30:00.000Z&endDate=2026-04-30T18:29:59.999Z 200 189 - 21.938 ms[39m
+2026-05-02 22:56:32:5632 [35mhttp[39m: [35ma50e47dd-95f2-448d-8a5a-1747aef31675 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 189 - 64.330 ms[39m
+2026-05-02 22:56:38:5638 [35mhttp[39m: [35mff6c4ae8-378f-448e-a687-6f4df8c7bb49 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-01T18:29:59.999Z 200 189 - 28.009 ms[39m
+2026-05-02 22:56:43:5643 [35mhttp[39m: [35me50a87cd-4e81-43b6-9123-39b5e222f98a GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 68.258 ms[39m
+2026-05-02 22:56:44:5644 [35mhttp[39m: [35m77ad89c2-ec17-4023-8a95-34224dbf7c07 GET /api/v1/leaves/types 404 200 - 17.281 ms[39m
+2026-05-02 22:56:44:5644 [35mhttp[39m: [35m8e8a0c2d-035d-4aa4-b254-8681271872f5 GET /api/v1/leaves/my-history 200 184 - 24.588 ms[39m
+2026-05-02 22:56:44:5644 [35mhttp[39m: [35mf351bead-94e8-4bc0-84b8-6f34c9c528f8 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 34.064 ms[39m
+2026-05-02 22:56:44:5644 [35mhttp[39m: [35m0cac48e5-0a08-4a7c-b112-9d204e8c90cd GET /api/v1/leaves/types 404 200 - 14.780 ms[39m
+2026-05-02 22:56:44:5644 [35mhttp[39m: [35mb0f8d0c5-0bbc-40b9-bdaf-bfce367dd2c9 GET /api/v1/leaves/my-history 200 184 - 27.476 ms[39m
+2026-05-02 22:56:44:5644 [35mhttp[39m: [35m3abd9de1-4ee7-4636-bc39-d076b1b98183 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 23.359 ms[39m
+2026-05-02 22:56:52:5652 [35mhttp[39m: [35me7a610e3-3005-4aea-b56f-0a4dd0584bcb GET /api/v1/attendance/today 404 200 - 13.584 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35mec1877d8-c63c-4a84-be4a-09f9803dff64 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 45.374 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35m156a4dba-326c-4a87-8a6c-dfb9f02d321a GET /api/v1/attendance/today 404 200 - 34.478 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35m845bb58f-8779-4eb0-9cc1-6c73ee5c46c9 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 24.803 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35mb0ea0aff-57b3-4559-9fc3-fd12e782aca7 GET /api/v1/leaves/types 404 200 - 57.966 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35m1d0fdd0f-79cc-44a4-9a1a-47d64d12700f GET /api/v1/leaves/types 404 200 - 13.243 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35mfa9fd71b-32f7-47f5-89c0-3ab61f3fc34d GET /api/v1/leaves/my-allocations?year=2026 200 192 - 72.884 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35mfed8b5dd-92d2-4422-8360-76be42b1a494 GET /api/v1/leaves/my-history 200 184 - 71.629 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35m8bbc0725-4054-4606-b49e-911d345fc314 GET /api/v1/leaves/my-history 200 184 - 57.745 ms[39m
+2026-05-02 22:56:53:5653 [35mhttp[39m: [35m4e35604c-308a-405f-9c6f-7526a9092bf2 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 69.579 ms[39m
+2026-05-02 22:57:52:5752 [35mhttp[39m: [35m38492e7f-0b5e-45cc-9d74-d6649f7bf5c4 GET /api/v1/attendance/today 404 200 - 11.118 ms[39m
+2026-05-02 22:57:52:5752 [35mhttp[39m: [35mbf5c1d67-415e-493d-b000-17bccce52b76 GET /api/v1/attendance/today 404 200 - 62.597 ms[39m
+2026-05-02 22:57:52:5752 [35mhttp[39m: [35ma7740447-0166-47aa-9ba3-60c9f6777780 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 73.858 ms[39m
+2026-05-02 22:57:52:5752 [35mhttp[39m: [35m9abb6a88-b8b9-45d4-9bd7-01c1e1e26b59 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 189 - 40.459 ms[39m
+2026-05-02 22:57:54:5754 [35mhttp[39m: [35mef2568b2-7bd3-4134-af32-b6020a5ad12d POST /api/v1/attendance/clock-in 201 505 - 140.829 ms[39m
+2026-05-02 22:57:57:5757 [35mhttp[39m: [35m3d67f121-1b86-432d-80e1-1e72d48b3bb8 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 540 - 146.138 ms[39m
+2026-05-02 22:57:58:5758 [35mhttp[39m: [35mb0557ba9-1e5c-4e3c-a055-6700694cd236 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 540 - 95.638 ms[39m
+2026-05-02 22:57:59:5759 [35mhttp[39m: [35mab6288c6-428e-45cf-9ead-2cc4e3d7e086 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 540 - 131.656 ms[39m
+2026-05-02 22:58:34:5834 [35mhttp[39m: [35m71266420-31db-4324-a365-755de4535a94 POST /api/v1/attendance/clock-out 200 566 - 118.273 ms[39m
+2026-05-02 22:58:37:5837 [35mhttp[39m: [35m16a15281-22f0-457c-a70b-31938512bc3c GET /api/v1/attendance/today 404 200 - 23.468 ms[39m
+2026-05-02 22:58:37:5837 [35mhttp[39m: [35m7266426c-c5ff-49d7-b5e3-6743fc2158bb GET /api/v1/attendance/today 404 200 - 20.708 ms[39m
+2026-05-02 22:58:37:5837 [35mhttp[39m: [35m8fa57a6f-56a7-47ae-a60c-3ab3f5e11f67 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 600 - 91.483 ms[39m
+2026-05-02 22:58:37:5837 [35mhttp[39m: [35m7649ad79-3a8c-408c-b35a-56410a3e5583 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 600 - 129.283 ms[39m
+2026-05-02 22:58:41:5841 [35mhttp[39m: [35mac9ca7ae-8dda-4b42-b110-06070dbc6676 GET /api/v1/users/profile/me 200 750 - 158.724 ms[39m
+2026-05-02 22:58:41:5841 [35mhttp[39m: [35m7e79b9f2-5add-49d9-8455-a6fd2e97084c GET /api/v1/users/profile/me 200 750 - 98.516 ms[39m
+2026-05-02 22:58:54:5854 [35mhttp[39m: [35m2bc448b8-ed4c-4cfe-ad94-d08c18e68882 GET /api/v1/users/dashboard 200 2947 - 59.541 ms[39m
+2026-05-02 22:58:55:5855 [35mhttp[39m: [35m70e38ccc-b905-42a5-892f-4fe19d399bfa GET /api/v1/users/dashboard 200 2947 - 26.802 ms[39m
+2026-05-02 22:58:55:5855 [35mhttp[39m: [35m75df869b-cb4a-4ecf-adec-159fd54c42ef GET /api/v1/attendance/today 404 200 - 43.089 ms[39m
+2026-05-02 22:58:55:5855 [35mhttp[39m: [35m41615c3e-caf9-4c09-9c9a-4cada9e81486 GET /api/v1/attendance/today 404 200 - 16.992 ms[39m
+2026-05-02 22:58:55:5855 [35mhttp[39m: [35m14e184a6-73aa-48cb-927e-65273cdc4c29 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 600 - 61.146 ms[39m
+2026-05-02 22:58:56:5856 [35mhttp[39m: [35md1fdbea5-cb47-4b96-be33-9d7ff97af4f6 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 600 - 177.187 ms[39m
+2026-05-02 22:58:58:5858 [35mhttp[39m: [35mf3b10e64-f354-4ab7-bd3d-87e5ad21e238 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 600 - 150.897 ms[39m
+2026-05-02 22:58:58:5858 [35mhttp[39m: [35me6f3269a-f41f-4b27-b96d-ae880ea8846f GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 600 - 135.930 ms[39m
+2026-05-02 22:58:59:5859 [35mhttp[39m: [35me3efaa72-be90-4ba1-b111-69e22dc0a28b GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 600 - 81.804 ms[39m
+2026-05-02 22:59:01:591 [35mhttp[39m: [35m4c38485a-f65e-4da0-8d02-2c2ca95e8469 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 600 - 76.323 ms[39m
+2026-05-02 22:59:02:592 [35mhttp[39m: [35me16d9c57-3c4f-465f-8b04-48a3ac5fcf70 GET /api/v1/leaves/types 404 200 - 15.765 ms[39m
+2026-05-02 22:59:02:592 [35mhttp[39m: [35m62c5475b-f5cb-4896-96a7-7a824ed958bb GET /api/v1/leaves/types 429 237 - 0.681 ms[39m
+2026-05-02 22:59:02:592 [35mhttp[39m: [35m5a316a07-f57d-4e40-ad9c-5d7c0c6583c8 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 35.211 ms[39m
+2026-05-02 22:59:02:592 [35mhttp[39m: [35mbca02400-a21b-4f7d-8f0a-a4f50f2000c3 GET /api/v1/leaves/my-history 200 184 - 33.643 ms[39m
+2026-05-02 22:59:02:592 [35mhttp[39m: [35m3586f308-436f-4fd3-ba4e-19e5a6f7d658 GET /api/v1/leaves/my-allocations?year=2026 429 237 - 0.561 ms[39m
+2026-05-02 22:59:02:592 [35mhttp[39m: [35me04e87f3-9a1c-4a47-9483-7def70141b15 GET /api/v1/leaves/my-history 429 237 - 0.340 ms[39m
+2026-05-02 22:59:04:594 [35mhttp[39m: [35mb617aac3-4ab2-4a4f-b8b5-4b228f3a7aa3 GET /api/v1/leaves/types 429 237 - 0.518 ms[39m
+2026-05-02 22:59:04:594 [35mhttp[39m: [35mf143f5ae-8d66-4de4-a60a-6fd7ec5f808f GET /api/v1/leaves/my-allocations?year=2026 429 237 - 0.407 ms[39m
+2026-05-02 22:59:04:594 [35mhttp[39m: [35m47f0aeab-b8be-4580-a273-3b6866260c3e GET /api/v1/leaves/my-history 429 237 - 0.336 ms[39m
+2026-05-02 22:59:04:594 [35mhttp[39m: [35mccc165f5-7179-427f-9db1-9cdd5904e36e GET /api/v1/leaves/types 429 237 - 0.558 ms[39m
+2026-05-02 22:59:04:594 [35mhttp[39m: [35m50b8c677-702f-4c0b-b940-4ca28064d777 GET /api/v1/leaves/my-allocations?year=2026 429 237 - 0.432 ms[39m
+2026-05-02 22:59:04:594 [35mhttp[39m: [35m6ede3c5f-af1e-4fb8-9063-df2f57292795 GET /api/v1/leaves/my-history 429 237 - 0.527 ms[39m
+2026-05-02 22:59:07:597 [35mhttp[39m: [35m5ebe1808-3ec9-4a19-8adb-72148c6820c0 POST /api/v1/auth/logout 429 237 - 0.333 ms[39m
+2026-05-02 22:59:54:5954 [35mhttp[39m: [35m16d87b62-0a10-4764-9306-567fbf958224 POST /api/v1/auth/login 429 237 - 0.394 ms[39m
+2026-05-02 22:59:59:5959 [32minfo[39m: [32mShutting down server...[39m
+2026-05-02 23:00:03:03 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-02.zzwoeue.mongodb.net[39m
+2026-05-02 23:00:03:03 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-02 23:00:07:07 [35mhttp[39m: [35m5e2c3446-6665-43fe-90dc-24d13cd34925 POST /api/v1/auth/login 200 944 - 207.038 ms[39m
+2026-05-02 23:00:07:07 [35mhttp[39m: [35m02fd8bed-5fe1-475e-a879-a20c6eb134d9 GET /api/v1/users/dashboard 200 2947 - 74.222 ms[39m
+2026-05-02 23:00:07:07 [35mhttp[39m: [35m31a2d112-582d-447e-815d-73eecab357a2 GET /api/v1/users/dashboard 200 2947 - 51.943 ms[39m
+2026-05-02 23:00:09:09 [35mhttp[39m: [35m84c2c402-51e3-482b-98c9-3fad40e3e734 GET /api/v1/attendance/today 200 188 - 53.336 ms[39m
+2026-05-02 23:00:09:09 [35mhttp[39m: [35m3b4c21f4-faeb-4730-9007-4a8fc8ae77b0 GET /api/v1/attendance/today 200 188 - 31.410 ms[39m
+2026-05-02 23:00:09:09 [35mhttp[39m: [35m903cfb87-763d-42a6-b1c1-4ff55827c1e9 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 137.025 ms[39m
+2026-05-02 23:00:09:09 [35mhttp[39m: [35m0d4ca8a7-8319-448b-b61d-0c8ba97651d2 GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 94.445 ms[39m
+2026-05-02 23:00:11:011 [35mhttp[39m: [35mab6fb962-6d6a-4123-a2e2-18e2f5768dc4 GET /api/v1/attendance/summary?startDate=2026-04-30T18:30:00.000Z&endDate=2026-05-31T18:29:59.999Z 200 662 - 208.813 ms[39m
+2026-05-02 23:00:13:013 [35mhttp[39m: [35m42ccbdf6-82ec-4edd-b6bf-08f38be140ce GET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z 200 662 - 185.143 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35mdf1c4eb6-722a-417b-a8fe-1ea4c676c54c GET /api/v1/leaves/my-history 200 184 - 30.290 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35m8d70901d-a607-47f3-a7bf-4c4b7f0c8fa3 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 94.937 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35mfb027793-85d6-45cc-a15e-0482e060a134 GET /api/v1/leaves/types 200 831 - 100.923 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35m772b44c1-9068-4776-9d5a-454e4995eed6 GET /api/v1/leaves/my-history 200 184 - 83.140 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35m72c2744c-141f-4911-9036-7bda16ff0d83 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 30.151 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35m92669344-e751-484e-97f3-0b96881c988a GET /api/v1/leaves/types 200 831 - 28.643 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35m7d27e41c-64c0-4b3c-9604-cab54ee23c7a GET /api/v1/leaves/pending 200 188 - 111.473 ms[39m
+2026-05-02 23:00:14:014 [35mhttp[39m: [35m56ca5b5c-6ad0-495b-9498-6c4f486b1349 GET /api/v1/leaves/pending 200 188 - 76.927 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35mcb7076a2-6a2a-4759-a29f-4fadaf047618 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 49.571 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35m6dba58ef-63f7-4eea-ac5e-41131807ed61 GET /api/v1/leaves/types 200 831 - 54.601 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35me3f2cdd4-149f-4e61-835d-9b465d6b9eb6 GET /api/v1/leaves/my-history 200 184 - 65.125 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35mff3d1a09-9704-4fe7-983f-d16475abd5f4 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 30.558 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35mbf39f8e9-339d-4693-8eb3-ddb62cc85ccb GET /api/v1/leaves/types 200 831 - 33.095 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35md644e029-2e44-4a23-8aef-097ea77234f3 GET /api/v1/leaves/my-history 200 184 - 25.574 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35mfcd58f14-4029-47a0-b784-1bfebd6345e3 GET /api/v1/leaves/pending 200 188 - 87.425 ms[39m
+2026-05-02 23:01:03:13 [35mhttp[39m: [35m9fd7db93-9437-45c7-8844-d99040e25fba GET /api/v1/leaves/pending 200 188 - 32.232 ms[39m
+2026-05-02 23:01:05:15 [35mhttp[39m: [35m5c7c6b0a-ae64-4b84-9a41-07f7a85f39f0 GET /api/v1/users 200 2937 - 41.446 ms[39m
+2026-05-02 23:01:05:15 [35mhttp[39m: [35m0a0ada51-106f-427f-bcb1-ca04ab7ff357 GET /api/v1/users 200 2937 - 39.334 ms[39m
+2026-05-02 23:01:13:113 [35mhttp[39m: [35me80c18d6-fa7d-4faa-8cc7-65de7b2dd14e GET /api/v1/users/profile/69f628de05e40278356bc30c 200 709 - 58.875 ms[39m
+2026-05-02 23:01:13:113 [35mhttp[39m: [35m1be6a33c-2714-4026-a955-7fd7e1482c62 GET /api/v1/users/profile/69f628de05e40278356bc30c 200 709 - 87.761 ms[39m
+2026-05-02 23:01:15:115 [35mhttp[39m: [35m00f279cf-d7b2-48d8-8762-bbe26d21634f GET /api/v1/users/dashboard 200 2947 - 22.072 ms[39m
+2026-05-02 23:01:15:115 [35mhttp[39m: [35md8c7d5e6-6a03-41c4-b17f-785ae2ec4701 GET /api/v1/users/dashboard 200 2947 - 71.988 ms[39m
+2026-05-02 23:03:30:330 [32minfo[39m: [32mShutting down server...[39m

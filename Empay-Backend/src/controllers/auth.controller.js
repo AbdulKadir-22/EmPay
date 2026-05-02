@@ -57,6 +57,13 @@ const resetPassword = asyncHandler(async (req, res) => {
   );
 });
 
+const changePassword = asyncHandler(async (req, res) => {
+  const { user, tokens } = await authService.changePassword(req.user._id, req.body.newPassword);
+  res.status(200).json(
+    formatResponse(true, 'Password changed successfully', { user, tokens }, null, req)
+  );
+});
+
 module.exports = {
   register,
   login,
@@ -66,4 +73,5 @@ module.exports = {
   forgotPassword,
   verifyOTP,
   resetPassword,
+  changePassword,
 };

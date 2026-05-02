@@ -9,10 +9,11 @@ const router = express.Router();
 
 router.use(protect);
 
+router.get('/today', attendanceController.getTodayStatus);
 router.post('/clock-in', validate(attendanceValidator.clockIn), attendanceController.clockIn);
 router.post('/clock-out', validate(attendanceValidator.clockOut), attendanceController.clockOut);
 
-router.get('/summary', validate(attendanceValidator.queryFilters), attendanceController.getSummary);
+router.get('/summary', attendanceController.getSummary);
 
 router.post('/manual', authorize('ADMIN', 'HR'), validate(attendanceValidator.manualEntry), attendanceController.manualEntry);
 

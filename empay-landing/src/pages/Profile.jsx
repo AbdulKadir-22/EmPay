@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Building2, Briefcase, MapPin, Phone, Calendar, Shield, Sun, Moon, Loader2, AlertCircle } from 'lucide-react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
@@ -126,7 +126,7 @@ const Profile = () => {
         {activeTab === 'Resume' && <ResumeTab profile={p} />}
         {activeTab === 'Private Info' && <PrivateInfoTab profile={p} />}
         {activeTab === 'Salary Info' && <SalaryInfoTab monthly={monthly} yearly={yearly} allowances={allowances} deductions={deductions} sal={sal} />}
-        {activeTab === 'Security' && <SecurityTab email={profileData?.email} role={profileData?.role} lastLogin={profileData?.lastLogin} />}
+        {activeTab === 'Security' && <SecurityTab email={profileData?.email} role={profileData?.role} lastLogin={profileData?.lastLogin} isSelf={isSelf} />}
       </motion.div>
     </DashboardLayout>
   );
@@ -239,21 +239,29 @@ const SalaryInfoTab = ({ monthly, yearly, allowances, deductions, sal }) => (
 );
 
 /* ── Security Tab ── */
-const SecurityTab = ({ email, role, lastLogin }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <SectionCard title="Account">
-      <InfoRow label="Email" value={email} />
-      <InfoRow label="Role" value={role?.replace('_', ' ')} />
-      <InfoRow label="Last Login" value={lastLogin ? new Date(lastLogin).toLocaleString() : 'Never'} />
-    </SectionCard>
-    <SectionCard title="Password">
-      <p className="text-sm text-brand-muted mb-4">Change your password to keep your account secure.</p>
-      <button className="px-5 py-2.5 rounded-xl bg-brand-purple text-white text-sm font-semibold hover:bg-brand-purple/90 shadow-lg shadow-brand-purple/20 transition-colors cursor-pointer">
-        Change Password
-      </button>
-    </SectionCard>
-  </div>
-);
+const SecurityTab = ({ email, role, lastLogin, isSelf }) => {
+  const navigate = useNavigate();
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <SectionCard title="Account">
+        <InfoRow label="Email" value={email} />
+        <InfoRow label="Role" value={role?.replace('_', ' ')} />
+        <InfoRow label="Last Login" value={lastLogin ? new Date(lastLogin).toLocaleString() : 'Never'} />
+      </SectionCard>
+      {isSelf && (
+        <SectionCard title="Password">
+          <p className="text-sm text-brand-muted mb-4">Change your password to keep your account secure.</p>
+          <button
+            onClick={() => navigate('/dashboard/change-password')}
+            className="px-5 py-2.5 rounded-xl bg-brand-purple text-white text-sm font-semibold hover:bg-brand-purple/90 shadow-lg shadow-brand-purple/20 transition-colors cursor-pointer"
+          >
+            Change Password
+          </button>
+        </SectionCard>
+      )}
+    </div>
+  );
+};
 
 /* ── Shared Components ── */
 const SectionCard = ({ title, children }) => (

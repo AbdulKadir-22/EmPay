@@ -9,6 +9,13 @@ const createType = asyncHandler(async (req, res) => {
   );
 });
 
+const getTypes = asyncHandler(async (req, res) => {
+  const types = await leaveService.getLeaveTypes();
+  res.status(200).json(
+    formatResponse(true, 'Leave types fetched', { types }, null, req)
+  );
+});
+
 const allocate = asyncHandler(async (req, res) => {
   const allocation = await leaveService.allocateLeave(req.body);
   res.status(200).json(
@@ -47,7 +54,7 @@ const getMyAllocations = asyncHandler(async (req, res) => {
 });
 
 const getPending = asyncHandler(async (req, res) => {
-  const requests = await leaveService.getPendingRequests(req.user._id);
+  const requests = await leaveService.getPendingRequests(req.user.company);
   res.status(200).json(
     formatResponse(true, 'Pending requests fetched', { requests }, null, req)
   );
@@ -55,6 +62,7 @@ const getPending = asyncHandler(async (req, res) => {
 
 module.exports = {
   createType,
+  getTypes,
   allocate,
   request,
   updateStatus,

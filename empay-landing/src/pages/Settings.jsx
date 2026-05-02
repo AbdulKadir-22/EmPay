@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { 
   UserPlus, X, Save, Pencil, ChevronDown, 
-  AlertCircle, CheckCircle, Loader2 
+  AlertCircle, CheckCircle, Loader2, Copy, Key
 } from 'lucide-react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
 import { userAPI } from '../services/api';
@@ -26,6 +26,7 @@ const Settings = () => {
   const [editingUser, setEditingUser] = useState(null);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState(null);
+  const [tempPasswordInfo, setTempPasswordInfo] = useState(null);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -96,10 +97,14 @@ const Settings = () => {
         await userAPI.update(editingUser._id, formData);
         showToast('User updated successfully');
       } else {
-        await userAPI.invite({
+        const response = await userAPI.invite({
           ...formData,
           joiningDate: new Date().toISOString(),
         });
+        const tempPwd = response.data?.data?.tempPassword;
+        if (tempPwd) {
+          setTempPasswordInfo({ email: formData.email, name: `${formData.firstName} ${formData.lastName}`, password: tempPwd });
+        }
         showToast('User invited successfully');
       }
       resetForm();
@@ -132,6 +137,46 @@ const Settings = () => {
           >
             {toast.type === 'error' ? <AlertCircle size={18} /> : <CheckCircle size={18} />}
             {toast.message}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Temp Password Banner */}
+      <AnimatePresence>
+        {tempPasswordInfo && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="mb-6 overflow-hidden"
+          >
+            <div className="glass-card rounded-2xl p-5 border-2 border-amber-500/30">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                  <Key size={20} className="text-amber-500" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-bold text-brand-text">Temporary Password for {tempPasswordInfo.name}</h3>
+                  <p className="text-xs text-brand-muted mt-0.5">Share this with the user. They will be asked to set a new password on first login.</p>
+                  <div className="mt-3 flex items-center gap-3">
+                    <code className="px-4 py-2 rounded-lg bg-brand-bg border border-border text-brand-text font-mono text-sm tracking-wider">
+                      {tempPasswordInfo.password}
+                    </code>
+                    <button
+                      onClick={() => { navigator.clipboard.writeText(tempPasswordInfo.password); showToast('Password copied!'); }}
+                      className="p-2 rounded-lg text-brand-muted hover:text-brand-purple hover:bg-brand-purple/10 transition-colors"
+                      title="Copy password"
+                    >
+                      <Copy size={16} />
+                    </button>
+                  </div>
+                  <p className="text-xs text-brand-muted mt-2">Email: <span className="font-mono text-brand-text">{tempPasswordInfo.email}</span></p>
+                </div>
+                <button onClick={() => setTempPasswordInfo(null)} className="p-1.5 rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-bg transition-colors">
+                  <X size={16} />
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

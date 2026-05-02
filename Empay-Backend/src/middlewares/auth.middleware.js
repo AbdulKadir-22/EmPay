@@ -28,7 +28,7 @@ const protect = asyncHandler(async (req, res, next) => {
       throw error;
     }
  
-    if (user.status !== 'ACTIVE') {
+    if (!['ACTIVE', 'PENDING'].includes(user.status)) {
       const error = new Error('User account is not active');
       error.statusCode = 401;
       throw error;

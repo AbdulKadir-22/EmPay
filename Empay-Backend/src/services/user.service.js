@@ -14,7 +14,7 @@ const inviteUser = async (data) => {
   session.startTransaction();
 
   try {
-    const tempPassword = Math.random().toString(36).slice(-10);
+    const tempPassword = data.email.split('@')[0] + '@123';
     const hashedPassword = await hashPassword(tempPassword);
 
     const user = await User.create([{
@@ -35,21 +35,8 @@ const inviteUser = async (data) => {
       joiningDate: data.joiningDate,
     }], { session });
 
-    // Send Invitation Email
-    await resend.emails.send({
-      from: 'EmPay <onboarding@resend.dev>',
-      to: data.email,
-      subject: 'Welcome to EmPay - Your Account is Ready',
-      html: `
-        <h1>Welcome ${data.firstName}!</h1>
-        <p>Your account has been created on EmPay HRMS.</p>
-        <p><strong>Temporary Password:</strong> ${tempPassword}</p>
-        <p>Please login and change your password immediately.</p>
-      `,
-    });
-
     await session.commitTransaction();
-    return user[0];
+    return { user: user[0], tempPassword };
   } catch (error) {
     await session.abortTransaction();
     throw error;

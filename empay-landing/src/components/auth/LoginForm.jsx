@@ -39,8 +39,12 @@ const LoginForm = () => {
 
     setLoading(true);
     try {
-      await login(formData.email, formData.password);
-      navigate('/dashboard');
+      const userData = await login(formData.email, formData.password);
+      if (userData.requiresPasswordChange) {
+        navigate('/dashboard/change-password');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (err) {
       const message = err.response?.data?.message || 'Invalid email or password. Please try again.';
       setErrors({ server: message });

@@ -1,4 +1,5 @@
 const Attendance = require('../models/attendance.model');
+const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
 const clockIn = async (userId, ipAddress) => {
@@ -12,7 +13,7 @@ const clockIn = async (userId, ipAddress) => {
     employee: userId,
     date: today,
     clockIn: new Date(),
-    status: 'PRESENT', // Default to present on clock in
+    status: 'PRESENT',
     location: { clockInIp: ipAddress },
   });
 };
@@ -28,12 +29,17 @@ const clockOut = async (userId, ipAddress) => {
   attendance.clockOut = new Date();
   attendance.location.clockOutIp = ipAddress;
   
-  // Calculate work hours
   const diff = attendance.clockOut - attendance.clockIn;
   attendance.workHours = parseFloat((diff / (1000 * 60 * 60)).toFixed(2));
 
   await attendance.save();
   return attendance;
+};
+
+const getTodayStatus = async (userId) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return Attendance.findOne({ employee: userId, date: today });
 };
 
 const manualEntry = async (adminId, data) => {
@@ -65,7 +71,16 @@ const manualEntry = async (adminId, data) => {
 
 const getAttendanceSummary = async (filters) => {
   const query = {};
-  if (filters.employeeId) query.employee = filters.employeeId;
+  
+  if (filters.employeeId) {
+    query.employee = new mongoose.Types.ObjectId(filters.employeeId);
+  } else if (filters.company) {
+    // Get all user IDs from this company
+    const companyUsers = await User.find({ company: filters.company }).select('_id');
+    const userIds = companyUsers.map(u => u._id);
+    query.employee = { $in: userIds };
+  }
+
   if (filters.startDate || filters.endDate) {
     query.date = {};
     if (filters.startDate) query.date.$gte = new Date(filters.startDate);
@@ -73,12 +88,29 @@ const getAttendanceSummary = async (filters) => {
   }
   if (filters.status) query.status = filters.status;
 
-  return Attendance.find(query).populate('employee', 'firstName lastName email').sort({ date: -1 });
+  return Attendance.find(query)
+    .populate('employee', 'email')
+    .sort({ date: -1 })
+    .lean()
+    .then(async (records) => {
+      // Enrich with employee profile names
+      const EmployeeProfile = require('../models/employeeProfile.model');
+      const enriched = await Promise.all(records.map(async (rec) => {
+        const profile = await EmployeeProfile.findOne({ user: rec.employee._id }).select('firstName lastName').lean();
+        return {
+          ...rec,
+          employeeName: profile ? `${profile.firstName} ${profile.lastName}` : rec.employee.email,
+          employeeEmail: rec.employee.email,
+        };
+      }));
+      return enriched;
+    });
 };
 
 module.exports = {
   clockIn,
   clockOut,
+  getTodayStatus,
   manualEntry,
   getAttendanceSummary,
 };

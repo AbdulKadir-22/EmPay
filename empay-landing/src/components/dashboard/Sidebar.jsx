@@ -30,7 +30,7 @@ const navItems = [
     name: 'Time Off', 
     path: '/dashboard/time-off', 
     icon: CalendarOff, 
-    roles: ['ADMIN', 'HR', 'EMPLOYEE'] 
+    roles: ['ADMIN', 'HR', 'PAYROLL_OFFICER', 'EMPLOYEE'] 
   },
   { 
     name: 'Payroll', 

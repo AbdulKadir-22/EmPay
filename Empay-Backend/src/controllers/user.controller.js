@@ -4,9 +4,9 @@ const { formatResponse } = require('../utils/response.util');
 
 const inviteUser = asyncHandler(async (req, res) => {
   req.body.company = req.user.company;
-  const user = await userService.inviteUser(req.body);
+  const { user, tempPassword } = await userService.inviteUser(req.body);
   res.status(201).json(
-    formatResponse(true, 'User invited successfully', { user }, null, req)
+    formatResponse(true, 'User invited successfully', { user, tempPassword }, null, req)
   );
 });
 

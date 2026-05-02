@@ -7,6 +7,10 @@ const createLeaveType = async (data) => {
   return LeaveType.create(data);
 };
 
+const getLeaveTypes = async () => {
+  return LeaveType.find({ isActive: true }).sort({ name: 1 });
+};
+
 const allocateLeave = async (data) => {
   return LeaveAllocation.findOneAndUpdate(
     { employee: data.employeeId, leaveType: data.leaveTypeId, year: data.year },
@@ -91,14 +95,27 @@ const getLeaveAllocations = async (userId, year) => {
   return LeaveAllocation.find({ employee: userId, year }).populate('leaveType');
 };
 
-const getPendingRequests = async (managerId) => {
-  // Simple implementation: HR/Admin can see all, Managers see team.
-  // For now, returning all pending for the authorized user.
-  return LeaveRequest.find({ status: 'PENDING' }).populate('employee', 'firstName lastName').populate('leaveType');
+const getPendingRequests = async (company) => {
+  const User = require('../models/user.model');
+  const companyUsers = await User.find({ company }).select('_id');
+  const userIds = companyUsers.map(u => u._id);
+  return LeaveRequest.find({ status: 'PENDING', employee: { $in: userIds } })
+    .populate('employee', 'email')
+    .populate('leaveType')
+    .sort({ createdAt: -1 })
+    .lean()
+    .then(async (records) => {
+      const EmployeeProfile = require('../models/employeeProfile.model');
+      return Promise.all(records.map(async (rec) => {
+        const profile = await EmployeeProfile.findOne({ user: rec.employee._id }).select('firstName lastName').lean();
+        return { ...rec, employeeName: profile ? `${profile.firstName} ${profile.lastName}` : rec.employee.email };
+      }));
+    });
 };
 
 module.exports = {
   createLeaveType,
+  getLeaveTypes,
   allocateLeave,
   requestLeave,
   updateRequestStatus,

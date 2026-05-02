@@ -9,6 +9,9 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
+import ChangePassword from './pages/ChangePassword';
+import Attendance from './pages/Attendance';
+import TimeOff from './pages/TimeOff';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
@@ -44,6 +47,9 @@ function App() {
           <Route path="/dashboard/settings" element={<ProtectedRoute allowedRoles={['ADMIN', 'HR']}><Settings /></ProtectedRoute>} />
           <Route path="/dashboard/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/dashboard/profile/:userId" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/dashboard/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
+          <Route path="/dashboard/attendance" element={<ProtectedRoute><Attendance /></ProtectedRoute>} />
+          <Route path="/dashboard/time-off" element={<ProtectedRoute><TimeOff /></ProtectedRoute>} />
         </Routes>
 
         {!isDashboardRoute && <Footer />}

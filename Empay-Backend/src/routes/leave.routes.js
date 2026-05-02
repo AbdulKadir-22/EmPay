@@ -15,6 +15,7 @@ router.get('/my-allocations', leaveController.getMyAllocations);
 router.post('/request', validate(leaveValidator.requestLeave), leaveController.request);
 
 // Admin/HR routes
+router.get('/types', leaveController.getTypes);
 router.post('/types', authorize('ADMIN', 'HR'), validate(leaveValidator.createLeaveType), leaveController.createType);
 router.post('/allocate', authorize('ADMIN', 'HR'), validate(leaveValidator.allocateLeave), leaveController.allocate);
 

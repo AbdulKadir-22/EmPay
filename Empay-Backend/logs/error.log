@@ -185,3 +185,28 @@
 2026-05-02 21:45:33:4533 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
 2026-05-02 21:46:38:4638 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
 2026-05-02 21:46:38:4638 [31merror[39m: [31mGET /api/v1/users/dashboard - Invalid $project :: caused by :: Cannot do inclusion on field email in exclusion projection[39m
+2026-05-02 22:18:23:1823 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:18:37:1837 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:18:38:1838 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:20:36:2036 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:20:43:2043 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:21:11:2111 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:21:12:2112 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-02 22:23:56:2356 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:30:00:300 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:30:27:3027 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:27:3027 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:31:3031 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:32:3032 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:35:3035 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:30:35:3035 [31merror[39m: [31mPOST /api/v1/auth/change-password - User account is not active[39m
+2026-05-02 22:32:39:3239 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:40:10:4010 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-02 22:51:54:5154 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-02 22:51:54:5154 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-02 22:52:47:5247 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 22:52:47:5247 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/today - jwt expired[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z - jwt expired[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/today - jwt expired[39m
+2026-05-02 22:55:52:5552 [31merror[39m: [31mGET /api/v1/attendance/summary?startDate=2026-05-01T18:30:00.000Z&endDate=2026-05-02T18:29:59.999Z - jwt expired[39m

@@ -66,7 +66,8 @@ const login = async (email, password) => {
     throw new Error('Invalid email or password');
   }
 
-  if (user.status !== 'ACTIVE') {
+  // Allow ACTIVE and PENDING, block INACTIVE/SUSPENDED
+  if (!['ACTIVE', 'PENDING'].includes(user.status)) {
     throw new Error('Account is not active');
   }
 
@@ -75,7 +76,6 @@ const login = async (email, password) => {
   user.lastLogin = new Date();
   await user.save();
 
-  // Fetch employee profile for enriched response
   const profile = await EmployeeProfile.findOne({ user: user._id });
 
   const userData = {
@@ -89,6 +89,7 @@ const login = async (email, password) => {
     designation: profile?.designation || '',
     department: profile?.department || '',
     avatar: profile?.avatar || null,
+    requiresPasswordChange: user.status === 'PENDING',
   };
 
   return { user: userData, tokens };
@@ -182,6 +183,41 @@ const resetPassword = async (email, otp, newPassword) => {
   return true;
 };
 
+/**
+ * Change password for logged-in user. Activates PENDING accounts.
+ */
+const changePassword = async (userId, newPassword) => {
+  const user = await User.findById(userId).select('+password');
+  if (!user) throw new Error('User not found');
+
+  user.password = await hashPassword(newPassword);
+  if (user.status === 'PENDING') {
+    user.status = 'ACTIVE';
+  }
+  user.tokenVersion += 1;
+  await user.save();
+
+  // Generate fresh tokens with new version
+  const tokens = generateAuthTokens(user);
+
+  const profile = await EmployeeProfile.findOne({ user: user._id });
+  const userData = {
+    _id: user._id,
+    email: user.email,
+    role: user.role,
+    status: user.status,
+    company: user.company,
+    firstName: profile?.firstName || '',
+    lastName: profile?.lastName || '',
+    designation: profile?.designation || '',
+    department: profile?.department || '',
+    avatar: profile?.avatar || null,
+    requiresPasswordChange: false,
+  };
+
+  return { user: userData, tokens };
+};
+
 module.exports = {
   register,
   login,
@@ -190,4 +226,5 @@ module.exports = {
   forgotPassword,
   verifyOTP,
   resetPassword,
+  changePassword,
 };
