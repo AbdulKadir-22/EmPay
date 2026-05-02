@@ -224,3 +224,75 @@
 2026-05-02 23:33:53:3353 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
 2026-05-02 23:49:00:490 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
 2026-05-02 23:49:00:490 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-03 00:38:33:3833 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 00:38:33:3833 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 00:39:30:3930 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 01:03:23:323 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-03 01:03:23:323 [31merror[39m: [31mGET /api/v1/users - jwt expired[39m
+2026-05-03 01:05:05:55 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 01:07:11:711 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:07:31:731 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:07:34:734 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:07:34:734 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:07:35:735 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:09:17:917 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:09:22:922 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 01:09:36:936 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-03 01:09:44:944 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-03 01:09:53:953 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 01:10:03:103 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-03 01:10:05:105 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-03 01:18:44:1844 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 01:18:52:1852 [31merror[39m: [31mPOST /api/v1/auth/login - Invalid email or password[39m
+2026-05-03 01:19:25:1925 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:19:28:1928 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:21:14:2114 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:21:15:2115 [31merror[39m: [31mPOST /api/v1/leaves/request - Insufficient leave balance[39m
+2026-05-03 01:31:20:3120 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 01:35:53:3553 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "faiz@empay.com" }[39m
+2026-05-03 01:36:00:360 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "faiz@empay.com" }[39m
+2026-05-03 01:36:09:369 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "faiz@empay.com" }[39m
+2026-05-03 01:36:25:3625 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "faiz@empay.com" }[39m
+2026-05-03 01:36:29:3629 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "faiz@empay.com" }[39m
+2026-05-03 01:37:21:3721 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.employeeprofiles index: employeeId_1 dup key: { employeeId: "emp-002" }[39m
+2026-05-03 02:08:37:837 [31merror[39m: [31mPOST /api/v1/users/invite - jwt expired[39m
+2026-05-03 02:08:37:837 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.employeeprofiles index: employeeId_1 dup key: { employeeId: "emp-002" }[39m
+2026-05-03 02:09:02:92 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.employeeprofiles index: employeeId_1 dup key: { employeeId: "emp-002" }[39m
+2026-05-03 02:09:13:913 [31merror[39m: [31mPOST /api/v1/users/invite - E11000 duplicate key error collection: test.employeeprofiles index: employeeId_1 dup key: { employeeId: "emp-002" }[39m
+2026-05-03 02:10:10:1010 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 02:27:07:277 [31merror[39m: [31mGET /api/v1/users/profile/me - jwt expired[39m
+2026-05-03 02:27:07:277 [31merror[39m: [31mGET /api/v1/users/profile/me - jwt expired[39m
+2026-05-03 02:29:12:2912 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 02:35:19:3519 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 02:51:39:5139 [31merror[39m: [31mGET /api/v1/payroll/payruns - jwt expired[39m
+2026-05-03 02:51:39:5139 [31merror[39m: [31mGET /api/v1/payroll/payruns - jwt expired[39m
+2026-05-03 03:07:16:716 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:07:16:716 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-03 03:07:16:716 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:07:16:716 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/reports/employees - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/reports/employees - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-03 03:09:44:944 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:09:45:945 [31merror[39m: [31mGET /api/v1/users - Authentication token is missing[39m
+2026-05-03 03:09:46:946 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:09:46:946 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-03 03:09:46:946 [31merror[39m: [31mGET /api/v1/notifications/me - Authentication token is missing[39m
+2026-05-03 03:09:46:946 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-03 03:09:47:947 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-03 03:12:25:1225 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 03:12:25:1225 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 03:12:25:1225 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 03:12:25:1225 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 03:15:44:1544 [31merror[39m: [31mGET /api/v1/users/dashboard - Authentication token is missing[39m
+2026-05-03 03:20:17:2017 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 03:20:17:2017 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 03:20:17:2017 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 03:20:17:2017 [31merror[39m: [31mGET /api/v1/users/dashboard - jwt expired[39m
+2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
+2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
+2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m

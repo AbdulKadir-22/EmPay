@@ -137,9 +137,25 @@ const PayrunPage = () => {
 
         {/* Back + Title */}
         <div className="mb-6">
-          <button onClick={() => navigate('/dashboard/payroll/payrun')} className="flex items-center gap-1.5 text-sm text-brand-muted hover:text-brand-purple transition-colors mb-3">
-            <ArrowLeft size={16} /> Back to Payruns
-          </button>
+          <div className="flex items-center gap-4 mb-3">
+            <button onClick={() => navigate('/dashboard/payroll/payrun')} className="p-2 rounded-xl bg-brand-surface border border-border text-brand-muted hover:text-brand-text transition-colors">
+              <ArrowLeft size={20} />
+            </button>
+            <div className="flex bg-brand-surface rounded-lg p-0.5 border border-border">
+              <button onClick={() => navigate('/dashboard/payroll', { state: { tab: 'dashboard' } })}
+                className="px-4 py-1.5 rounded-md text-xs font-medium text-brand-muted hover:text-brand-text transition-all cursor-pointer">
+                Dashboard
+              </button>
+              <button onClick={() => navigate('/dashboard/payroll/payrun')}
+                className="px-4 py-1.5 rounded-md text-xs font-medium bg-brand-purple text-white shadow-sm cursor-pointer">
+                Payrun
+              </button>
+              <button onClick={() => navigate('/dashboard/payroll', { state: { tab: 'salary' } })}
+                className="px-4 py-1.5 rounded-md text-xs font-medium text-brand-muted hover:text-brand-text transition-all cursor-pointer">
+                Salary Setup
+              </button>
+            </div>
+          </div>
           <div className="flex items-center justify-between flex-wrap gap-4">
             <h1 className="text-2xl font-bold text-brand-text font-syne">{pr.name}</h1>
             <div className="flex items-center gap-3">
@@ -225,12 +241,16 @@ const PayrunPage = () => {
           <div className="flex items-center gap-4">
             <h1 className="text-2xl lg:text-3xl font-bold text-brand-text font-syne">Payrun</h1>
             <div className="flex bg-brand-surface rounded-lg p-0.5 border border-border">
-              <button onClick={() => navigate('/dashboard/payroll')}
+              <button onClick={() => navigate('/dashboard/payroll', { state: { tab: 'dashboard' } })}
                 className="px-4 py-1.5 rounded-md text-xs font-medium text-brand-muted hover:text-brand-text transition-all cursor-pointer">
                 Dashboard
               </button>
               <button className="px-4 py-1.5 rounded-md text-xs font-medium bg-brand-purple text-white shadow-sm cursor-pointer">
                 Payrun
+              </button>
+              <button onClick={() => navigate('/dashboard/payroll', { state: { tab: 'salary' } })}
+                className="px-4 py-1.5 rounded-md text-xs font-medium text-brand-muted hover:text-brand-text transition-all cursor-pointer">
+                Salary Setup
               </button>
             </div>
           </div>

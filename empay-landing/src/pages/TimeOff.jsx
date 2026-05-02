@@ -68,13 +68,17 @@ const TimeOff = () => {
       return;
     }
     setSubmitting(true);
+    console.log('Submitting leave request:', formData);
     try {
-      await leaveAPI.request({
+      const payload = {
         leaveTypeId: formData.leaveTypeId,
         startDate: new Date(formData.startDate).toISOString(),
         endDate: new Date(formData.endDate).toISOString(),
         reason: formData.reason,
-      });
+      };
+      console.log('Request payload:', payload);
+      const response = await leaveAPI.request(payload);
+      console.log('Request success:', response.data);
       showToast('Leave request submitted!');
       setShowModal(false);
       setFormData({ leaveTypeId: '', startDate: '', endDate: '', reason: '' });
@@ -84,6 +88,7 @@ const TimeOff = () => {
       const allocRes = await leaveAPI.getMyAllocations(new Date().getFullYear());
       setAllocations(allocRes.data.data.allocations || []);
     } catch (err) {
+      console.error('Submission error:', err);
       showToast(err.response?.data?.message || 'Failed to submit request', 'error');
     } finally {
       setSubmitting(false);
@@ -133,7 +138,7 @@ const TimeOff = () => {
             initial={{ opacity: 0, y: -20, x: '-50%' }}
             animate={{ opacity: 1, y: 0, x: '-50%' }}
             exit={{ opacity: 0, y: -20, x: '-50%' }}
-            className={`fixed top-20 left-1/2 z-50 flex items-center gap-2 px-5 py-3 rounded-xl shadow-2xl text-sm font-medium
+            className={`fixed top-10 left-1/2 z-[100] flex items-center gap-2 px-5 py-3 rounded-xl shadow-2xl text-sm font-medium
               ${toast.type === 'error' ? 'bg-red-500 text-white' : 'bg-emerald-500 text-white'}`}
           >
             {toast.type === 'error' ? <AlertCircle size={16} /> : <CheckCircle size={16} />}

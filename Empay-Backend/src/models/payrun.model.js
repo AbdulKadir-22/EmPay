@@ -34,6 +34,11 @@ const payrunSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
+    company: {
+      type: String,
+      required: true,
+      index: true,
+    },
     finalizedAt: {
       type: Date,
     },

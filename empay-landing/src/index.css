@@ -45,6 +45,7 @@
 
   html {
     scroll-behavior: smooth;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   body {
@@ -52,7 +53,7 @@
     color: var(--brand-text);
     font-family: var(--font-dm-sans);
     overflow-x: hidden;
-    @apply transition-colors duration-500;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   ::-webkit-scrollbar {

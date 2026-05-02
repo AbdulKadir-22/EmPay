@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Loader2, AlertCircle, Download } from 'lucide-react';
+import { ArrowLeft, Loader2, AlertCircle, Printer } from 'lucide-react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
 import { payslipAPI } from '../services/api';
 
@@ -13,6 +13,7 @@ const PayslipView = () => {
   const [payslip, setPayslip] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const printRef = useRef(null);
 
   useEffect(() => {
     const fetch = async () => {
@@ -28,6 +29,48 @@ const PayslipView = () => {
     };
     fetch();
   }, [payslipId]);
+
+  const handlePrint = () => {
+    const content = printRef.current;
+    if (!content) return;
+    
+    const printWindow = window.open('', '_blank', 'width=900,height=700');
+    printWindow.document.write(`
+      <html>
+      <head>
+        <title>Payslip - ${payslip.employee?.firstName || payslip.employee?.email} - ${MONTHS[payslip.month-1]} ${payslip.year}</title>
+        <style>
+          body { font-family: sans-serif; padding: 40px; color: #333; }
+          .payslip-card { border: 2px solid #7c3aed; border-radius: 16px; overflow: hidden; max-width: 800px; margin: auto; }
+          .header { background: #7c3aed; color: white; padding: 24px; display: flex; justify-content: space-between; }
+          .info-section { padding: 24px; border-bottom: 1px solid #eee; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; }
+          .info-pair { display: flex; gap: 8px; }
+          .info-label { color: #666; width: 120px; }
+          .info-val { font-weight: bold; }
+          .table-container { padding: 24px; }
+          table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; border: 1px solid #eee; }
+          th { background: #7c3aed; color: white; padding: 10px; text-align: left; }
+          td { padding: 10px; border-bottom: 1px solid #eee; }
+          .right { text-align: right; }
+          .net-payable { margin: 24px; padding: 20px; background: #f3f0ff; border: 1px solid #7c3aed; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
+          .net-amount { font-size: 24px; font-weight: 800; color: #7c3aed; }
+          .footer { text-align: center; margin-top: 40px; font-size: 10px; color: #999; }
+          @media print { .no-print { display: none; } }
+        </style>
+      </head>
+      <body>
+        ${content.innerHTML}
+        <div class="footer">System Generated Payslip - No Signature Required</div>
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => {
+      printWindow.print();
+      printWindow.close();
+    }, 500);
+  };
 
   if (loading) {
     return (
@@ -70,10 +113,15 @@ const PayslipView = () => {
   const deductionItems = [
     ...(snap.deductions || []).map(d => ({ name: d.name, amount: d128(d.amount) })),
   ];
-  // Add PF estimate
-  deductionItems.push({ name: 'PF Employee (12%)', amount: parseFloat((base * 0.12).toFixed(2)) });
-  if (gross > 50000) {
-    deductionItems.push({ name: 'Tax Deduction', amount: parseFloat(((gross - 50000) * 0.10).toFixed(2)) });
+
+  // Add Statutory from breakdown
+  if (snap.breakdown) {
+    Object.entries(snap.breakdown).forEach(([key, val]) => {
+      deductionItems.push({ 
+        name: key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), 
+        amount: d128(val) 
+      });
+    });
   }
 
   const totalEarnings = earnings.reduce((s, e) => s + e.amount, 0);
@@ -101,17 +149,29 @@ const PayslipView = () => {
 
   return (
     <DashboardLayout>
-      <button onClick={() => navigate(-1)} className="flex items-center gap-1.5 text-sm text-brand-muted hover:text-brand-purple transition-colors mb-4">
-        <ArrowLeft size={16} /> Back
-      </button>
+      <div className="flex items-center justify-between mb-4">
+        <button onClick={() => navigate(-1)} className="flex items-center gap-1.5 text-sm text-brand-muted hover:text-brand-purple transition-colors">
+          <ArrowLeft size={16} /> Back
+        </button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={handlePrint}
+          className="flex items-center gap-2 px-5 py-2 bg-brand-purple text-white text-sm font-bold rounded-xl shadow-lg shadow-brand-purple/20 transition-all cursor-pointer"
+        >
+          <Printer size={18} /> PRINT PAYSLIP
+        </motion.button>
+      </div>
 
-      {/* Payslip Card */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-        className="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-brand-purple/20">
+      <motion.div 
+        ref={printRef}
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }}
+        className="payslip-card max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-brand-purple/20"
+      >
         
-        {/* Header Band */}
-        <div className="bg-gradient-to-r from-brand-purple to-brand-purple/80 p-6">
-          <div className="flex items-center justify-between">
+        <div className="header bg-gradient-to-r from-brand-purple to-brand-purple/80 p-6">
+          <div className="flex items-center justify-between w-full">
             <div>
               <h2 className="text-white text-xl font-bold font-syne">EmPay</h2>
               <p className="text-white/70 text-xs mt-0.5">HRMS & Payroll</p>
@@ -123,42 +183,45 @@ const PayslipView = () => {
           </div>
         </div>
 
-        {/* Employee Info */}
-        <div className="p-6 border-b-2 border-gray-100">
-          <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
-            <InfoPair label="Employee Name" value={emp.firstName ? `${emp.firstName} ${emp.lastName || ''}` : emp.email} />
-            <InfoPair label="PAN" value={emp.governmentIds?.pan || '—'} />
-            <InfoPair label="Employee Code" value={emp.employeeId || '—'} />
-            <InfoPair label="UAN" value="—" />
-            <InfoPair label="Department" value={emp.department || '—'} />
-            <InfoPair label="Bank A/c No." value={emp.bankDetails?.accountNumber || '—'} />
-            <InfoPair label="Date of Joining" value={emp.joiningDate ? new Date(emp.joiningDate).toLocaleDateString('en-IN') : '—'} />
-            <InfoPair label="Pay Period" value={`${startDate.toLocaleDateString('en-IN')} to ${endDate.toLocaleDateString('en-IN')}`} />
-          </div>
+        <div className="info-section p-6 border-b-2 border-gray-100 grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+          <InfoPair label="Employee Name" value={emp.firstName ? `${emp.firstName} ${emp.lastName || ''}` : emp.email} />
+          <InfoPair label="PAN" value={emp.governmentIds?.pan || '—'} />
+          <InfoPair label="Employee Code" value={emp.employeeId || '—'} />
+          <InfoPair label="UAN" value="—" />
+          <InfoPair label="Department" value={emp.department || '—'} />
+          <InfoPair label="Bank A/c No." value={emp.bankDetails?.accountNumber || '—'} />
+          <InfoPair label="Date of Joining" value={emp.joiningDate ? new Date(emp.joiningDate).toLocaleDateString('en-IN') : '—'} />
+          <InfoPair label="Pay Period" value={`${startDate.toLocaleDateString('en-IN')} to ${endDate.toLocaleDateString('en-IN')}`} />
         </div>
 
-        {/* Worked Days */}
         <div className="mx-6 mt-4">
           <div className="rounded-xl overflow-hidden border border-gray-200">
             <div className="bg-brand-purple/90 text-white px-4 py-2 flex justify-between text-xs font-semibold">
-              <span>Worked Days</span>
+              <span>Worked Days Summary</span>
               <span>Number of Days</span>
             </div>
             <div className="divide-y divide-gray-100">
               <div className="px-4 py-2 flex justify-between text-sm text-gray-700">
-                <span>Attendance</span>
-                <span className="font-medium">{attend.presentDays || 0} Days</span>
+                <span>Attendance (Present)</span>
+                <span className="font-medium">{attend.presentDays || 0}</span>
               </div>
-              <div className="px-4 py-2 flex justify-between text-sm text-gray-700 font-semibold bg-gray-50">
-                <span>Total</span>
-                <span>{attend.totalDays || 0} Days</span>
+              <div className="px-4 py-2 flex justify-between text-sm text-gray-700">
+                <span>Paid Time Off (Leaves)</span>
+                <span className="font-medium">{attend.absentDays - attend.lopDays || 0}</span>
+              </div>
+              <div className="px-4 py-2 flex justify-between text-sm text-red-600">
+                <span>LWP / LOP (Unpaid)</span>
+                <span className="font-medium">{attend.lopDays || 0}</span>
+              </div>
+              <div className="px-4 py-2 flex justify-between text-sm text-gray-700 font-semibold bg-gray-50 border-t-2 border-gray-200">
+                <span>Total Days in Month</span>
+                <span>{attend.totalDays || 0}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Earnings & Deductions */}
-        <div className="mx-6 mt-4 mb-4">
+        <div className="table-container mx-6 mt-4 mb-4">
           <div className="rounded-xl overflow-hidden border border-gray-200">
             <div className="bg-brand-purple/90 text-white grid grid-cols-4 px-4 py-2 text-xs font-semibold">
               <span>Earnings</span>
@@ -175,30 +238,25 @@ const PayslipView = () => {
                   <span className="text-right font-mono text-red-600">{deductionItems[i] ? `- ₹${deductionItems[i].amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}` : ''}</span>
                 </div>
               ))}
-              {/* Gross row */}
               <div className="grid grid-cols-4 px-4 py-2 border-t-2 border-gray-200 bg-gray-50 font-semibold text-sm">
                 <span className="text-gray-800">Gross</span>
                 <span className="text-right font-mono text-gray-800">₹{totalEarnings.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
-                <span></span>
-                <span></span>
+                <span className="pl-4">Total Ded.</span>
+                <span className="text-right font-mono text-red-600">₹{deductions.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Net Payable */}
-        <div className="mx-6 mb-6">
-          <div className="rounded-xl overflow-hidden bg-gradient-to-r from-brand-purple/10 to-brand-green/10 border border-brand-purple/20 p-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-bold text-gray-800">Total Net Payable</p>
-                <p className="text-[11px] text-gray-500">(Gross Earning - Total Deductions)</p>
-              </div>
-              <div className="text-right">
-                <p className="text-2xl font-bold text-brand-purple font-syne">₹{net.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</p>
-              </div>
+        <div className="net-payable mx-6 mb-6">
+          <div className="flex items-center justify-between w-full">
+            <div>
+              <p className="text-sm font-bold text-gray-800 uppercase tracking-wide">Net Payable Amount</p>
+              <p className="text-[11px] text-gray-500 font-medium">({numberToWords(net)})</p>
             </div>
-            <p className="text-xs text-brand-purple/70 mt-2 italic">{numberToWords(net)}</p>
+            <div className="text-right">
+              <p className="net-amount font-syne">₹{net.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</p>
+            </div>
           </div>
         </div>
       </motion.div>

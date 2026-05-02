@@ -76,4 +76,10 @@ export const reportAPI = {
   getSalaryStatement: (employeeId, year) => api.get('/reports/salary-statement', { params: { employeeId, year } }),
 };
 
+export const notificationAPI = {
+  getMy: () => api.get('/notifications/me'),
+  markRead: (id) => api.patch(`/notifications/${id}/read`),
+  markAllRead: () => api.patch('/notifications/mark-all-read'),
+};
+
 export default api;

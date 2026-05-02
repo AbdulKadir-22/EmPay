@@ -12,8 +12,8 @@ const envSchema = z.object({
   JWT_ACCESS_EXPIRY: z.string().default('15m'),
   JWT_REFRESH_EXPIRY: z.string().default('7d'),
   RESEND_API_KEY: z.string().startsWith('re_'),
-  RATE_LIMIT_WINDOW_MS: z.string().transform(Number).default('900000'),
-  RATE_LIMIT_MAX_REQUESTS: z.string().transform(Number).default('100'),
+  RATE_LIMIT_WINDOW_MS: z.string().transform(Number).default('60000'), // 1 minute
+  RATE_LIMIT_MAX_REQUESTS: z.string().transform(Number).default('10000'),
 });
 
 const envVars = envSchema.safeParse(process.env);

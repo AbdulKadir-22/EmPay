@@ -48,16 +48,14 @@ const Attendance = () => {
         let startDate, endDate;
         if (isManagement && viewMode === 'day') {
           const d = new Date(selectedDate);
-          d.setHours(0, 0, 0, 0);
-          startDate = d.toISOString();
-          const end = new Date(d);
-          end.setHours(23, 59, 59, 999);
-          endDate = end.toISOString();
+          // Normalize to UTC Start of Day
+          startDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0)).toISOString();
+          endDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 999)).toISOString();
         } else {
           const y = selectedDate.getFullYear();
           const m = selectedDate.getMonth();
-          startDate = new Date(y, m, 1).toISOString();
-          endDate = new Date(y, m + 1, 0, 23, 59, 59, 999).toISOString();
+          startDate = new Date(Date.UTC(y, m, 1, 0, 0, 0)).toISOString();
+          endDate = new Date(Date.UTC(y, m + 1, 0, 23, 59, 59, 999)).toISOString();
         }
         const res = await attendanceAPI.getSummary({ startDate, endDate });
         setRecords(res.data.data.summary || []);

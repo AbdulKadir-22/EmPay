@@ -32,8 +32,12 @@ const requestLeave = async (userId, data) => {
     year: start.getFullYear(),
   });
 
-  if (!allocation || allocation.remainingDays < days) {
-    throw new Error('Insufficient leave balance');
+  if (!allocation) {
+    throw new Error(`No leave allocation found for this year (${start.getFullYear()}). Please contact HR.`);
+  }
+
+  if (allocation.remainingDays < days) {
+    throw new Error(`Insufficient leave balance. Requested: ${days} days, Available: ${allocation.remainingDays} days.`);
   }
 
   return LeaveRequest.create({

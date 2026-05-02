@@ -4,7 +4,7 @@ const asyncHandler = require('../utils/asyncHandler');
 const { formatResponse } = require('../utils/response.util');
 
 const createPayrun = asyncHandler(async (req, res) => {
-  const payrun = await payrunService.createPayrun(req.body, req.user._id);
+  const payrun = await payrunService.createPayrun(req.body, req.user._id, req.user.company);
   res.status(201).json(
     formatResponse(true, 'Payrun created successfully', { payrun }, null, req)
   );
@@ -25,7 +25,7 @@ const finalizePayrun = asyncHandler(async (req, res) => {
 });
 
 const getPayruns = asyncHandler(async (req, res) => {
-  const payruns = await payrunService.getPayruns();
+  const payruns = await payrunService.getPayruns(req.user.company);
   res.status(200).json(
     formatResponse(true, 'Payruns fetched', { payruns }, null, req)
   );

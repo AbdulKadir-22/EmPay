@@ -13,22 +13,7 @@ const updateSalaryStructure = z.object({
   params: z.object({
     userId: z.string(),
   }),
-  body: z.object({
-    baseSalary: z.number().min(0),
-    allowances: z.array(z.object({
-      name: z.string(),
-      amount: z.number().min(0),
-      isTaxable: z.boolean().optional(),
-    })).optional(),
-    deductions: z.array(z.object({
-      name: z.string(),
-      amount: z.number().min(0),
-      isStatutory: z.boolean().optional(),
-    })).optional(),
-    pfEnabled: z.boolean().optional(),
-    taxEnabled: z.boolean().optional(),
-    effectiveFrom: z.string().datetime(),
-  }),
+  body: z.any(),
 });
 
 module.exports = {

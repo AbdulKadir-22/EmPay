@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Building2, Briefcase, MapPin, Phone, Calendar, Shield, Sun, Moon, Loader2, AlertCircle } from 'lucide-react';
+import { Mail, Building2, Briefcase, MapPin, Phone, Calendar, Shield, Sun, Moon, Loader2, AlertCircle, Edit3, Save, X, Settings as SettingsIcon } from 'lucide-react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
-import { userAPI } from '../services/api';
+import { userAPI, employeeAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 const TABS = ['Resume', 'Private Info', 'Salary Info', 'Security'];
@@ -13,24 +13,42 @@ const Profile = () => {
   const { user: currentUser } = useAuth();
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('Resume');
+  const [isEditing, setIsEditing] = useState(false);
+  const [editForm, setEditForm] = useState({});
   const isSelf = !userId || userId === currentUser?._id;
 
   useEffect(() => {
-    const fetch = async () => {
-      setLoading(true);
-      try {
-        const res = await userAPI.getProfile(isSelf ? null : userId);
-        setProfileData(res.data.data);
-      } catch (err) {
-        setError(err.response?.data?.message || 'Failed to load profile');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetch();
+    fetchProfile();
   }, [userId, isSelf]);
+
+  const fetchProfile = async () => {
+    setLoading(true);
+    try {
+      const res = await userAPI.getProfile(isSelf ? null : userId);
+      setProfileData(res.data.data);
+      setEditForm(res.data.data.profile || {});
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to load profile');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await employeeAPI.updateProfile(isSelf ? null : userId, editForm);
+      setIsEditing(false);
+      fetchProfile();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to update profile');
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const toggleTheme = () => {
     document.documentElement.classList.toggle('dark');
@@ -99,11 +117,35 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Theme Toggle */}
-          <button onClick={toggleTheme} className="p-3 rounded-xl bg-brand-surface border border-border text-brand-muted hover:text-brand-purple hover:border-brand-purple transition-all" title="Toggle Theme">
-            <Sun size={20} className="dark:hidden" />
-            <Moon size={20} className="hidden dark:block" />
-          </button>
+          {/* Actions */}
+          <div className="flex items-center gap-3">
+            {isSelf && (
+              <button
+                onClick={isEditing ? handleSave : () => setIsEditing(true)}
+                disabled={saving}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all cursor-pointer
+                  ${isEditing 
+                    ? 'bg-brand-green text-white shadow-brand-green/20 hover:bg-brand-green/90' 
+                    : 'bg-brand-purple text-white shadow-brand-purple/20 hover:bg-brand-purple/90'
+                  }`}
+              >
+                {saving ? <Loader2 size={18} className="animate-spin" /> : isEditing ? <Save size={18} /> : <Edit3 size={18} />}
+                {isEditing ? 'SAVE PROFILE' : 'EDIT PROFILE'}
+              </button>
+            )}
+            {isEditing && (
+              <button
+                onClick={() => { setIsEditing(false); setEditForm(profileData.profile || {}); }}
+                className="p-2.5 rounded-xl bg-brand-surface border border-border text-brand-muted hover:text-red-500 transition-all"
+              >
+                <X size={20} />
+              </button>
+            )}
+            <button onClick={toggleTheme} className="p-3 rounded-xl bg-brand-surface border border-border text-brand-muted hover:text-brand-purple hover:border-brand-purple transition-all" title="Toggle Theme">
+              <Sun size={20} className="dark:hidden" />
+              <Moon size={20} className="hidden dark:block" />
+            </button>
+          </div>
         </div>
       </motion.div>
 
@@ -123,9 +165,9 @@ const Profile = () => {
 
       {/* Tab Content */}
       <motion.div key={activeTab} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
-        {activeTab === 'Resume' && <ResumeTab profile={p} />}
-        {activeTab === 'Private Info' && <PrivateInfoTab profile={p} />}
-        {activeTab === 'Salary Info' && <SalaryInfoTab monthly={monthly} yearly={yearly} allowances={allowances} deductions={deductions} sal={sal} />}
+        {activeTab === 'Resume' && <ResumeTab profile={isEditing ? editForm : p} isEditing={isEditing} setForm={setEditForm} />}
+        {activeTab === 'Private Info' && <PrivateInfoTab profile={isEditing ? editForm : p} isEditing={isEditing} setForm={setEditForm} />}
+        {activeTab === 'Salary Info' && <SalaryInfoTab monthly={monthly} yearly={yearly} allowances={allowances} deductions={deductions} sal={sal} userId={profileData?._id} role={currentUser?.role} />}
         {activeTab === 'Security' && <SecurityTab email={profileData?.email} role={profileData?.role} lastLogin={profileData?.lastLogin} isSelf={isSelf} />}
       </motion.div>
     </DashboardLayout>
@@ -142,101 +184,141 @@ const InfoChip = ({ icon: Icon, text }) => {
   );
 };
 
-/* ── Resume Tab ── */
-const ResumeTab = ({ profile }) => (
-  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <div className="lg:col-span-2 space-y-6">
-      <SectionCard title="About">
-        <p className="text-sm text-brand-muted leading-relaxed">{profile.about || 'No information provided yet. Update your profile to add a bio.'}</p>
-      </SectionCard>
-      <SectionCard title="What I love about my job">
-        <p className="text-sm text-brand-muted leading-relaxed">{profile.jobLove || 'Share what you love about your work here.'}</p>
-      </SectionCard>
-      <SectionCard title="My interests and hobbies">
-        <p className="text-sm text-brand-muted leading-relaxed">{profile.hobbies || 'Add your interests and hobbies here.'}</p>
-      </SectionCard>
-    </div>
-    <div className="space-y-6">
-      <SectionCard title="Skills">
-        <div className="flex flex-wrap gap-2">
-          {(profile.skills || []).length > 0 ? profile.skills.map((s, i) => (
-            <span key={i} className="px-3 py-1 rounded-lg bg-brand-purple/10 text-brand-purple text-xs font-medium">{s}</span>
-          )) : <p className="text-xs text-brand-muted">+ Add Skills</p>}
-        </div>
-      </SectionCard>
-      <SectionCard title="Certifications">
-        <div className="space-y-2">
-          {(profile.certifications || []).length > 0 ? profile.certifications.map((c, i) => (
-            <div key={i} className="text-sm text-brand-text">{c}</div>
-          )) : <p className="text-xs text-brand-muted">+ Add Skills</p>}
-        </div>
-      </SectionCard>
-    </div>
-  </div>
-);
+/* ── ResumeTab ── */
+const ResumeTab = ({ profile, isEditing, setForm }) => {
+  const handleChange = (e) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-/* ── Private Info Tab ── */
-const PrivateInfoTab = ({ profile }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <SectionCard title="Personal Information">
-      <InfoRow label="Phone" value={profile.phone} />
-      <InfoRow label="Employment Type" value={profile.employmentType?.replace('_', ' ')} />
-      <InfoRow label="Joining Date" value={profile.joiningDate ? new Date(profile.joiningDate).toLocaleDateString() : '—'} />
-    </SectionCard>
-    <SectionCard title="Bank Details">
-      <InfoRow label="Account Name" value={profile.bankDetails?.accountName} />
-      <InfoRow label="Account Number" value={profile.bankDetails?.accountNumber} />
-      <InfoRow label="Bank Name" value={profile.bankDetails?.bankName} />
-      <InfoRow label="IFSC Code" value={profile.bankDetails?.ifscCode} />
-    </SectionCard>
-    <SectionCard title="Government IDs">
-      <InfoRow label="PAN" value={profile.governmentIds?.pan} />
-      <InfoRow label="Aadhaar" value={profile.governmentIds?.aadhaar} />
-    </SectionCard>
-  </div>
-);
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="lg:col-span-2 space-y-6">
+        <SectionCard title="About">
+          {isEditing ? (
+            <textarea
+              name="about"
+              value={profile.about || ''}
+              onChange={handleChange}
+              className="w-full h-32 p-3 bg-brand-surface border border-border rounded-xl text-sm text-brand-text outline-none focus:border-brand-purple"
+              placeholder="Tell us about yourself..."
+            />
+          ) : (
+            <p className="text-sm text-brand-muted leading-relaxed">{profile.about || 'No information provided yet.'}</p>
+          )}
+        </SectionCard>
+        <SectionCard title="What I love about my job">
+          {isEditing ? (
+            <textarea
+              name="jobLove"
+              value={profile.jobLove || ''}
+              onChange={handleChange}
+              className="w-full h-24 p-3 bg-brand-surface border border-border rounded-xl text-sm text-brand-text outline-none focus:border-brand-purple"
+            />
+          ) : (
+            <p className="text-sm text-brand-muted leading-relaxed">{profile.jobLove || 'Share what you love about your work here.'}</p>
+          )}
+        </SectionCard>
+      </div>
+      <div className="space-y-6">
+        <SectionCard title="Skills">
+          <div className="flex flex-wrap gap-2">
+            {(profile.skills || []).map((s, i) => (
+              <span key={i} className="px-3 py-1 rounded-lg bg-brand-purple/10 text-brand-purple text-xs font-medium">{s}</span>
+            ))}
+            {!isEditing && (profile.skills || []).length === 0 && <p className="text-xs text-brand-muted">No skills added.</p>}
+          </div>
+        </SectionCard>
+      </div>
+    </div>
+  );
+};
+
+/* ── PrivateInfoTab ── */
+const PrivateInfoTab = ({ profile, isEditing, setForm }) => {
+  const updateNested = (category, field, value) => {
+    setForm(prev => ({
+      ...prev,
+      [category]: { ...prev[category], [field]: value }
+    }));
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <SectionCard title="Personal Information">
+        <InfoRow label="Phone" value={profile.phone} isEditing={isEditing} onChange={(v) => setForm(p => ({ ...p, phone: v }))} />
+        <InfoRow label="Department" value={profile.department} />
+        <InfoRow label="Designation" value={profile.designation} />
+      </SectionCard>
+      <SectionCard title="Bank Details">
+        <InfoRow label="Account Number" value={profile.bankDetails?.accountNumber} isEditing={isEditing} onChange={(v) => updateNested('bankDetails', 'accountNumber', v)} />
+        <InfoRow label="Bank Name" value={profile.bankDetails?.bankName} isEditing={isEditing} onChange={(v) => updateNested('bankDetails', 'bankName', v)} />
+        <InfoRow label="IFSC Code" value={profile.bankDetails?.ifscCode} isEditing={isEditing} onChange={(v) => updateNested('bankDetails', 'ifscCode', v)} />
+      </SectionCard>
+      <SectionCard title="Government IDs">
+        <InfoRow label="PAN" value={profile.governmentIds?.pan} isEditing={isEditing} onChange={(v) => updateNested('governmentIds', 'pan', v)} />
+        <InfoRow label="Aadhaar" value={profile.governmentIds?.aadhaar} isEditing={isEditing} onChange={(v) => updateNested('governmentIds', 'aadhaar', v)} />
+      </SectionCard>
+    </div>
+  );
+};
 
 /* ── Salary Info Tab ── */
-const SalaryInfoTab = ({ monthly, yearly, allowances, deductions, sal }) => (
-  <div className="space-y-6">
-    {/* Wage Summary */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="glass-card rounded-2xl p-6">
-        <p className="text-xs text-brand-muted mb-1">Monthly Wage</p>
-        <p className="text-2xl font-bold text-brand-text font-syne">₹{monthly.toLocaleString('en-IN')}<span className="text-sm font-normal text-brand-muted ml-1">/ Month</span></p>
-      </div>
-      <div className="glass-card rounded-2xl p-6">
-        <p className="text-xs text-brand-muted mb-1">Yearly Wage</p>
-        <p className="text-2xl font-bold text-brand-text font-syne">₹{yearly.toLocaleString('en-IN')}<span className="text-sm font-normal text-brand-muted ml-1">/ Yearly</span></p>
-      </div>
-    </div>
+const SalaryInfoTab = ({ monthly, yearly, allowances, deductions, sal, userId, role }) => {
+  const navigate = useNavigate();
+  const canEdit = ['ADMIN', 'PAYROLL_OFFICER'].includes(role);
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Salary Components */}
-      <SectionCard title="Salary Components">
-        <SalaryRow label="Basic Salary" amount={monthly} pct={50} desc="Basic salary from company cost" />
-        <SalaryRow label="House Rent Allowance" amount={monthly * 0.5} pct={50} desc="HRA provided to employees" />
-        {allowances.map((a, i) => (
-          <SalaryRow key={i} label={a.name} amount={parseFloat(a.amount?.$numberDecimal || a.amount || 0)} desc={a.isTaxable ? 'Taxable' : 'Non-taxable'} />
-        ))}
-      </SectionCard>
+  return (
+    <div className="space-y-6">
+      {/* Wage Summary */}
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex-1 glass-card rounded-2xl p-6">
+          <p className="text-xs text-brand-muted mb-1">Monthly Wage</p>
+          <p className="text-2xl font-bold text-brand-text font-syne">₹{monthly.toLocaleString('en-IN')}<span className="text-sm font-normal text-brand-muted ml-1">/ Month</span></p>
+        </div>
+        <div className="flex-1 glass-card rounded-2xl p-6">
+          <p className="text-xs text-brand-muted mb-1">Yearly Wage</p>
+          <p className="text-2xl font-bold text-brand-text font-syne">₹{yearly.toLocaleString('en-IN')}<span className="text-sm font-normal text-brand-muted ml-1">/ Yearly</span></p>
+        </div>
+        {canEdit && (
+          <div className="md:w-48 flex items-center justify-center glass-card rounded-2xl p-4 border-dashed border-brand-purple/30 group">
+            <button 
+              onClick={() => navigate(`/dashboard/payroll/salary/${userId}`)}
+              className="flex flex-col items-center gap-1 text-brand-purple group-hover:scale-110 transition-transform cursor-pointer"
+            >
+              <SettingsIcon size={24} />
+              <span className="text-[10px] font-bold uppercase tracking-wider">Configure Salary</span>
+            </button>
+          </div>
+        )}
+      </div>
 
-      {/* PF & Tax Deductions */}
-      <div className="space-y-6">
-        <SectionCard title="Provident Fund (PF) Contribution">
-          <SalaryRow label="Employee" amount={monthly * 0.12} pct={12} desc="PF calculated on basic salary" />
-          <SalaryRow label="Employer" amount={monthly * 0.12} pct={12} desc="PF calculated on basic salary" />
-        </SectionCard>
-        <SectionCard title="Tax Deductions">
-          {deductions.map((d, i) => (
-            <SalaryRow key={i} label={d.name} amount={parseFloat(d.amount?.$numberDecimal || d.amount || 0)} desc={d.isStatutory ? 'Statutory' : 'Voluntary'} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Salary Components */}
+        <SectionCard title="Salary Components">
+          <SalaryRow label="Basic Salary" amount={monthly} pct={50} desc="Basic salary from company cost" />
+          <SalaryRow label="House Rent Allowance" amount={monthly * 0.5} pct={50} desc="HRA provided to employees" />
+          {allowances.map((a, i) => (
+            <SalaryRow key={i} label={a.name} amount={parseFloat(a.amount?.$numberDecimal || a.amount || 0)} desc={a.isTaxable ? 'Taxable' : 'Non-taxable'} />
           ))}
-          {deductions.length === 0 && <p className="text-xs text-brand-muted">No deductions configured</p>}
         </SectionCard>
+
+        {/* PF & Tax Deductions */}
+        <div className="space-y-6">
+          <SectionCard title="Provident Fund (PF) Contribution">
+            <SalaryRow label="Employee" amount={monthly * 0.12} pct={12} desc="PF calculated on basic salary" />
+            <SalaryRow label="Employer" amount={monthly * 0.12} pct={12} desc="PF calculated on basic salary" />
+          </SectionCard>
+          <SectionCard title="Tax Deductions">
+            {deductions.map((d, i) => (
+              <SalaryRow key={i} label={d.name} amount={parseFloat(d.amount?.$numberDecimal || d.amount || 0)} desc={d.isStatutory ? 'Statutory' : 'Voluntary'} />
+            ))}
+            {deductions.length === 0 && <p className="text-xs text-brand-muted">No deductions configured</p>}
+          </SectionCard>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 /* ── Security Tab ── */
 const SecurityTab = ({ email, role, lastLogin, isSelf }) => {
@@ -271,10 +353,19 @@ const SectionCard = ({ title, children }) => (
   </div>
 );
 
-const InfoRow = ({ label, value }) => (
-  <div className="flex justify-between py-2.5 border-b border-border last:border-0">
+const InfoRow = ({ label, value, isEditing, onChange }) => (
+  <div className="flex justify-between items-center py-2.5 border-b border-border last:border-0">
     <span className="text-xs text-brand-muted">{label}</span>
-    <span className="text-sm text-brand-text font-medium">{value || '—'}</span>
+    {isEditing && onChange ? (
+      <input
+        type="text"
+        value={value || ''}
+        onChange={(e) => onChange(e.target.value)}
+        className="text-sm font-medium text-brand-text bg-brand-surface border border-border rounded px-2 py-0.5 outline-none focus:border-brand-purple"
+      />
+    ) : (
+      <span className="text-sm text-brand-text font-medium">{value || '—'}</span>
+    )}
   </div>
 );
 

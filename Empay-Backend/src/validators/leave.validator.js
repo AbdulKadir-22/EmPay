@@ -23,8 +23,8 @@ const allocateLeave = z.object({
 const requestLeave = z.object({
   body: z.object({
     leaveTypeId: z.string(),
-    startDate: z.string().datetime(),
-    endDate: z.string().datetime(),
+    startDate: z.string(),
+    endDate: z.string(),
     reason: z.string().min(5),
   }),
 });

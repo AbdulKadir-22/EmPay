@@ -7,8 +7,8 @@ const EmployeeProfile = require('../models/employeeProfile.model');
 const { calculateSalary } = require('../utils/salaryCalculator');
 const mongoose = require('mongoose');
 
-const createPayrun = async (data, adminId) => {
-  return Payrun.create({ ...data, processedBy: adminId });
+const createPayrun = async (data, adminId, company) => {
+  return Payrun.create({ ...data, processedBy: adminId, company });
 };
 
 const processPayroll = async (payrunId, company) => {
@@ -44,8 +44,7 @@ const processPayroll = async (payrunId, company) => {
       allowances: structure.allowances,
       deductions: structure.deductions,
       attendance: { totalDays: totalDaysInMonth, lopDays },
-      pfEnabled: structure.pfEnabled,
-      taxEnabled: structure.taxEnabled,
+      statutory: structure.statutory,
     });
 
     totalAmount += calculation.netSalary;
@@ -91,8 +90,7 @@ const finalizePayrun = async (payrunId, adminId, company) => {
         allowances: structure.allowances,
         deductions: structure.deductions,
         attendance: { totalDays: totalDaysInMonth, lopDays },
-        pfEnabled: structure.pfEnabled,
-        taxEnabled: structure.taxEnabled,
+        statutory: structure.statutory,
       });
 
       await Payslip.create([{
@@ -104,6 +102,8 @@ const finalizePayrun = async (payrunId, adminId, company) => {
           baseSalary: structure.baseSalary,
           allowances: structure.allowances,
           deductions: structure.deductions,
+          statutory: structure.statutory,
+          breakdown: calc.statutory, // Store PF/PT breakdown
         },
         attendanceSnapshot: {
           totalDays: totalDaysInMonth,
@@ -132,8 +132,11 @@ const finalizePayrun = async (payrunId, adminId, company) => {
   }
 };
 
-const getPayruns = async () => {
-  return Payrun.find().sort({ year: -1, month: -1 });
+const getPayruns = async (company) => {
+  const match = company === 'Default Company' 
+    ? { $or: [{ company: 'Default Company' }, { company: { $exists: false } }, { company: null }] }
+    : { company };
+  return Payrun.find(match).sort({ year: -1, month: -1 });
 };
 
 const getPayrunWithSlips = async (payrunId) => {
@@ -161,19 +164,28 @@ const getPayrunWithSlips = async (payrunId) => {
 
 /** Dashboard stats for payroll overview */
 const getPayrollDashboard = async (company) => {
-  // Warnings
-  const allUsers = await User.find({ company, status: 'ACTIVE' });
-  const profiles = await EmployeeProfile.find({ user: { $in: allUsers.map(u => u._id) } });
+  // Base query for users in this company
+  const companyMatch = company === 'Default Company' 
+    ? { $or: [{ company: 'Default Company' }, { company: { $exists: false } }, { company: null }] }
+    : { company };
+
+  const allUsers = await User.find({ ...companyMatch, status: 'ACTIVE' });
+  const userIds = allUsers.map(u => u._id);
+
+  // Optimized lookup: get all relevant profiles and structures in bulk
+  const [profiles, structures] = await Promise.all([
+    EmployeeProfile.find({ user: { $in: userIds } }),
+    SalaryStructure.find({ employee: { $in: userIds } })
+  ]);
+
+  const profileMap = new Map(profiles.map(p => [p.user.toString(), p]));
+  const structureMap = new Map(structures.map(s => [s.employee.toString(), s]));
   
   const withoutBank = profiles.filter(p => !p.bankDetails?.accountNumber).length;
-  const withoutSalary = [];
-  for (const u of allUsers) {
-    const s = await SalaryStructure.findOne({ employee: u._id });
-    if (!s) withoutSalary.push(u);
-  }
+  const withoutSalary = allUsers.filter(u => !structureMap.has(u._id.toString())).length;
 
   // Recent payruns
-  const recentPayruns = await Payrun.find().sort({ year: -1, month: -1 }).limit(5).lean();
+  const recentPayruns = await Payrun.find(companyMatch).sort({ year: -1, month: -1 }).limit(5).lean();
   const payrunsWithCount = await Promise.all(recentPayruns.map(async (pr) => {
     const slipCount = await Payslip.countDocuments({ payrun: pr._id });
     return { ...pr, payslipCount: slipCount };
@@ -186,7 +198,7 @@ const getPayrollDashboard = async (company) => {
     const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
     const m = d.getMonth() + 1;
     const y = d.getFullYear();
-    const payrun = await Payrun.findOne({ month: m, year: y, status: 'FINALIZED' });
+    const payrun = await Payrun.findOne({ ...companyMatch, month: m, year: y, status: 'FINALIZED' });
     monthlyCosts.push({
       month: m,
       year: y,
@@ -199,7 +211,7 @@ const getPayrollDashboard = async (company) => {
   return {
     warnings: {
       withoutBank,
-      withoutSalary: withoutSalary.length,
+      withoutSalary,
     },
     recentPayruns: payrunsWithCount,
     monthlyCosts,

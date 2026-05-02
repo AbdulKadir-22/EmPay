@@ -20,8 +20,18 @@ const payslipSchema = new mongoose.Schema(
     // Snapshots at time of generation
     salarySnapshot: {
       baseSalary: mongoose.Schema.Types.Decimal128,
-      allowances: [{ name: String, amount: mongoose.Schema.Types.Decimal128 }],
-      deductions: [{ name: String, amount: mongoose.Schema.Types.Decimal128 }],
+      allowances: [{ 
+        name: String, 
+        amount: mongoose.Schema.Types.Decimal128,
+        rateType: String
+      }],
+      deductions: [{ 
+        name: String, 
+        amount: mongoose.Schema.Types.Decimal128,
+        rateType: String
+      }],
+      statutory: mongoose.Schema.Types.Mixed,
+      breakdown: mongoose.Schema.Types.Mixed,
     },
     attendanceSnapshot: {
       totalDays: Number,

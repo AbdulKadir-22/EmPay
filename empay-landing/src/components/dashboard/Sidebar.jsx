@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Users, 
@@ -80,7 +80,11 @@ const Sidebar = ({ isOpen, onClose }) => {
       >
         {/* Brand header */}
         <div className="flex items-center justify-between p-5 border-b border-border">
-          <div className="flex items-center gap-2.5">
+          <Link 
+            to="/dashboard"
+            onClick={onClose}
+            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <img src="/Logo.png" alt="EmPay" className="h-9 w-auto object-contain" />
             <div className="flex flex-col">
               <span className="font-syne font-bold text-lg text-brand-text leading-tight">
@@ -90,7 +94,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                 {user?.company || 'Company'}
               </span>
             </div>
-          </div>
+          </Link>
           <button 
             onClick={onClose} 
             className="lg:hidden p-1.5 rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-bg transition-colors"

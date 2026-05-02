@@ -3,8 +3,8 @@ const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
 const clockIn = async (userId, ipAddress) => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const now = new Date();
+  const today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
 
   const existing = await Attendance.findOne({ employee: userId, date: today });
   if (existing) throw new Error('Already clocked in today');
@@ -19,8 +19,8 @@ const clockIn = async (userId, ipAddress) => {
 };
 
 const clockOut = async (userId, ipAddress) => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const now = new Date();
+  const today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
 
   const attendance = await Attendance.findOne({ employee: userId, date: today });
   if (!attendance) throw new Error('No clock-in record found for today');
@@ -37,14 +37,14 @@ const clockOut = async (userId, ipAddress) => {
 };
 
 const getTodayStatus = async (userId) => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const now = new Date();
+  const today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
   return Attendance.findOne({ employee: userId, date: today });
 };
 
 const manualEntry = async (adminId, data) => {
-  const date = new Date(data.date);
-  date.setHours(0, 0, 0, 0);
+  const d = new Date(data.date);
+  const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
 
   const update = {
     status: data.status,

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Rocket, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import Button from '../ui/Button';
+import { useTheme } from '../../context/ThemeContext';
 
-const Navbar = ({ isDark, toggleTheme }) => {
+const Navbar = () => {
+  const { isDark, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -53,7 +55,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
             
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted hover:text-brand-purple hover:border-brand-purple transition-all"
+              className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted hover:text-brand-purple hover:border-brand-purple transition-all cursor-pointer"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -71,13 +73,13 @@ const Navbar = ({ isDark, toggleTheme }) => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted"
+              className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted cursor-pointer"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             {!isAuthPage && (
               <button 
-                className="text-brand-text p-2"
+                className="text-brand-text p-2 cursor-pointer"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? <X /> : <Menu />}
