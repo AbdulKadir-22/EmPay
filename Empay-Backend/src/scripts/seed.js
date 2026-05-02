@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const User = require('../models/user.model');
 const EmployeeProfile = require('../models/employeeProfile.model');
 const LeaveType = require('../models/leaveType.model');
+const LeaveAllocation = require('../models/leaveAllocation.model');
 const SystemConfig = require('../models/systemConfig.model');
 const { hashPassword } = require('../utils/hash');
 
@@ -86,19 +87,36 @@ const seed = async () => {
       console.log('✅ Employee user seeded (employee@empay.com / Emp@123)');
     }
 
-    // 3. Seed Leave Types
+    // 3. Seed Leave Types (23 Paid Leave + 7 Sick Leave)
     const leaveTypes = [
-      { name: 'Sick Leave', code: 'SL', totalDays: 12, carryForward: true, maxCarryForward: 5 },
-      { name: 'Casual Leave', code: 'CL', totalDays: 12, carryForward: false },
-      { name: 'Paid Leave', code: 'PL', totalDays: 18, carryForward: true, maxCarryForward: 10 },
+      { name: 'Paid Leave', code: 'PL', totalDays: 23, carryForward: true, maxCarryForward: 10, description: 'Annual paid time off' },
+      { name: 'Sick Leave', code: 'SL', totalDays: 7, carryForward: false, description: 'Medical / health related leave' },
     ];
 
     for (const lt of leaveTypes) {
       await LeaveType.findOneAndUpdate({ code: lt.code }, lt, { upsert: true });
     }
-    console.log('✅ Leave types seeded');
+    console.log('✅ Leave types seeded (23 PL + 7 SL)');
 
-    // 4. Seed System Config
+    // 4. Auto-allocate leaves to ALL active users for current year
+    const currentYear = new Date().getFullYear();
+    const allUsers = await User.find({ status: 'ACTIVE' }).select('_id');
+    const savedTypes = await LeaveType.find({ isActive: true });
+
+    let allocCount = 0;
+    for (const user of allUsers) {
+      for (const lt of savedTypes) {
+        await LeaveAllocation.findOneAndUpdate(
+          { employee: user._id, leaveType: lt._id, year: currentYear },
+          { $setOnInsert: { totalDays: lt.totalDays, remainingDays: lt.totalDays, usedDays: 0 } },
+          { upsert: true, new: true }
+        );
+        allocCount++;
+      }
+    }
+    console.log(`✅ Leave allocations seeded (${allocCount} records for ${allUsers.length} users)`);
+
+    // 5. Seed System Config
     const configs = [
       { key: 'COMPANY_NAME', value: 'EmPay Inc.' },
       { key: 'STANDARD_WORK_HOURS', value: '8' },

@@ -1,34 +1,22 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Users, AlertCircle, RefreshCw } from 'lucide-react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
 import EmployeeCard from '../components/dashboard/EmployeeCard';
-import { dashboardAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { useEmployees } from '../hooks/useEmployees';
+import { CardSkeleton } from '../components/ui/Skeleton';
 
 const Dashboard = () => {
   const { user } = useAuth();
-  const [employees, setEmployees] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-
-  const fetchEmployees = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await dashboardAPI.getEmployees();
-      setEmployees(response.data.data.users || []);
-    } catch (err) {
-      setError(err.response?.data?.message || 'Failed to load employees');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchEmployees();
-  }, []);
+  
+  const { 
+    data: employees = [], 
+    isLoading, 
+    error, 
+    refetch 
+  } = useEmployees();
 
   // Filtered employees based on search
   const filteredEmployees = useMemo(() => {
@@ -67,7 +55,7 @@ const Dashboard = () => {
           </div>
 
           {/* Stats badges */}
-          {isManagement && !loading && (
+          {isManagement && !isLoading && (
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-xs font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -83,10 +71,11 @@ const Dashboard = () => {
       </div>
 
       {/* Content */}
-      {loading ? (
-        <div className="flex flex-col items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-brand-purple/20 border-t-brand-purple rounded-full animate-spin" />
-          <p className="text-brand-muted text-sm mt-4">Loading employees...</p>
+      {isLoading ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {[...Array(8)].map((_, i) => (
+            <CardSkeleton key={i} />
+          ))}
         </div>
       ) : error ? (
         <motion.div
@@ -98,9 +87,9 @@ const Dashboard = () => {
             <AlertCircle size={28} className="text-red-500" />
           </div>
           <p className="text-brand-text font-medium mb-1">Failed to load employees</p>
-          <p className="text-brand-muted text-sm mb-4">{error}</p>
+          <p className="text-brand-muted text-sm mb-4">{error.response?.data?.message || error.message || 'Failed to load employees'}</p>
           <button
-            onClick={fetchEmployees}
+            onClick={() => refetch()}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-purple text-white text-sm font-medium
               hover:bg-brand-purple/90 transition-colors cursor-pointer"
           >

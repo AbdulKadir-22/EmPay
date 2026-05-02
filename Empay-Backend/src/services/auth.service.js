@@ -4,6 +4,7 @@ const { hashPassword, comparePassword } = require('../utils/hash');
 const { generateAuthTokens } = require('./token.service');
 const { verifyRefreshToken } = require('../utils/jwt');
 const mongoose = require('mongoose');
+const { allocateLeavesForUser } = require('../utils/leaveAutoAllocator');
 
 /**
  * Register a new user and employee profile
@@ -48,6 +49,14 @@ const register = async (userData) => {
     }], { session });
 
     await session.commitTransaction();
+
+    // Auto-allocate leaves for the new user (outside transaction — non-critical)
+    try {
+      await allocateLeavesForUser(user[0]._id);
+    } catch (err) {
+      console.warn('Leave auto-allocation skipped for new registration:', err.message);
+    }
+
     return user[0];
   } catch (error) {
     await session.abortTransaction();

@@ -2,6 +2,7 @@ const User = require('../models/user.model');
 const EmployeeProfile = require('../models/employeeProfile.model');
 const { hashPassword } = require('../utils/hash');
 const mongoose = require('mongoose');
+const { allocateLeavesForUser } = require('../utils/leaveAutoAllocator');
 
 /**
  * Invite a new user
@@ -35,6 +36,14 @@ const inviteUser = async (data) => {
     }], { session });
 
     await session.commitTransaction();
+
+    // Auto-allocate leaves for the invited user (outside transaction — non-critical)
+    try {
+      await allocateLeavesForUser(user[0]._id);
+    } catch (err) {
+      console.warn('Leave auto-allocation skipped for invited user:', err.message);
+    }
+
     return { user: user[0], tempPassword };
   } catch (error) {
     await session.abortTransaction();

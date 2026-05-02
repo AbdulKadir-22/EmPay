@@ -296,3 +296,10 @@
 2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
 2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/notifications/me - jwt expired[39m
 2026-05-03 03:35:20:3520 [31merror[39m: [31mGET /api/v1/payroll/dashboard - jwt expired[39m
+2026-05-03 03:47:24:4724 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 03:48:13:4813 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:17:4817 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:18:4818 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:19:4819 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:19:4819 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:35:4835 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m

@@ -1,25 +1,25 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  ChevronLeft, ChevronRight, Clock, LogIn, LogOut, 
+  ChevronLeft, ChevronRight, LogIn, LogOut, 
   CalendarDays, Loader2, AlertCircle
 } from 'lucide-react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
-import { attendanceAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { 
+  useTodayAttendance, 
+  useAttendanceSummary, 
+  useClockIn, 
+  useClockOut 
+} from '../hooks/useAttendance';
+import { TableSkeleton } from '../components/ui/Skeleton';
+import DataTable from '../components/ui/DataTable';
 
 const Attendance = () => {
   const { user } = useAuth();
   const isManagement = ['ADMIN', 'HR', 'PAYROLL_OFFICER'].includes(user?.role);
 
-  const [todayStatus, setTodayStatus] = useState(null);
-  const [records, setRecords] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [clockLoading, setClockLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [toast, setToast] = useState(null);
-
-  // Date navigation
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [viewMode, setViewMode] = useState('day'); // day or month
 
@@ -28,73 +28,48 @@ const Attendance = () => {
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Fetch today's clock status
-  useEffect(() => {
-    const fetchToday = async () => {
-      try {
-        const res = await attendanceAPI.getTodayStatus();
-        setTodayStatus(res.data.data.attendance);
-      } catch { /* not clocked in */ }
-    };
-    fetchToday();
-  }, []);
-
-  // Fetch records based on date selection
-  useEffect(() => {
-    const fetchRecords = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        let startDate, endDate;
-        if (isManagement && viewMode === 'day') {
-          const d = new Date(selectedDate);
-          // Normalize to UTC Start of Day
-          startDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0)).toISOString();
-          endDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 999)).toISOString();
-        } else {
-          const y = selectedDate.getFullYear();
-          const m = selectedDate.getMonth();
-          startDate = new Date(Date.UTC(y, m, 1, 0, 0, 0)).toISOString();
-          endDate = new Date(Date.UTC(y, m + 1, 0, 23, 59, 59, 999)).toISOString();
-        }
-        const res = await attendanceAPI.getSummary({ startDate, endDate });
-        setRecords(res.data.data.summary || []);
-      } catch (err) {
-        setError(err.response?.data?.message || 'Failed to load attendance');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchRecords();
+  // React Query Hooks
+  const { data: todayStatus } = useTodayAttendance();
+  
+  const queryParams = useMemo(() => {
+    let startDate, endDate;
+    if (isManagement && viewMode === 'day') {
+      const d = new Date(selectedDate);
+      startDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0)).toISOString();
+      endDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 999)).toISOString();
+    } else {
+      const y = selectedDate.getFullYear();
+      const m = selectedDate.getMonth();
+      startDate = new Date(Date.UTC(y, m, 1, 0, 0, 0)).toISOString();
+      endDate = new Date(Date.UTC(y, m + 1, 0, 23, 59, 59, 999)).toISOString();
+    }
+    return { startDate, endDate };
   }, [selectedDate, viewMode, isManagement]);
 
+  const { data: records = [], isLoading: loading, error } = useAttendanceSummary(queryParams);
+  
+  const clockInMutation = useClockIn();
+  const clockOutMutation = useClockOut();
+  const clockLoading = clockInMutation.isPending || clockOutMutation.isPending;
+
   const handleClockIn = async () => {
-    setClockLoading(true);
     try {
-      const res = await attendanceAPI.clockIn();
-      setTodayStatus(res.data.data.attendance);
+      await clockInMutation.mutateAsync();
       showToast('Clocked in successfully!');
     } catch (err) {
       showToast(err.response?.data?.message || 'Failed to clock in', 'error');
-    } finally {
-      setClockLoading(false);
     }
   };
 
   const handleClockOut = async () => {
-    setClockLoading(true);
     try {
-      const res = await attendanceAPI.clockOut();
-      setTodayStatus(res.data.data.attendance);
+      await clockOutMutation.mutateAsync();
       showToast('Clocked out successfully!');
     } catch (err) {
       showToast(err.response?.data?.message || 'Failed to clock out', 'error');
-    } finally {
-      setClockLoading(false);
     }
   };
 
-  // Navigation
   const navigateDate = (direction) => {
     const d = new Date(selectedDate);
     if (isManagement && viewMode === 'day') {
@@ -105,7 +80,6 @@ const Attendance = () => {
     setSelectedDate(d);
   };
 
-  // Employee stats
   const stats = useMemo(() => {
     if (isManagement) return null;
     const present = records.filter(r => ['PRESENT', 'LATE'].includes(r.status)).length;
@@ -138,9 +112,52 @@ const Attendance = () => {
   const isClockedIn = todayStatus && !todayStatus.clockOut;
   const isClockedOut = todayStatus && todayStatus.clockOut;
 
+  const columns = useMemo(() => [
+    { 
+      key: isManagement ? 'employeeName' : 'date', 
+      header: isManagement ? 'Employee' : 'Date',
+      sortable: true,
+      render: (val, row) => (
+        <span className="font-medium text-brand-text">
+          {isManagement 
+            ? val || row.employeeEmail || '—'
+            : new Date(row.date).toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })
+          }
+        </span>
+      )
+    },
+    { 
+      key: 'clockIn', 
+      header: 'Check In', 
+      sortable: true,
+      render: (val) => <span className="font-mono text-brand-muted">{formatTime(val)}</span>
+    },
+    { 
+      key: 'clockOut', 
+      header: 'Check Out', 
+      sortable: true,
+      render: (val) => <span className="font-mono text-brand-muted">{formatTime(val)}</span>
+    },
+    { 
+      key: 'workHours', 
+      header: 'Work Hours', 
+      sortable: true,
+      render: (val) => <span className="font-semibold text-brand-text font-mono">{formatWorkHours(val)}</span>
+    },
+    { 
+      key: 'extraHours', 
+      header: 'Extra Hours', 
+      sortable: false,
+      render: (_, row) => (
+        <span className={`font-mono ${row.workHours > 8 ? 'text-brand-green font-semibold' : 'text-brand-muted'}`}>
+          {getExtraHours(row.workHours)}
+        </span>
+      )
+    }
+  ], [isManagement]);
+
   return (
     <DashboardLayout>
-      {/* Toast */}
       <AnimatePresence>
         {toast && (
           <motion.div
@@ -155,20 +172,16 @@ const Attendance = () => {
         )}
       </AnimatePresence>
 
-      {/* Header */}
       <div className="mb-6">
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           <h1 className="text-2xl lg:text-3xl font-bold text-brand-text font-syne">Attendance</h1>
 
-          {/* Clock In/Out Button — all roles */}
           {!isClockedOut && (
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+            <button
               onClick={isClockedIn ? handleClockOut : handleClockIn}
               disabled={clockLoading}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-semibold shadow-lg transition-colors cursor-pointer
-                disabled:opacity-50 disabled:cursor-not-allowed
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-semibold shadow-lg transition-all cursor-pointer
+                disabled:opacity-50 active:scale-95
                 ${isClockedIn 
                   ? 'bg-red-500 hover:bg-red-600 shadow-red-500/20' 
                   : 'bg-brand-green hover:bg-brand-green/90 shadow-brand-green/20'
@@ -176,30 +189,26 @@ const Attendance = () => {
             >
               {clockLoading ? <Loader2 size={18} className="animate-spin" /> : isClockedIn ? <LogOut size={18} /> : <LogIn size={18} />}
               {clockLoading ? 'Processing...' : isClockedIn ? 'Clock Out' : 'Clock In'}
-            </motion.button>
+            </button>
           )}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Controls Bar */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-6 flex-wrap">
-        {/* Date Navigation */}
+      <div className="flex items-center gap-3 mb-6 flex-wrap">
         <div className="flex items-center gap-1">
-          <button onClick={() => navigateDate(-1)} className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted hover:text-brand-text transition-colors">
+          <button onClick={() => navigateDate(-1)} className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted hover:text-brand-text transition-colors cursor-pointer">
             <ChevronLeft size={18} />
           </button>
-          <button onClick={() => navigateDate(1)} className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted hover:text-brand-text transition-colors">
+          <button onClick={() => navigateDate(1)} className="p-2 rounded-lg bg-brand-surface border border-border text-brand-muted hover:text-brand-text transition-colors cursor-pointer">
             <ChevronRight size={18} />
           </button>
         </div>
 
-        {/* Date Label */}
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-surface border border-border">
           <CalendarDays size={16} className="text-brand-purple" />
           <span className="text-sm font-medium text-brand-text">{dateLabel}</span>
         </div>
 
-        {/* View Toggle (Management only) */}
         {isManagement && (
           <div className="flex bg-brand-surface rounded-lg p-0.5 border border-border">
             {['day', 'month'].map(mode => (
@@ -215,7 +224,6 @@ const Attendance = () => {
           </div>
         )}
 
-        {/* Employee Stats */}
         {!isManagement && stats && (
           <div className="flex items-center gap-3 ml-auto">
             <StatBadge label="Days Present" value={stats.present} color="emerald" />
@@ -223,72 +231,21 @@ const Attendance = () => {
             <StatBadge label="Total Working" value={stats.total} color="purple" />
           </div>
         )}
-      </motion.div>
+      </div>
 
-      {/* Table */}
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-brand-purple/20 border-t-brand-purple rounded-full animate-spin" />
-          <p className="text-brand-muted text-sm mt-4">Loading attendance...</p>
-        </div>
+        <TableSkeleton rows={10} cols={5} />
       ) : error ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           <AlertCircle size={28} className="text-red-500 mb-3" />
           <p className="text-brand-text font-medium">{error}</p>
         </div>
       ) : (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-card rounded-2xl overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left px-6 py-4 text-xs font-semibold text-brand-muted uppercase tracking-wider">
-                    {isManagement ? 'Employee' : 'Date'}
-                  </th>
-                  <th className="text-left px-6 py-4 text-xs font-semibold text-brand-muted uppercase tracking-wider">Check In</th>
-                  <th className="text-left px-6 py-4 text-xs font-semibold text-brand-muted uppercase tracking-wider">Check Out</th>
-                  <th className="text-left px-6 py-4 text-xs font-semibold text-brand-muted uppercase tracking-wider">Work Hours</th>
-                  <th className="text-left px-6 py-4 text-xs font-semibold text-brand-muted uppercase tracking-wider">Extra Hours</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {records.map((rec, i) => (
-                  <motion.tr
-                    key={rec._id || i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.03 }}
-                    className="hover:bg-brand-bg/50 transition-colors"
-                  >
-                    <td className="px-6 py-4 text-sm font-medium text-brand-text">
-                      {isManagement 
-                        ? rec.employeeName || rec.employeeEmail || '—'
-                        : new Date(rec.date).toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })
-                      }
-                    </td>
-                    <td className="px-6 py-4 text-sm text-brand-muted font-mono">{formatTime(rec.clockIn)}</td>
-                    <td className="px-6 py-4 text-sm text-brand-muted font-mono">{formatTime(rec.clockOut)}</td>
-                    <td className="px-6 py-4">
-                      <span className="text-sm font-semibold text-brand-text font-mono">{formatWorkHours(rec.workHours)}</span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className={`text-sm font-mono ${rec.workHours > 8 ? 'text-brand-green font-semibold' : 'text-brand-muted'}`}>
-                        {getExtraHours(rec.workHours)}
-                      </span>
-                    </td>
-                  </motion.tr>
-                ))}
-                {records.length === 0 && (
-                  <tr>
-                    <td colSpan={5} className="px-6 py-16 text-center text-brand-muted">
-                      No attendance records for this period.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </motion.div>
+        <DataTable 
+          columns={columns} 
+          data={records} 
+          searchPlaceholder="Search attendance records..." 
+        />
       )}
     </DashboardLayout>
   );

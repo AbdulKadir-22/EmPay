@@ -5067,3 +5067,247 @@
 2026-05-03 03:40:49:4049 [35mhttp[39m: [35mb880b054-9e6a-48bd-8fee-c4877f818700 GET /api/v1/reports/salary-statement?employeeId=69f64c15bce95d38a2d02375&year=2026 200 646 - 97.095 ms[39m
 2026-05-03 03:40:55:4055 [35mhttp[39m: [35m6a270678-5231-4c41-aa3a-4d052c7f3260 GET /api/v1/reports/salary-statement?employeeId=69f651c5bce95d38a2d02416&year=2026 200 639 - 89.273 ms[39m
 2026-05-03 03:41:15:4115 [32minfo[39m: [32mShutting down server...[39m
+2026-05-03 03:42:38:4238 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
+2026-05-03 03:42:38:4238 [32minfo[39m: [32mServer running in development mode on port 5000[39m
+2026-05-03 03:42:56:4256 [35mhttp[39m: [35mba3c351b-6438-4749-9341-67f2dfa38c4f GET /api/v1/notifications/me 200 190 - 61.949 ms[39m
+2026-05-03 03:42:56:4256 [35mhttp[39m: [35m8d2d3531-476e-4b26-adc8-4b511eb4f0d7 GET /api/v1/attendance/today 200 188 - 45.114 ms[39m
+2026-05-03 03:42:56:4256 [35mhttp[39m: [35m9ff3316b-cabb-4b21-801c-3dd6d1c67c97 GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 61.979 ms[39m
+2026-05-03 03:42:56:4256 [35mhttp[39m: [35m33cffcc7-e3fd-453b-9c54-bb3fcd608ad7 GET /api/v1/notifications/me 200 190 - 32.541 ms[39m
+2026-05-03 03:42:56:4256 [35mhttp[39m: [35mce3df91f-5b40-49f8-85e5-8c4fdc74d884 GET /api/v1/attendance/today 200 188 - 32.252 ms[39m
+2026-05-03 03:42:56:4256 [35mhttp[39m: [35mc143fd4f-b601-47ac-ac6e-552da1c6d844 GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 65.189 ms[39m
+2026-05-03 03:43:01:431 [35mhttp[39m: [35me055e418-8e5e-4be4-b0d3-7e2abd7bbcb2 GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 1626 - 110.182 ms[39m
+2026-05-03 03:43:10:4310 [35mhttp[39m: [35m378e14e4-4ff0-44cd-aa09-3c3ef5d9258f GET /api/v1/notifications/me 200 190 - 26.328 ms[39m
+2026-05-03 03:43:10:4310 [35mhttp[39m: [35m312e1fd9-2427-4fb4-b722-2b43be4f8827 GET /api/v1/users/dashboard 200 1445 - 49.950 ms[39m
+2026-05-03 03:43:10:4310 [35mhttp[39m: [35m617ff30b-6cbc-4c3a-8dc2-79127190d840 GET /api/v1/notifications/me 200 190 - 36.701 ms[39m
+2026-05-03 03:43:10:4310 [35mhttp[39m: [35m9697d977-3d90-4dcd-9ae5-e2319404a678 GET /api/v1/users/dashboard 200 1445 - 35.221 ms[39m
+2026-05-03 03:43:20:4320 [35mhttp[39m: [35m23e8a1c0-4bd3-4e68-a540-c91dfb2a5823 GET /api/v1/notifications/me 200 190 - 45.567 ms[39m
+2026-05-03 03:43:20:4320 [35mhttp[39m: [35mc5116271-07ab-4063-b6ab-e47b62278515 GET /api/v1/attendance/today 200 188 - 53.349 ms[39m
+2026-05-03 03:43:20:4320 [35mhttp[39m: [35m464fb709-6af2-48ea-ad9c-e5f14fedb435 GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 59.322 ms[39m
+2026-05-03 03:43:20:4320 [35mhttp[39m: [35m33ec4950-2721-47e3-919d-6be472151678 GET /api/v1/notifications/me 200 190 - 32.929 ms[39m
+2026-05-03 03:43:20:4320 [35mhttp[39m: [35m0e1141e7-aa95-4e6c-a9ea-97fa430895b3 GET /api/v1/attendance/today 200 188 - 58.171 ms[39m
+2026-05-03 03:43:20:4320 [35mhttp[39m: [35mafb4ddb3-60b5-4949-b7e3-c34afb3b076f GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 68.602 ms[39m
+2026-05-03 03:45:20:4520 [35mhttp[39m: [35medf60c69-f931-4739-b6f2-ebaae6d4dad1 GET /api/v1/notifications/me 200 190 - 42.146 ms[39m
+2026-05-03 03:45:20:4520 [35mhttp[39m: [35m166523ee-065a-40a6-b8c3-f44cdc8fb85b GET /api/v1/users/dashboard 200 1445 - 43.513 ms[39m
+2026-05-03 03:45:20:4520 [35mhttp[39m: [35mfdee7e49-f58b-4d10-a43e-fafd0bb45d0f GET /api/v1/notifications/me 200 190 - 31.734 ms[39m
+2026-05-03 03:45:20:4520 [35mhttp[39m: [35m466a6d88-d319-4fae-a42f-e30db23ba672 GET /api/v1/users/dashboard 200 1445 - 39.439 ms[39m
+2026-05-03 03:45:22:4522 [35mhttp[39m: [35mc6c01b86-d3b3-4056-ad9e-3acb2fd6a400 GET /api/v1/notifications/me 200 190 - 56.338 ms[39m
+2026-05-03 03:45:22:4522 [35mhttp[39m: [35m656c1ac0-2f80-41a9-8add-8601a715003a GET /api/v1/attendance/today 200 188 - 54.896 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m84cbdce2-907e-4a0d-959c-2a54c49743f6 GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 92.433 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m63647036-bd9e-469f-8e74-a82ff00dea48 GET /api/v1/notifications/me 200 190 - 46.785 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35mfeca18d0-3883-4be9-a701-8613e84d4df9 GET /api/v1/attendance/today 200 188 - 48.155 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m4bae997f-ffcd-493d-9952-7c39c7c09cc4 GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 39.962 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m146abd35-a3ca-47d8-9c66-74a41526c0e0 GET /api/v1/notifications/me 200 190 - 34.563 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m1bdc4830-c28e-4133-ae5a-98a11280ec4c GET /api/v1/leaves/my-history 200 184 - 25.291 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35mf93bbf8b-19e2-47eb-b2cf-0044ea1d45e3 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 29.044 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m5de12466-5422-4389-8cb5-28ca9eff35c7 GET /api/v1/leaves/types 200 831 - 41.483 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m7dec509a-d5b2-40aa-b0b3-dd5dcb0d66aa GET /api/v1/notifications/me 200 190 - 25.751 ms[39m
+2026-05-03 03:45:23:4523 [35mhttp[39m: [35m4c37b55c-17f6-45b0-9392-3b06cb8faf2b GET /api/v1/leaves/my-history 200 184 - 24.216 ms[39m
+2026-05-03 03:45:24:4524 [35mhttp[39m: [35m6ba977d2-d9be-4e30-b4f6-3e52ae365cb8 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 27.778 ms[39m
+2026-05-03 03:45:24:4524 [35mhttp[39m: [35m307f0e68-11e9-47d8-af61-aa1695c721d3 GET /api/v1/leaves/types 200 831 - 26.769 ms[39m
+2026-05-03 03:45:24:4524 [35mhttp[39m: [35md0b14eca-7fbe-4902-a998-a35c9062fdf9 GET /api/v1/notifications/me 200 190 - 27.547 ms[39m
+2026-05-03 03:45:24:4524 [35mhttp[39m: [35m948fcf30-8a6e-4640-b3a1-22ddcce55524 GET /api/v1/notifications/me 200 190 - 31.035 ms[39m
+2026-05-03 03:45:25:4525 [35mhttp[39m: [35mbe08eb72-1542-4fb1-8bf8-4eecb9d54aa2 GET /api/v1/payroll/dashboard 200 1064 - 286.211 ms[39m
+2026-05-03 03:45:25:4525 [35mhttp[39m: [35m88418bda-4314-493b-80b5-127ae1731abd GET /api/v1/users 200 1435 - 35.191 ms[39m
+2026-05-03 03:45:25:4525 [35mhttp[39m: [35m7bfced92-29a3-448d-b176-96cc29501ffa GET /api/v1/payroll/dashboard 200 1064 - 217.095 ms[39m
+2026-05-03 03:45:25:4525 [35mhttp[39m: [35m031b391c-ee88-4f80-bff0-c54f9d533012 GET /api/v1/users 200 1435 - 59.952 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35mc1a24fcc-9caa-491f-911b-fb8ffbeba6ef GET /api/v1/leaves/types 200 831 - 46.134 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35mcdd20703-b914-4787-82f9-6fdda4354b32 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 44.985 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35m558648ce-9c99-43e2-9928-613f25ef9eea GET /api/v1/notifications/me 200 190 - 42.032 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35md5ce9e51-36d5-4a9f-a670-9fa9415dcd18 GET /api/v1/leaves/my-history 200 184 - 45.750 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35ma61fb8fb-67b8-483b-b42e-8512534edac2 GET /api/v1/leaves/types 200 831 - 37.065 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35me086442e-8844-4b88-a567-777ca4143201 GET /api/v1/notifications/me 200 190 - 31.672 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35m5021ee65-9ffb-491c-b17f-683e48aec57d GET /api/v1/leaves/my-allocations?year=2026 200 192 - 36.270 ms[39m
+2026-05-03 03:45:26:4526 [35mhttp[39m: [35mfc129055-96f5-41b8-acbb-758049e681ad GET /api/v1/leaves/my-history 200 184 - 35.554 ms[39m
+2026-05-03 03:45:27:4527 [35mhttp[39m: [35me18e8fa4-eb8d-42fb-88c9-7729826a7674 GET /api/v1/notifications/me 200 190 - 20.223 ms[39m
+2026-05-03 03:45:27:4527 [35mhttp[39m: [35m40064dc3-80de-4be2-a06f-15ba943100b7 GET /api/v1/notifications/me 200 190 - 35.398 ms[39m
+2026-05-03 03:45:27:4527 [35mhttp[39m: [35m707af9e8-936e-41ba-93f3-ea774016c6f7 GET /api/v1/payroll/dashboard 200 1064 - 158.008 ms[39m
+2026-05-03 03:45:27:4527 [35mhttp[39m: [35m46466e54-c2e8-40e2-81ff-9068c09c0839 GET /api/v1/users 200 1435 - 43.077 ms[39m
+2026-05-03 03:45:27:4527 [35mhttp[39m: [35mc026d387-e7ed-4a96-a4ff-8707a72aa119 GET /api/v1/payroll/dashboard 200 1064 - 192.598 ms[39m
+2026-05-03 03:45:27:4527 [35mhttp[39m: [35m32b53302-8423-4f7e-81c3-d0e31027f057 GET /api/v1/users 200 1435 - 23.479 ms[39m
+2026-05-03 03:45:28:4528 [35mhttp[39m: [35mbebac522-a13b-465c-a4a4-73175dae54d0 GET /api/v1/notifications/me 200 190 - 41.181 ms[39m
+2026-05-03 03:45:28:4528 [35mhttp[39m: [35m193441a4-2707-446a-ae69-2691d5a6493a GET /api/v1/payroll/payruns 200 495 - 42.974 ms[39m
+2026-05-03 03:45:28:4528 [35mhttp[39m: [35m65949de6-4b7d-466f-90d7-815424fa7a3c GET /api/v1/notifications/me 200 190 - 23.580 ms[39m
+2026-05-03 03:45:28:4528 [35mhttp[39m: [35m96a2da59-94ba-406a-955c-f24ff0bd630c GET /api/v1/payroll/payruns 200 495 - 22.979 ms[39m
+2026-05-03 03:45:31:4531 [35mhttp[39m: [35m168220bf-fa55-4911-96e8-e8f09b7445cc GET /api/v1/payroll/payruns/69f675db6805b27f301709e6 200 513 - 30.536 ms[39m
+2026-05-03 03:45:33:4533 [35mhttp[39m: [35m9c8a12f7-ee29-400b-9a62-a23250cfd84e POST /api/v1/payroll/payruns/69f675db6805b27f301709e6/finalize 200 545 - 302.437 ms[39m
+2026-05-03 03:45:33:4533 [35mhttp[39m: [35ma833413c-1673-47bb-9d9c-63a5f9f9242c GET /api/v1/payroll/payruns 200 536 - 26.697 ms[39m
+2026-05-03 03:45:33:4533 [35mhttp[39m: [35m1ae951c3-5e3b-4666-9188-9482e1d80665 GET /api/v1/payroll/payruns/69f675db6805b27f301709e6 200 1587 - 62.275 ms[39m
+2026-05-03 03:45:39:4539 [35mhttp[39m: [35mcffb6422-fe61-44b4-8559-b751a0daff8a GET /api/v1/notifications/me 200 190 - 19.852 ms[39m
+2026-05-03 03:45:39:4539 [35mhttp[39m: [35m6e04b96d-40cd-4eb0-93c4-101cee58d15c GET /api/v1/notifications/me 200 190 - 25.843 ms[39m
+2026-05-03 03:45:39:4539 [35mhttp[39m: [35m176cb414-e38c-4c98-8bcc-7a4502883cd5 GET /api/v1/payslips/69f677840a3252026b90f106 200 1283 - 53.345 ms[39m
+2026-05-03 03:45:39:4539 [35mhttp[39m: [35m5153b898-3031-47d7-aa33-5018979fa7f0 GET /api/v1/payslips/69f677840a3252026b90f106 200 1283 - 61.340 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35m7098ad97-eebf-455a-949c-9fd0d7df1107 GET /api/v1/notifications/me 200 190 - 29.264 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35me79fb52f-848c-44b8-b7f3-a7359a0bd614 GET /api/v1/leaves/types 200 831 - 30.010 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35mea7b74cf-c948-4fda-83e4-b6eb4f37402e GET /api/v1/leaves/my-allocations?year=2026 200 192 - 29.723 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35ma9717f6c-c0ef-4b39-8d52-c1975bd43921 GET /api/v1/leaves/my-history 200 184 - 29.872 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35m85706d95-10d6-4ea4-954d-8653b9656dc4 GET /api/v1/notifications/me 200 190 - 35.536 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35mb29f83a5-d1dd-4dcf-8feb-0eb427dc572e GET /api/v1/leaves/types 200 831 - 30.274 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35md7d1cb8e-8c84-4992-9cd5-202b16b60d69 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 32.640 ms[39m
+2026-05-03 03:47:13:4713 [35mhttp[39m: [35m69de88d6-1c2e-465d-bae7-620f48004205 GET /api/v1/leaves/my-history 200 184 - 32.621 ms[39m
+2026-05-03 03:47:18:4718 [35mhttp[39m: [35m4131db3d-7674-4ca1-b1e9-f09bff944745 GET /api/v1/notifications/me 200 190 - 31.878 ms[39m
+2026-05-03 03:47:18:4718 [35mhttp[39m: [35mb19e454e-f3bc-4601-8c57-d7f2cef1d627 GET /api/v1/attendance/today 200 188 - 31.144 ms[39m
+2026-05-03 03:47:18:4718 [35mhttp[39m: [35m694651cb-762d-4399-9aba-80aacacae2bc GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 60.236 ms[39m
+2026-05-03 03:47:18:4718 [35mhttp[39m: [35m46659fe3-841b-4347-8d75-2c04b8da812c GET /api/v1/notifications/me 200 190 - 48.690 ms[39m
+2026-05-03 03:47:18:4718 [35mhttp[39m: [35m63a01861-b86f-43e5-b1ae-6602c007c713 GET /api/v1/attendance/today 200 188 - 49.161 ms[39m
+2026-05-03 03:47:18:4718 [35mhttp[39m: [35m7647ffd6-2c33-4d0b-b626-e7566c61795a GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 36.646 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m3bce81d5-14ba-493e-b4e7-26580e399b90 GET /api/v1/notifications/me 200 190 - 26.735 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m4f83577c-2225-4ee9-a211-3584c48da2cd GET /api/v1/leaves/my-allocations?year=2026 200 192 - 21.495 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m50c07244-3e37-43bd-ac2c-76c24b2cf1ee GET /api/v1/leaves/types 200 831 - 27.251 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35mf89bd4cd-ea80-44c6-9632-e9021337177b GET /api/v1/leaves/my-history 200 184 - 28.610 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m4861af2c-dcd3-4911-a961-4082e5e3a0fc GET /api/v1/leaves/my-allocations?year=2026 200 192 - 35.503 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m7a199b70-627d-4a89-89ec-1f43e67529b8 GET /api/v1/notifications/me 200 190 - 44.206 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m390f8693-fbd7-48cd-a657-4ec201d43b8d GET /api/v1/leaves/types 200 831 - 48.865 ms[39m
+2026-05-03 03:47:19:4719 [35mhttp[39m: [35m816a44b6-0039-4e2d-93fd-0513bce2990b GET /api/v1/leaves/my-history 200 184 - 43.837 ms[39m
+2026-05-03 03:47:20:4720 [35mhttp[39m: [35mab0da8a1-fd96-4a85-93c0-97790aa0186d GET /api/v1/notifications/me 200 190 - 20.182 ms[39m
+2026-05-03 03:47:20:4720 [35mhttp[39m: [35m82d01c82-722f-4faf-b34a-d0f072083088 GET /api/v1/attendance/today 200 188 - 19.782 ms[39m
+2026-05-03 03:47:20:4720 [35mhttp[39m: [35me0f19a79-a60f-48c9-adbd-4ecca2c5d434 GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 39.902 ms[39m
+2026-05-03 03:47:20:4720 [35mhttp[39m: [35me8e9ecd6-e88e-4619-a0a9-83223b12cc63 GET /api/v1/notifications/me 200 190 - 23.717 ms[39m
+2026-05-03 03:47:20:4720 [35mhttp[39m: [35m3e2f791d-1bc0-4c23-82d5-ca270787c8bc GET /api/v1/attendance/today 200 188 - 30.610 ms[39m
+2026-05-03 03:47:20:4720 [35mhttp[39m: [35ma898e025-fe34-4475-a279-50dd0b09e84b GET /api/v1/attendance/summary?startDate=2026-05-03T00:00:00.000Z&endDate=2026-05-03T23:59:59.999Z 200 189 - 52.198 ms[39m
+2026-05-03 03:47:21:4721 [35mhttp[39m: [35m4e7445d9-cca6-44fc-8b56-440822bfa7b8 GET /api/v1/notifications/me 200 190 - 110.120 ms[39m
+2026-05-03 03:47:21:4721 [35mhttp[39m: [35m357d8818-aa93-42d4-9dbf-93204288e9af GET /api/v1/users/dashboard 200 1445 - 109.765 ms[39m
+2026-05-03 03:47:21:4721 [35mhttp[39m: [35m7824bbb0-1df5-4733-a508-0ddebcf7ee3e GET /api/v1/notifications/me 200 190 - 31.493 ms[39m
+2026-05-03 03:47:21:4721 [35mhttp[39m: [35m4fe49647-6f71-4fa5-a730-226fd0a2aa6c GET /api/v1/users/dashboard 200 1445 - 40.163 ms[39m
+2026-05-03 03:47:24:4724 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 03:47:24:4724 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:149:13)[39m
+[37m    at Route.dispatch (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:119:3)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:284:15[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+2026-05-03 03:47:24:4724 [35mhttp[39m: [35m6d37b42d-6135-491c-ad2e-e48f4f8e5231 POST /api/v1/auth/logout 401 250 - 2.461 ms[39m
+2026-05-03 03:47:43:4743 [35mhttp[39m: [35m3262da33-bc98-4d4e-a94b-96f626a8bafe POST /api/v1/auth/login 200 956 - 193.841 ms[39m
+2026-05-03 03:47:43:4743 [35mhttp[39m: [35mb3828310-3502-4474-b734-889951eca4f6 GET /api/v1/notifications/me 200 190 - 31.961 ms[39m
+2026-05-03 03:47:43:4743 [35mhttp[39m: [35ma6921c94-920b-4e7c-92b7-4029acd326e4 GET /api/v1/users/dashboard 200 1445 - 72.898 ms[39m
+2026-05-03 03:47:43:4743 [35mhttp[39m: [35m61c14522-5c1c-4f27-bdcb-45c4ddd079a0 GET /api/v1/notifications/me 200 190 - 53.332 ms[39m
+2026-05-03 03:47:43:4743 [35mhttp[39m: [35m9ce68322-03db-4d1c-ad54-c087d032d635 GET /api/v1/users/dashboard 200 1445 - 31.536 ms[39m
+2026-05-03 03:47:49:4749 [35mhttp[39m: [35mdee09d40-4b6b-461b-9e08-fdedf10bbe5a GET /api/v1/notifications/me 200 190 - 53.880 ms[39m
+2026-05-03 03:47:49:4749 [35mhttp[39m: [35m7516f1ef-b682-40f0-bba9-b2282a01ed08 GET /api/v1/attendance/today 200 188 - 50.969 ms[39m
+2026-05-03 03:47:49:4749 [35mhttp[39m: [35ma959c2fc-a9b3-4c9a-b13b-f154941ab4a4 GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 671 - 64.436 ms[39m
+2026-05-03 03:47:49:4749 [35mhttp[39m: [35m4364bb95-6d0c-4b74-9c4c-0a4c6da50699 GET /api/v1/notifications/me 200 190 - 29.491 ms[39m
+2026-05-03 03:47:49:4749 [35mhttp[39m: [35m52c16b59-8c6a-4e54-ac9f-7716fdb40129 GET /api/v1/attendance/today 200 188 - 27.854 ms[39m
+2026-05-03 03:47:49:4749 [35mhttp[39m: [35m703439e8-e4f4-4533-ac38-81562d2474e9 GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 671 - 52.819 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35m6bda0ed2-a5ef-4b40-b534-f282dad69f09 GET /api/v1/notifications/me 200 190 - 55.749 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35m24eb7b27-4deb-4390-986a-f8551dcbaab2 GET /api/v1/leaves/types 200 831 - 52.437 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35mffb711ec-905b-4719-81f9-5ff27ad0a704 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 52.228 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35mf7035c17-cef0-4254-94d3-4a7b0e5a0af7 GET /api/v1/leaves/my-history 200 184 - 59.419 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35m7c325b74-d15a-47e2-8c0d-9fce2d153d7a GET /api/v1/leaves/types 200 831 - 34.883 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35m1ea3276b-3cff-4bfa-9918-eda71845a33f GET /api/v1/leaves/my-history 200 184 - 30.687 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35mc170b9b2-1e66-4408-ae98-61bc194f05d7 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 35.765 ms[39m
+2026-05-03 03:47:53:4753 [35mhttp[39m: [35m678d673f-11e0-42e2-8f8a-813581dbdbcc GET /api/v1/notifications/me 200 190 - 41.840 ms[39m
+2026-05-03 03:48:13:4813 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:13:4813 [37mdebug[39m: [37mError: No leave allocation found for this year (2026). Please contact HR.[39m
+[37m    at Object.requestLeave (E:\Odoo\Repo\Empay-Backend\src\services\leave.service.js:36:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\leave.controller.js:27:24[39m
+2026-05-03 03:48:13:4813 [35mhttp[39m: [35m0e07d93d-6f06-46d9-ae7b-8362ecd22076 POST /api/v1/leaves/request 500 320 - 33.370 ms[39m
+2026-05-03 03:48:17:4817 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:17:4817 [37mdebug[39m: [37mError: No leave allocation found for this year (2026). Please contact HR.[39m
+[37m    at Object.requestLeave (E:\Odoo\Repo\Empay-Backend\src\services\leave.service.js:36:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\leave.controller.js:27:24[39m
+2026-05-03 03:48:17:4817 [35mhttp[39m: [35m5542b931-ddb6-4279-8d87-2abaadabf590 POST /api/v1/leaves/request 500 320 - 34.351 ms[39m
+2026-05-03 03:48:18:4818 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:18:4818 [37mdebug[39m: [37mError: No leave allocation found for this year (2026). Please contact HR.[39m
+[37m    at Object.requestLeave (E:\Odoo\Repo\Empay-Backend\src\services\leave.service.js:36:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\leave.controller.js:27:24[39m
+2026-05-03 03:48:18:4818 [35mhttp[39m: [35m6687fc07-f93b-4828-9840-94db1477f2c6 POST /api/v1/leaves/request 500 320 - 42.364 ms[39m
+2026-05-03 03:48:19:4819 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:19:4819 [37mdebug[39m: [37mError: No leave allocation found for this year (2026). Please contact HR.[39m
+[37m    at Object.requestLeave (E:\Odoo\Repo\Empay-Backend\src\services\leave.service.js:36:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\leave.controller.js:27:24[39m
+2026-05-03 03:48:19:4819 [35mhttp[39m: [35mdde8a42f-2744-48e5-835b-a6dfdfaa379a POST /api/v1/leaves/request 500 320 - 42.353 ms[39m
+2026-05-03 03:48:19:4819 [31merror[39m: [31mPOST /api/v1/leaves/request - No leave allocation found for this year (2026). Please contact HR.[39m
+2026-05-03 03:48:19:4819 [37mdebug[39m: [37mError: No leave allocation found for this year (2026). Please contact HR.[39m
+[37m    at Object.requestLeave (E:\Odoo\Repo\Empay-Backend\src\services\leave.service.js:36:11)[39m
+[37m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+[37m    at async E:\Odoo\Repo\Empay-Backend\src\controllers\leave.controller.js:27:24[39m
+2026-05-03 03:48:19:4819 [35mhttp[39m: [35m666f4a18-b88e-4122-86f8-96aaf874fa35 POST /api/v1/leaves/request 500 320 - 191.690 ms[39m
+2026-05-03 03:48:23:4823 [35mhttp[39m: [35m7adc1671-0e25-491f-b56b-9e8d64a81086 GET /api/v1/attendance/today 200 188 - 35.902 ms[39m
+2026-05-03 03:48:23:4823 [35mhttp[39m: [35mec1c5926-fa09-4edc-9e09-8dfaf9501002 GET /api/v1/notifications/me 200 190 - 44.768 ms[39m
+2026-05-03 03:48:23:4823 [35mhttp[39m: [35m5de03d81-0698-4ea0-8cad-d2c3b0f4c907 GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 671 - 87.573 ms[39m
+2026-05-03 03:48:23:4823 [35mhttp[39m: [35m7f43b3e7-5250-4a0f-b2dc-6e1799d7409b GET /api/v1/notifications/me 200 190 - 44.560 ms[39m
+2026-05-03 03:48:23:4823 [35mhttp[39m: [35m1955d13a-833d-42f3-9ea6-bd99d14f006a GET /api/v1/attendance/today 200 188 - 48.645 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35mab0cb89f-7d42-4678-9bf1-e02763fb7e1d GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 671 - 62.421 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35m4a1a077e-768e-4225-839a-2041fa7e17b0 GET /api/v1/notifications/me 200 190 - 33.137 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35m5f33ee6a-ed1f-4805-9ace-4117d32e948c GET /api/v1/leaves/my-history 200 184 - 27.024 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35me21dcf30-3b9d-4696-99c8-020ce2a90a8b GET /api/v1/leaves/types 200 831 - 32.188 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35m39e30530-d9a7-4541-a9cd-065f3d1b1fe8 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 34.223 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35m02b38a69-9260-4ee4-9f5b-ed38c6b6b33d GET /api/v1/notifications/me 200 190 - 36.289 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35m2a139519-517a-4948-98c0-926d22ddf06e GET /api/v1/leaves/my-history 200 184 - 35.448 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35ma98120c1-75b4-40a7-9e77-6a96c674b2a3 GET /api/v1/leaves/types 200 831 - 38.262 ms[39m
+2026-05-03 03:48:24:4824 [35mhttp[39m: [35m64481794-a7f4-4a46-85ed-70dbd77f17bc GET /api/v1/leaves/my-allocations?year=2026 200 192 - 37.830 ms[39m
+2026-05-03 03:48:29:4829 [35mhttp[39m: [35mc66310b9-62dd-40f1-9529-80e97527eb9d GET /api/v1/attendance/today 200 188 - 21.697 ms[39m
+2026-05-03 03:48:29:4829 [35mhttp[39m: [35m97c69f12-8111-4346-b731-4f316fd3acd3 GET /api/v1/notifications/me 200 190 - 25.926 ms[39m
+2026-05-03 03:48:29:4829 [35mhttp[39m: [35maa399075-5cc4-47f2-904a-7181af953d65 GET /api/v1/attendance/today 200 188 - 26.681 ms[39m
+2026-05-03 03:48:29:4829 [35mhttp[39m: [35m394458dc-48e0-4ad2-8fa0-1eff31b74696 GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 671 - 51.173 ms[39m
+2026-05-03 03:48:29:4829 [35mhttp[39m: [35m1f1a2716-8858-4925-9cff-10915a76e71d GET /api/v1/notifications/me 200 190 - 26.552 ms[39m
+2026-05-03 03:48:29:4829 [35mhttp[39m: [35m50482816-02c6-401f-b60f-bc87a7e1500c GET /api/v1/attendance/summary?startDate=2026-05-01T00:00:00.000Z&endDate=2026-05-31T23:59:59.999Z 200 671 - 42.063 ms[39m
+2026-05-03 03:48:35:4835 [31merror[39m: [31mPOST /api/v1/auth/logout - Authentication token is missing[39m
+2026-05-03 03:48:35:4835 [37mdebug[39m: [37mError: Authentication token is missing[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\middlewares\auth.middleware.js:16:19[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\src\utils\asyncHandler.js:7:19[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:149:13)[39m
+[37m    at Route.dispatch (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\route.js:119:3)[39m
+[37m    at Layer.handle [as handle_request] (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\layer.js:95:5)[39m
+[37m    at E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:284:15[39m
+[37m    at Function.process_params (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:346:12)[39m
+[37m    at next (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:280:10)[39m
+[37m    at Function.handle (E:\Odoo\Repo\Empay-Backend\node_modules\express\lib\router\index.js:175:3)[39m
+2026-05-03 03:48:35:4835 [35mhttp[39m: [35m18552114-5c7d-4e38-a6e9-51fb47e57e76 POST /api/v1/auth/logout 401 250 - 1.930 ms[39m
+2026-05-03 03:48:50:4850 [35mhttp[39m: [35m65bff123-797f-4849-b4bd-17edbee6abbd POST /api/v1/auth/login 200 912 - 145.768 ms[39m
+2026-05-03 03:48:50:4850 [35mhttp[39m: [35maee54a15-3b91-4a63-91fe-f95a697aa8a3 GET /api/v1/notifications/me 200 190 - 46.863 ms[39m
+2026-05-03 03:48:50:4850 [35mhttp[39m: [35m34d94ef5-a37b-413b-999c-bc0dbb439ea9 GET /api/v1/users/dashboard 200 1445 - 45.152 ms[39m
+2026-05-03 03:48:50:4850 [35mhttp[39m: [35m18782439-d297-4fa4-b02c-d63fd8261ea2 GET /api/v1/notifications/me 200 190 - 18.815 ms[39m
+2026-05-03 03:48:50:4850 [35mhttp[39m: [35m239b7334-f027-49d6-8d9b-45f22b1afa02 GET /api/v1/users/dashboard 200 1445 - 22.997 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35m3e7e372f-0117-41cd-97ce-30544424d651 GET /api/v1/notifications/me 200 190 - 24.081 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35m799f3cbb-1437-44d1-a89c-dcca9bebe5ae GET /api/v1/leaves/types 200 831 - 21.075 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35m93d765e1-70cb-4f37-9373-85ec3411aedc GET /api/v1/leaves/my-allocations?year=2026 200 192 - 25.139 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35me923ebae-828e-4d37-b80a-fd51d283c345 GET /api/v1/leaves/my-history 200 184 - 24.309 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35mabdc9b51-4af3-4b85-9d16-41f622df7654 GET /api/v1/notifications/me 200 190 - 30.576 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35mcd4db750-d33a-44e9-b9ec-7e5f6282d271 GET /api/v1/leaves/types 200 831 - 43.892 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35m60cc602b-48b7-4c00-a632-f6b9de60b3eb GET /api/v1/leaves/my-allocations?year=2026 200 192 - 39.329 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35m31ae2574-6db2-43a2-850f-256b9b1227a5 GET /api/v1/leaves/my-history 200 184 - 37.630 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35m2c7a6355-3054-4725-87da-a942c92f4a12 GET /api/v1/leaves/pending 200 188 - 60.755 ms[39m
+2026-05-03 03:48:52:4852 [35mhttp[39m: [35ma8dd126a-496a-4eb1-a8f4-39ff2973c5fe GET /api/v1/leaves/pending 200 188 - 28.245 ms[39m
+2026-05-03 03:48:53:4853 [35mhttp[39m: [35m3d52768f-d623-46c9-9af0-373e3431757b GET /api/v1/notifications/me 200 190 - 45.002 ms[39m
+2026-05-03 03:48:53:4853 [35mhttp[39m: [35mfef26eee-3314-4bf2-bc40-e8ebf918bfaa GET /api/v1/reports/employees 200 716 - 52.164 ms[39m
+2026-05-03 03:48:53:4853 [35mhttp[39m: [35mdba41c3b-922f-4e47-b940-e9d49ff3cae7 GET /api/v1/notifications/me 200 190 - 33.069 ms[39m
+2026-05-03 03:48:54:4854 [35mhttp[39m: [35m4049d425-1f0c-473e-861a-2aead342620c GET /api/v1/reports/employees 200 716 - 100.591 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35m4be76ca5-5074-45b2-9b33-4bc4b96582d3 GET /api/v1/leaves/types 200 831 - 27.758 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35m7a3e7c8f-2cc3-47c2-9882-e22e4c6eb026 GET /api/v1/leaves/my-allocations?year=2026 200 192 - 26.368 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35mcfbb5d73-3916-4d94-be96-60c162eced53 GET /api/v1/leaves/my-history 200 184 - 27.517 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35md8bbece8-5ffe-40f7-991b-3af5466c218d GET /api/v1/notifications/me 200 190 - 36.976 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35md4c1cd69-be42-4177-a3a3-7567e0f55719 GET /api/v1/leaves/types 200 831 - 45.585 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35m5d7918d1-a934-4a55-879e-53824fb7f20f GET /api/v1/leaves/my-allocations?year=2026 200 192 - 42.996 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35ma1f08082-a048-44fe-b5a7-2b2f64f6e04f GET /api/v1/leaves/my-history 200 184 - 40.544 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35m4a448b91-86d9-4f44-b6a6-17ba0a195f56 GET /api/v1/notifications/me 200 190 - 33.785 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35md936488e-c5ec-4ffc-8fcd-c45033fdc24b GET /api/v1/leaves/pending 200 188 - 41.953 ms[39m
+2026-05-03 03:48:56:4856 [35mhttp[39m: [35mbfc86fd2-9094-4d6d-bc26-f2d110b75168 GET /api/v1/leaves/pending 200 188 - 30.623 ms[39m
+2026-05-03 03:49:03:493 [35mhttp[39m: [35m889874b8-8b32-413d-a79d-240c3bdb5480 GET /api/v1/notifications/me 200 190 - 26.751 ms[39m
+2026-05-03 03:49:03:493 [35mhttp[39m: [35mcd46a84b-86e5-4929-bab7-aa60176b74f1 GET /api/v1/reports/employees 200 716 - 44.847 ms[39m
+2026-05-03 03:49:03:493 [35mhttp[39m: [35m5a38e31f-c939-4ff6-8ffa-ddc8dfb4d950 GET /api/v1/notifications/me 200 190 - 34.617 ms[39m
+2026-05-03 03:49:03:493 [35mhttp[39m: [35m7e2b3d3d-72e1-4212-b57f-55f98af67984 GET /api/v1/reports/employees 200 716 - 39.223 ms[39m
+2026-05-03 03:49:04:494 [35mhttp[39m: [35mac96ba5a-e8ae-4528-a6f4-1ae1d3243ff7 GET /api/v1/notifications/me 200 190 - 202.892 ms[39m
+2026-05-03 03:49:04:494 [35mhttp[39m: [35m965d5eca-cf3a-4000-8f22-44cf74ea3e8d GET /api/v1/users 200 1435 - 192.335 ms[39m
+2026-05-03 03:49:04:494 [35mhttp[39m: [35m2863b265-b2c2-470c-ac39-d935815833e0 GET /api/v1/notifications/me 200 190 - 22.725 ms[39m
+2026-05-03 03:49:04:494 [35mhttp[39m: [35m0a408f9f-cea5-4f7f-92f1-c011f069cc5b GET /api/v1/users 200 1435 - 22.086 ms[39m
+2026-05-03 03:49:55:4955 [35mhttp[39m: [35mf65a8d8a-7ee5-443c-b58e-d0eb36684514 GET /api/v1/notifications/me 200 190 - 22.128 ms[39m
+2026-05-03 03:49:55:4955 [35mhttp[39m: [35m2eeb92b3-402b-4273-81c3-2b220ab9e531 GET /api/v1/leaves/types 200 831 - 21.726 ms[39m
+2026-05-03 03:49:55:4955 [35mhttp[39m: [35mb3458b56-7e5f-439d-9ce1-a939c0f2220f GET /api/v1/leaves/my-allocations?year=2026 200 192 - 26.058 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35me186951e-443e-4e8d-a192-80bd81a04f55 GET /api/v1/leaves/my-history 200 184 - 64.359 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35m38e2bb4e-5aec-41c9-a859-a77dfc4f3eed GET /api/v1/leaves/my-allocations?year=2026 200 192 - 63.204 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35m4caad160-5228-443d-8722-328e8398d7de GET /api/v1/leaves/types 200 831 - 69.210 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35mb375fbe4-7be3-4edc-a06d-b41551829576 GET /api/v1/notifications/me 200 190 - 73.151 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35m447eff67-d830-4cd4-9ba1-3dd9eccc79af GET /api/v1/leaves/my-history 200 184 - 36.975 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35m75bfcb82-e5ce-4ba8-ad36-60d20309299f GET /api/v1/leaves/pending 200 188 - 48.188 ms[39m
+2026-05-03 03:49:56:4956 [35mhttp[39m: [35m2c76486f-3659-4062-b296-dfffa856c4e9 GET /api/v1/leaves/pending 200 188 - 80.960 ms[39m
+2026-05-03 03:54:54:5454 [32minfo[39m: [32m MongoDB Connected: ac-davxlqa-shard-00-00.zzwoeue.mongodb.net[39m
