@@ -1,0 +1,57 @@
+{
+  "info": {
+    "name": "EmPay API Collection",
+    "description": "API endpoints for EmPay HRMS & Payroll System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        { "name": "Register", "request": { "method": "POST", "url": "{{base_url}}/auth/register" } },
+        { "name": "Login", "request": { "method": "POST", "url": "{{base_url}}/auth/login" } },
+        { "name": "Refresh Token", "request": { "method": "POST", "url": "{{base_url}}/auth/refresh" } },
+        { "name": "Logout", "request": { "method": "POST", "url": "{{base_url}}/auth/logout" } }
+      ]
+    },
+    {
+      "name": "Users & Employees",
+      "item": [
+        { "name": "Invite User", "request": { "method": "POST", "url": "{{base_url}}/users/invite" } },
+        { "name": "Get Profile", "request": { "method": "GET", "url": "{{base_url}}/employees/me" } },
+        { "name": "Get Team", "request": { "method": "GET", "url": "{{base_url}}/employees/team" } }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        { "name": "Clock In", "request": { "method": "POST", "url": "{{base_url}}/attendance/clock-in" } },
+        { "name": "Clock Out", "request": { "method": "POST", "url": "{{base_url}}/attendance/clock-out" } },
+        { "name": "Summary", "request": { "method": "GET", "url": "{{base_url}}/attendance/summary" } }
+      ]
+    },
+    {
+      "name": "Leaves",
+      "item": [
+        { "name": "Request Leave", "request": { "method": "POST", "url": "{{base_url}}/leaves/request" } },
+        { "name": "Pending Requests", "request": { "method": "GET", "url": "{{base_url}}/leaves/pending" } },
+        { "name": "Update Status", "request": { "method": "PATCH", "url": "{{base_url}}/leaves/:requestId/status" } }
+      ]
+    },
+    {
+      "name": "Payroll",
+      "item": [
+        { "name": "Create Payrun", "request": { "method": "POST", "url": "{{base_url}}/payroll/payruns" } },
+        { "name": "Process Payroll", "request": { "method": "POST", "url": "{{base_url}}/payroll/payruns/:id/process" } },
+        { "name": "Finalize", "request": { "method": "POST", "url": "{{base_url}}/payroll/payruns/:id/finalize" } }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        { "name": "Admin Dashboard", "request": { "method": "GET", "url": "{{base_url}}/reports/dashboard" } },
+        { "name": "Payroll Cost", "request": { "method": "GET", "url": "{{base_url}}/reports/payroll-cost" } }
+      ]
+    }
+  ]
+}

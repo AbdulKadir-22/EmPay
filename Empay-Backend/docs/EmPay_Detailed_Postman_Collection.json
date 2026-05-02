@@ -1,0 +1,305 @@
+{
+  "info": {
+    "name": "EmPay HRMS - Full API Suite",
+    "description": "A comprehensive Postman collection for testing the EmPay HRMS & Payroll System backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01. Authentication",
+      "item": [
+        {
+          "name": "Register Admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@empay.com\",\n  \"password\": \"Admin@123\",\n  \"firstName\": \"System\",\n  \"lastName\": \"Admin\",\n  \"employeeId\": \"EMP001\",\n  \"department\": \"IT\",\n  \"designation\": \"Architect\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@empay.com\",\n  \"password\": \"Admin@123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/auth/login"
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refresh_token}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/auth/refresh"
+          }
+        }
+      ]
+    },
+    {
+      "name": "02. User Management",
+      "item": [
+        {
+          "name": "Invite Employee",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"emp1@test.com\",\n  \"role\": \"EMPLOYEE\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"employeeId\": \"EMP101\",\n  \"department\": \"Engineering\",\n  \"designation\": \"Developer\",\n  \"joiningDate\": \"2024-01-01T00:00:00Z\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/users/invite"
+          }
+        },
+        {
+          "name": "List All Users",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/users"
+          }
+        },
+        {
+          "name": "Update User Role",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"MANAGER\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/users/:userId/role"
+          }
+        }
+      ]
+    },
+    {
+      "name": "03. Employee Profiles",
+      "item": [
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/employees/me"
+          }
+        },
+        {
+          "name": "Update My Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\",\n  \"bankDetails\": {\n    \"bankName\": \"Global Bank\",\n    \"accountNumber\": \"987654321\"\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/employees/me"
+          }
+        },
+        {
+          "name": "Get Team",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/employees/team"
+          }
+        },
+        {
+          "name": "Upload Document",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ID Proof\",\n  \"url\": \"https://example.com/id.pdf\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/employees/:userId/documents"
+          }
+        }
+      ]
+    },
+    {
+      "name": "04. Attendance",
+      "item": [
+        {
+          "name": "Clock In",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/attendance/clock-in"
+          }
+        },
+        {
+          "name": "Clock Out",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/attendance/clock-out"
+          }
+        },
+        {
+          "name": "My Attendance Summary",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/attendance/summary?startDate=2024-01-01T00:00:00Z"
+          }
+        }
+      ]
+    },
+    {
+      "name": "05. Leaves",
+      "item": [
+        {
+          "name": "Create Leave Type",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Annual Leave\",\n  \"code\": \"AL\",\n  \"totalDays\": 20,\n  \"carryForward\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/leaves/types"
+          }
+        },
+        {
+          "name": "Request Leave",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leaveTypeId\": \"{{leave_type_id}}\",\n  \"startDate\": \"2024-06-01T00:00:00Z\",\n  \"endDate\": \"2024-06-05T00:00:00Z\",\n  \"reason\": \"Family vacation\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/leaves/request"
+          }
+        },
+        {
+          "name": "Approve Leave",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APPROVED\",\n  \"comment\": \"Enjoy!\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/leaves/:requestId/status"
+          }
+        }
+      ]
+    },
+    {
+      "name": "06. Payroll & Payslips",
+      "item": [
+        {
+          "name": "Update Salary Structure",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"baseSalary\": 60000,\n  \"pfEnabled\": true,\n  \"effectiveFrom\": \"2024-01-01T00:00:00Z\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/payroll/structure/:userId"
+          }
+        },
+        {
+          "name": "Create Payrun",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"June 2024 Cycle\",\n  \"month\": 6,\n  \"year\": 2024\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{base_url}}/payroll/payruns"
+          }
+        },
+        {
+          "name": "Process Payrun",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/payroll/payruns/:payrunId/process"
+          }
+        },
+        {
+          "name": "Finalize Payrun",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/payroll/payruns/:payrunId/finalize"
+          }
+        },
+        {
+          "name": "My Payslips",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/payslips/me"
+          }
+        }
+      ]
+    },
+    {
+      "name": "07. Reporting",
+      "item": [
+        {
+          "name": "Admin Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/reports/dashboard"
+          }
+        },
+        {
+          "name": "Payroll Cost Analysis",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": "{{base_url}}/reports/payroll-cost"
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "type": "text/javascript", "exec": [""] }
+    },
+    {
+      "listen": "test",
+      "script": { "type": "text/javascript", "exec": [""] }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000/api/v1", "type": "string" },
+    { "key": "access_token", "value": "", "type": "string" },
+    { "key": "refresh_token", "value": "", "type": "string" },
+    { "key": "userId", "value": "", "type": "string" },
+    { "key": "requestId", "value": "", "type": "string" },
+    { "key": "payrunId", "value": "", "type": "string" },
+    { "key": "leave_type_id", "value": "", "type": "string" }
+  ]
+}
