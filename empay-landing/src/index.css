@@ -1,1 +1,83 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-green: var(--brand-green);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-text: var(--brand-text);
+  --color-brand-muted: var(--brand-muted);
+  --color-border: var(--border-color);
+  
+  --font-syne: "Syne", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+  :root {
+    --brand-bg: #ffffff;
+    --brand-surface: #f8fafc;
+    --brand-text: #0f172a;
+    --brand-muted: #64748b;
+    --brand-purple: #714B67;
+    --brand-green: #00A86B;
+    --border-color: rgba(113, 75, 103, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+  }
+
+  .dark {
+    --brand-bg: #020617;
+    --brand-surface: #0f172a;
+    --brand-text: #f1f5f9;
+    --brand-muted: #94a3b8;
+    --brand-purple: #a36f95;
+    --brand-green: #00ca81;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(15, 23, 42, 0.7);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--brand-bg);
+    color: var(--brand-text);
+    font-family: var(--font-dm-sans);
+    overflow-x: hidden;
+    @apply transition-colors duration-500;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--brand-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--brand-purple);
+    border-radius: 10px;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--glass-bg);
+    @apply backdrop-blur-xl border border-border;
+  }
+  
+  .glass-morphism {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(113, 75, 103, 0.3);
+  }
+}

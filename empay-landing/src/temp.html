@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmPay — Smart HRMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #714B67;
+  --green: #00A86B;
+  --bg: #0F0A12;
+  --surface: #1A1024;
+  --text: #F0EAF5;
+  --muted: #A892B8;
+  --border: rgba(113,75,103,0.3);
+  --border-glow: rgba(113,75,103,0.6);
+  --glass: rgba(113,75,103,0.1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+
+/* ─── NAVBAR ─── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 68px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(15,10,18,0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s, background 0.4s;
+}
+#navbar.scrolled {
+  border-bottom-color: var(--border);
+  background: rgba(15,10,18,0.85);
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-logo .dot {
+  width: 8px; height: 8px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.btn-green {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.4rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-green:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 5% 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 40%, rgba(113,75,103,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 60%, rgba(0,168,107,0.07) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(113,75,103,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(113,75,103,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.hero-left { animation: slideLeft 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-right { animation: slideRight 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s both; }
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-48px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,168,107,0.12);
+  border: 1px solid rgba(0,168,107,0.3);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 1.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hero-tag span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.hero-h1 em {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--purple);
+}
+.hero-sub {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--purple);
+  color: var(--text);
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-primary:hover { background: #8a5c7d; transform: translateY(-2px); }
+.btn-outline-green {
+  background: transparent;
+  color: var(--green);
+  border: 1.5px solid var(--green);
+  padding: 0.85rem 2rem;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-outline-green:hover { background: rgba(0,168,107,0.1); transform: translateY(-2px); }
+
+/* ─── MOCKUP CARD ─── */
+.mockup-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mockup-card {
+  background: rgba(26,16,36,0.85);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  animation: floatCard 6s ease-in-out infinite;
+}
+@keyframes floatCard {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}
+}
+.mockup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.mockup-dots { display: flex; gap: 6px; }
+.mockup-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.mockup-dots span:nth-child(1){ background:#ff5f57; }
+.mockup-dots span:nth-child(2){ background:#ffbd2e; }
+.mockup-dots span:nth-child(3){ background:#28ca41; }
+.mockup-title { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:0.05em; }
+.mockup-stat-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+.stat-mini {
+  background: rgba(113,75,103,0.15);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.stat-mini-label { font-size:0.68rem; color:var(--muted); margin-bottom:6px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em; }
+.stat-mini-val { font-family:'JetBrains Mono',monospace; font-size:1.5rem; font-weight:700; color:var(--text); }
+.stat-mini-val.green { color: var(--green); }
+.stat-mini-val.purple { color: #c08bc0; }
+.mockup-bar-section { margin-top: 8px; }
+.bar-label { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-bottom:6px; font-family:'JetBrains Mono',monospace; }
+.bar-track { background:rgba(113,75,103,0.2); border-radius:4px; height:6px; overflow:hidden; margin-bottom:10px; }
+.bar-fill { height:100%; border-radius:4px; background:var(--green); }
+.bar-fill.p { background:var(--purple); }
+
+/* floating badges */
+.badge-float {
+  position: absolute;
+  background: rgba(26,16,36,0.9);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+.badge-float .bf-val { font-size:1.1rem; font-weight:700; display:block; }
+.badge-float .bf-label { color:var(--muted); font-size:0.65rem; }
+.badge1 { top:-30px; right:10px; animation: floatB1 5s ease-in-out infinite; }
+.badge2 { bottom:-20px; left:-20px; animation: floatB2 7s ease-in-out infinite; }
+.badge3 { top:50%; right:-30px; transform:translateY(-50%); animation: floatB3 6s ease-in-out infinite; }
+.badge1 .bf-val { color: var(--green); }
+.badge2 .bf-val { color: #c08bc0; }
+.badge3 .bf-val { color: var(--green); }
+@keyframes floatB1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes floatB2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+@keyframes floatB3 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-50%) translateX(6px)} }
+
+/* ─── STATS BAR ─── */
+#stats {
+  background: rgba(26,16,36,0.6);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 5%;
+}
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stat-item { position: relative; }
+.stat-item::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--green);
+  margin: 0 auto 16px;
+}
+.stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ─── SECTIONS COMMON ─── */
+section { padding: 100px 5%; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--green);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 560px;
+}
+.reveal { opacity:0; transform:translateY(32px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ─── FEATURES ─── */
+#features { background: var(--bg); }
+.features-header { margin-bottom: 60px; }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.feat-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+.feat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 20% 20%, rgba(113,75,103,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.feat-card:hover { transform: translateY(-6px); border-color: var(--border-glow); box-shadow: 0 24px 60px rgba(113,75,103,0.2); }
+.feat-card:hover::before { opacity: 1; }
+.feat-num {
+  display: inline-block;
+  background: rgba(0,168,107,0.15);
+  color: var(--green);
+  border: 1px solid rgba(0,168,107,0.3);
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.feat-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.feat-card:hover .feat-icon { transform: translateY(-6px); }
+.feat-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.feat-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
+/* ─── ROLES ─── */
+#roles { background: linear-gradient(180deg, var(--bg) 0%, rgba(26,16,36,0.4) 100%); }
+.roles-header { margin-bottom: 50px; }
+.role-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.role-tab {
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.25s;
+}
+.role-tab.active { background: var(--purple); color: var(--text); border-color: var(--purple); }
+.role-tab:hover:not(.active) { border-color: var(--border-glow); color: var(--text); }
+.role-panel {
+  display: none;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--purple);
+  border-radius: 16px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  animation: panelIn 0.35s ease;
+  max-width: 900px;
+}
+@keyframes panelIn { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
+.role-panel.active { display: block; }
+.role-panel-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.role-panel-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
+.perm-list { list-style: none; display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+.perm-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.5; }
+.perm-item .ic { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+.perm-item.allow { color: var(--text); }
+.perm-item.deny { color: var(--muted); opacity: 0.6; }
+
+/* ─── WORKFLOW ─── */
+#workflow { background: var(--bg); position: relative; overflow: hidden; }
+#workflow::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(113,75,103,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.workflow-header { text-align: center; margin-bottom: 70px; }
+.flow-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  justify-content: center;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+.flow-connector {
+  flex: 1;
+  height: 2px;
+  border-top: 2px dashed rgba(113,75,103,0.5);
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.flow-connector::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -20px;
+  width: 20px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 4px;
+  animation: dotTravel 3s linear infinite;
+}
+@keyframes dotTravel { from{left:-20px} to{left:calc(100% + 20px)} }
+.flow-num {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, color 0.3s;
+}
+.flow-step:hover .flow-num { background: var(--purple); color: var(--text); }
+.flow-step-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+.flow-step-desc { color: var(--muted); font-size: 0.78rem; line-height: 1.5; padding: 0 8px; max-width: 130px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 60px 5% 30px;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 48px;
+}
+.footer-brand .nav-logo { margin-bottom: 14px; }
+.footer-tagline { color: var(--muted); font-size: 0.9rem; line-height: 1.6; max-width: 340px; }
+.footer-built {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  background: rgba(0,168,107,0.1);
+  border: 1px solid rgba(0,168,107,0.25);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--green);
+  letter-spacing: 0.04em;
+}
+.footer-links-col h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links-col ul a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+.footer-links-col ul a:hover { color: var(--text); }
+.footer-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+  max-width: 1100px;
+  margin: 0 auto 24px;
+}
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.powered { color: var(--green); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .features-grid { grid-template-columns: 1fr; }
+  .perm-list { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 700px) {
+  .flow-container { flex-direction: column; align-items: center; gap: 0; }
+  .flow-connector { display: none; }
+  .flow-step { margin-bottom: 32px; }
+  .nav-links { display: none; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  #hero { padding: 100px 6% 60px; }
+  section { padding: 70px 6%; }
+  .stats-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">EmPay<span class="dot"></span></a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#roles">Roles</a></li>
+    <li><a href="#workflow">Workflow</a></li>
+    <li><a href="#footer">About</a></li>
+    <li><a href="#" class="btn-green">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag"><span></span>Odoo × VIT Pune Hackathon 2026</div>
+      <h1 class="hero-h1">Smarter HR.<br><em>Simpler</em> Payroll.</h1>
+      <p class="hero-sub">EmPay unifies attendance, leave, and payroll into one intelligent HRMS built for modern workplaces. Four roles. Zero chaos.</p>
+      <div class="hero-ctas">
+        <a href="#features" class="btn-primary">Explore Features</a>
+        <a href="#workflow" class="btn-outline-green">View Flow</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="mockup-wrap">
+        <div class="mockup-card">
+          <div class="mockup-header">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <span class="mockup-title">EMPAY — DASHBOARD</span>
+          </div>
+          <div class="mockup-stat-row">
+            <div class="stat-mini">
+              <div class="stat-mini-label">ATTENDANCE</div>
+              <div class="stat-mini-val green">92%</div>
+            </div>
+            <div class="stat-mini">
+              <div class="stat-mini-label">ON LEAVE</div>
+              <div class="stat-mini-val purple">04</div>
+            </div>
+          </div>
+          <div class="mockup-bar-section">
+            <div class="bar-label"><span>Payroll Processed</span><span>86%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+            <div class="bar-label"><span>Leave Approvals</span><span>71%</span></div>
+            <div class="bar-track"><div class="bar-fill p" style="width:71%"></div></div>
+            <div class="bar-label"><span>Active Employees</span><span>94%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:94%"></div></div>
+          </div>
+        </div>
+        <div class="badge-float badge1">
+          <span class="bf-val">✓ 3 Approved</span>
+          <span class="bf-label">Leave Requests</span>
+        </div>
+        <div class="badge-float badge2">
+          <span class="bf-val">₹2.4L</span>
+          <span class="bf-label">Payrun Generated</span>
+        </div>
+        <div class="badge-float badge3">
+          <span class="bf-val">↑ 98%</span>
+          <span class="bf-label">Present Today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─── -->
+<div id="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">4</div>
+      <div class="stat-desc">Roles Supported</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">7</div>
+      <div class="stat-desc">Core Modules</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">∞</div>
+      <div class="stat-desc">Payrun Cycles</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">1</div>
+      <div class="stat-desc">Unified Dashboard</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURES ─── -->
+<section id="features">
+  <div class="features-header reveal">
+    <div class="section-label">Modules</div>
+    <h2 class="section-h2">Everything Your HR Team Needs</h2>
+    <p class="section-sub">One system. Every workflow. Designed so each role has exactly what they need — nothing more, nothing less.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <span class="feat-num">01</span>
+      <span class="feat-icon">🔐</span>
+      <h3 class="feat-title">User & Role Management</h3>
+      <p class="feat-desc">Four distinct roles, zero confusion. Admin, Employee, HR Officer, Payroll Officer — each with precisely scoped permissions and access levels that don't overlap.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-num">02</span>
+      <span class="feat-icon">📅</span>
+      <h3 class="feat-title">Attendance & Leave Management</h3>
+      <p class="feat-desc">Employees mark attendance, apply for leaves. HR monitors. Payroll Officer approves. Seamless multi-step workflows, zero paperwork, full audit trail.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-num">03</span>
+      <span class="feat-icon">💰</span>
+      <h3 class="feat-title">Payroll Management</h3>
+      <p class="feat-desc">Salary breakdowns, PF deductions, Professional Tax, net pay — all auto-calculated from attendance records. Payslips generated and distributed in one click.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-num">04</span>
+      <span class="feat-icon">📊</span>
+      <h3 class="feat-title">Dashboard & Analytics</h3>
+      <p class="feat-desc">Real-time charts for attendance trends, leave patterns, and payroll metrics. Admins see the full picture. Employees see exactly what matters to them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ROLES ─── -->
+<section id="roles">
+  <div class="roles-header reveal">
+    <div class="section-label">Access Control</div>
+    <h2 class="section-h2">Four Roles. One System. Zero Overlap.</h2>
+    <p class="section-sub">Precision-scoped permissions for every person in your organization — built with the principle of least privilege.</p>
+  </div>
+  <div class="role-tabs">
+    <button class="role-tab active" onclick="switchRole('admin',this)">Admin</button>
+    <button class="role-tab" onclick="switchRole('employee',this)">Employee</button>
+    <button class="role-tab" onclick="switchRole('hr',this)">HR Officer</button>
+    <button class="role-tab" onclick="switchRole('payroll',this)">Payroll Officer</button>
+  </div>
+
+  <div id="panel-admin" class="role-panel active">
+    <div class="role-panel-title">🛡️ Administrator</div>
+    <div class="role-panel-sub">Full system control — the only role that can configure the entire platform.</div>
+    <ul class="perm-list">
+      <li class="perm-item allow"><span class="ic">✅</span>Create & manage all user accounts</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Assign & modify user roles</li>
+      <li class="perm-item allow"><span class="ic">✅</span>View all dashboards & global reports</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Configure department structures</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Manage salary structures & pay grades</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Override payroll & leave decisions</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Access complete audit logs</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Generate organization-wide analytics</li>
+    </ul>
+  </div>
+
+  <div id="panel-employee" class="role-panel">
+    <div class="role-panel-title">👤 Employee</div>
+    <div class="role-panel-sub">Self-service access to personal data, attendance marking, and leave requests.</div>
+    <ul class="perm-list">
+      <li class="perm-item allow"><span class="ic">✅</span>Mark daily attendance</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Apply for leave requests</li>
+      <li class="perm-item allow"><span class="ic">✅</span>View personal attendance history</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Download own payslips</li>
+      <li class="perm-item allow"><span class="ic">✅</span>View own leave balance</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Update personal profile details</li>
+      <li class="perm-item deny"><span class="ic">🚫</span>Cannot view other employee data</li>
+      <li class="perm-item deny"><span class="ic">🚫</span>Cannot access payroll configurations</li>
+    </ul>
+  </div>
+
+  <div id="panel-hr" class="role-panel">
+    <div class="role-panel-title">🗂️ HR Officer</div>
+    <div class="role-panel-sub">Monitors workforce data, reviews attendance, and manages leave approvals across the org.</div>
+    <ul class="perm-list">
+      <li class="perm-item allow"><span class="ic">✅</span>View all employee attendance records</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Review & approve leave requests</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Reject leave with documented reason</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Generate HR-level reports</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Manage employee onboarding data</li>
+      <li class="perm-item allow"><span class="ic">✅</span>View department-level analytics</li>
+      <li class="perm-item deny"><span class="ic">🚫</span>Cannot process payroll or payrun</li>
+      <li class="perm-item deny"><span class="ic">🚫</span>Cannot configure salary structures</li>
+    </ul>
+  </div>
+
+  <div id="panel-payroll" class="role-panel">
+    <div class="role-panel-title">💼 Payroll Officer</div>
+    <div class="role-panel-sub">Owns the payrun lifecycle — from salary calculation to payslip generation and distribution.</div>
+    <ul class="perm-list">
+      <li class="perm-item allow"><span class="ic">✅</span>Initiate & process monthly payruns</li>
+      <li class="perm-item allow"><span class="ic">✅</span>View attendance data for payroll calc</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Calculate PF, PT & net deductions</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Generate & distribute payslips</li>
+      <li class="perm-item allow"><span class="ic">✅</span>View payroll history & run logs</li>
+      <li class="perm-item allow"><span class="ic">✅</span>Export payroll data to reports</li>
+      <li class="perm-item deny"><span class="ic">🚫</span>Cannot approve or reject leave</li>
+      <li class="perm-item deny"><span class="ic">🚫</span>Cannot manage employee accounts</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── WORKFLOW ─── -->
+<section id="workflow">
+  <div class="workflow-header reveal">
+    <div class="section-label">Process</div>
+    <h2 class="section-h2">The EmPay Workflow</h2>
+    <p class="section-sub" style="margin:0 auto">From onboarding to payslip — every step of your HR process, connected and automated.</p>
+  </div>
+  <div class="flow-container reveal">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-step-title">Register & Assign Role</div>
+      <div class="flow-step-desc">Admin creates accounts and assigns precise role-based access</div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-step-title">Mark Attendance / Apply Leave</div>
+      <div class="flow-step-desc">Employees log attendance and submit leave applications</div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-step-title">HR Reviews & Approves</div>
+      <div class="flow-step-desc">HR Officer reviews requests and approves or flags issues</div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">04</div>
+      <div class="flow-step-title">Payroll Officer Processes Payrun</div>
+      <div class="flow-step-desc">Payroll Officer calculates salary, PF, PT and runs payroll</div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">05</div>
+      <div class="flow-step-title">Payslip Generated & Distributed</div>
+      <div class="flow-step-desc">Payslips auto-generated and available to each employee</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">EmPay<span class="dot"></span></a>
+      <p class="footer-tagline">Simplifying HR & Payroll Operations for Smarter Workplaces. Built for the people who run the people.</p>
+      <div class="footer-built">🏆 Built for Odoo × VIT Pune Hackathon 2026</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div class="footer-links-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#roles">Roles</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#stats">Stats</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Built With</h4>
+        <ul>
+          <li><a href="#">Odoo ERP Principles</a></li>
+          <li><a href="#">Role-Based Access Control</a></li>
+          <li><a href="#">Glassmorphism UI</a></li>
+          <li><a href="#">Vanilla JS + CSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-rule"></div>
+  <div class="footer-bottom">
+    <span>© 2026 EmPay. All rights reserved.</span>
+    <span class="powered">Powered by Odoo ERP Principles</span>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Role tabs
+function switchRole(role, btn) {
+  document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.role-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + role).classList.add('active');
+}
+
+// IntersectionObserver reveals
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      // Stagger siblings
+      const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal'));
+      const idx = siblings.indexOf(e.target);
+      setTimeout(() => e.target.classList.add('visible'), idx * 100);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => io.observe(r));
+</script>
+</body>
+</html>
