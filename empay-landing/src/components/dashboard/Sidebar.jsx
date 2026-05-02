@@ -48,7 +48,7 @@ const navItems = [
     name: 'Settings', 
     path: '/dashboard/settings', 
     icon: Settings, 
-    roles: ['ADMIN'] 
+    roles: ['ADMIN', 'HR'] 
   },
 ];
 

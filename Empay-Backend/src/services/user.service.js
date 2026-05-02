@@ -69,7 +69,6 @@ const getAllUsers = async (query = {}) => {
   
   if (query.company) {
     if (query.company === 'Default Company') {
-      // If searching for default company, also include users with no company field
       match.$or = [
         { company: 'Default Company' },
         { company: { $exists: false } },
@@ -118,8 +117,66 @@ const getAllUsers = async (query = {}) => {
   ]);
 };
 
+const updateUser = async (userId, updateData, callerCompany) => {
+  const user = await User.findById(userId);
+  if (!user) throw new Error('User not found');
+  if (user.company !== callerCompany) throw new Error('Cannot modify users from another company');
+
+  // Update user fields
+  if (updateData.role) user.role = updateData.role;
+  if (updateData.status) user.status = updateData.status;
+  await user.save();
+
+  // Update profile fields if provided
+  const profileFields = {};
+  if (updateData.firstName) profileFields.firstName = updateData.firstName;
+  if (updateData.lastName) profileFields.lastName = updateData.lastName;
+  if (updateData.department) profileFields.department = updateData.department;
+  if (updateData.designation) profileFields.designation = updateData.designation;
+  if (updateData.phone) profileFields.phone = updateData.phone;
+
+  if (Object.keys(profileFields).length > 0) {
+    await EmployeeProfile.findOneAndUpdate(
+      { user: userId },
+      { $set: profileFields },
+      { new: true }
+    );
+  }
+
+  return user;
+};
+
+const getUserProfile = async (userId) => {
+  const user = await User.findById(userId);
+  if (!user) throw new Error('User not found');
+
+  const profile = await EmployeeProfile.findOne({ user: userId })
+    .populate('manager', 'email');
+  
+  // Try loading salary structure
+  let salary = null;
+  try {
+    const SalaryStructure = require('../models/salaryStructure.model');
+    salary = await SalaryStructure.findOne({ employee: userId });
+  } catch { /* salary model might not be seeded yet */ }
+
+  return {
+    _id: user._id,
+    email: user.email,
+    role: user.role,
+    status: user.status,
+    company: user.company,
+    lastLogin: user.lastLogin,
+    createdAt: user.createdAt,
+    profile: profile || null,
+    salary: salary || null,
+  };
+};
+
 module.exports = {
   inviteUser,
   updateRole,
   getAllUsers,
+  updateUser,
+  getUserProfile,
 };

@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Search, Bell, Menu, UserCircle, LogOut, Plus } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const TopBar = ({ onMenuToggle, onSearch }) => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const dropdownRef = useRef(null);
@@ -48,6 +50,7 @@ const TopBar = ({ onMenuToggle, onSearch }) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/dashboard/settings')}
             className="hidden sm:flex items-center gap-1.5 px-4 py-2 bg-brand-green text-white text-sm font-semibold rounded-xl 
               hover:bg-brand-green/90 shadow-lg shadow-brand-green/20 transition-colors cursor-pointer"
           >
@@ -114,7 +117,7 @@ const TopBar = ({ onMenuToggle, onSearch }) => {
 
                   <div className="py-1">
                     <button
-                      onClick={() => setShowDropdown(false)}
+                      onClick={() => { setShowDropdown(false); navigate('/dashboard/profile'); }}
                       className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-brand-text hover:bg-brand-bg transition-colors"
                     >
                       <UserCircle size={18} className="text-brand-muted" />

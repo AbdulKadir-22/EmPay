@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Plane } from 'lucide-react';
 
 const statusConfig = {
@@ -21,6 +22,7 @@ const statusConfig = {
 };
 
 const EmployeeCard = ({ employee, index = 0 }) => {
+  const navigate = useNavigate();
   // Determine status — default to 'present' if not provided
   const status = employee.attendanceStatus || 'present';
   const config = statusConfig[status] || statusConfig.present;
@@ -39,6 +41,7 @@ const EmployeeCard = ({ employee, index = 0 }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      onClick={() => navigate(`/dashboard/profile/${employee._id}`)}
       className="relative group glass-card rounded-2xl p-5 cursor-pointer
         hover:border-brand-purple/40 hover:shadow-xl hover:shadow-brand-purple/5 transition-all duration-300"
     >

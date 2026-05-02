@@ -7,17 +7,16 @@ import Landing from './pages/Landing';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Settings from './pages/Settings';
+import Profile from './pages/Profile';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
   const [isDark, setIsDark] = useState(true);
   const location = useLocation();
 
-  // Determine if we're on a dashboard route (no landing navbar/footer)
   const isDashboardRoute = location.pathname.startsWith('/dashboard');
-  const isAuthPage = ['/login', '/signup'].includes(location.pathname);
 
-  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -35,24 +34,18 @@ function App() {
   return (
     <AuthProvider>
       <div className="min-h-screen bg-brand-bg text-brand-text selection:bg-brand-purple/30 selection:text-brand-text transition-colors duration-500">
-        {/* Show landing Navbar only on non-dashboard routes */}
         {!isDashboardRoute && <Navbar isDark={isDark} toggleTheme={toggleTheme} />}
         
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/dashboard/*"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/dashboard/settings" element={<ProtectedRoute allowedRoles={['ADMIN', 'HR']}><Settings /></ProtectedRoute>} />
+          <Route path="/dashboard/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/dashboard/profile/:userId" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         </Routes>
 
-        {/* Show Footer only on landing & auth pages */}
         {!isDashboardRoute && <Footer />}
       </div>
     </AuthProvider>

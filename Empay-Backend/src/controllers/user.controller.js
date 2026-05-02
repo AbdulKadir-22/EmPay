@@ -32,9 +32,26 @@ const getDashboardUsers = asyncHandler(async (req, res) => {
   );
 });
 
+const updateUser = asyncHandler(async (req, res) => {
+  const user = await userService.updateUser(req.params.userId, req.body, req.user.company);
+  res.status(200).json(
+    formatResponse(true, 'User updated successfully', { user }, null, req)
+  );
+});
+
+const getUserProfile = asyncHandler(async (req, res) => {
+  const userId = req.params.userId || req.user._id;
+  const data = await userService.getUserProfile(userId);
+  res.status(200).json(
+    formatResponse(true, 'User profile fetched successfully', data, null, req)
+  );
+});
+
 module.exports = {
   inviteUser,
   updateRole,
   getUsers,
   getDashboardUsers,
+  updateUser,
+  getUserProfile,
 };

@@ -22,6 +22,14 @@ export const dashboardAPI = {
   getEmployees: () => api.get('/users/dashboard'),
 };
 
+export const userAPI = {
+  getAll: () => api.get('/users'),
+  invite: (data) => api.post('/users/invite', data),
+  update: (userId, data) => api.patch(`/users/${userId}`, data),
+  updateRole: (userId, role) => api.patch(`/users/${userId}/role`, { role }),
+  getProfile: (userId) => api.get(userId ? `/users/profile/${userId}` : '/users/profile/me'),
+};
+
 export const employeeAPI = {
   getProfile: (userId) => api.get(userId ? `/employees/${userId}` : '/employees/me'),
   updateProfile: (userId, data) => api.patch(userId ? `/employees/${userId}` : '/employees/me', data),
